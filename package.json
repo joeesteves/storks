@@ -1,0 +1,19 @@
+{
+  "name": "storks",
+  "version": "1.0.0",
+  "description": "Asistencia para la entrega de productos digitales en MercadoLibre y MercadoShop",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "@ponyesteves",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.3",
+    "express": "^4.15.2",
+    "http-server": "^0.9.0",
+    "https": "^1.0.0"
+  }
+}
