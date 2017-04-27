@@ -1,0 +1,3 @@
+gnome-terminal -e "npm run watch" && 
+gnome-terminal -e "livereload dist" && 
+gnome-terminal -e "npm start"

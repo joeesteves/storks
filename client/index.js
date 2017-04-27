@@ -1,24 +1,43 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-// import request from 'request'
-import { cookieParser } from './helpers'
+import { cookieParser, fromPromise, fetch2JSON } from './helpers'
+import Rx from 'rxjs/Rx'
+
+
+const access_token = cookieParser(document.cookie).access_token
 
 class ProductsContainer extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {
+      myProducts: []
+    }
   }
+
   componentWillMount() {
-    // request.
+    fetch2JSON(`https://api.mercadolibre.com/users/254307406/items/search?access_token=${access_token}`)
+      .flatMap(res => res.results)
+      .flatMap(res => this.getProduct(res))
+      .subscribe(producto => this.setState({ myProducts: [...this.state.myProducts, producto.title] }))
   }
+
+  getProduct(id) {
+    return fetch2JSON(`https://api.mercadolibre.com/items/${id}`)
+  }
+
   render() {
     return (
-      <h1>{cookieParser(document.cookie).access_token}</h1>
+      <div>
+        <h1>{access_token}</h1>
+        <ul>
+          {this.state.myProducts.map(product => <li key={product}>{product}</li>)}
+        </ul>
+      </div>
     )
   }
 }
 
 ReactDOM.render(
-  <ProductsContainer nombre="joseph" />,
+  <ProductsContainer />,
   document.getElementById('root')
 )
