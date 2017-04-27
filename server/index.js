@@ -30,12 +30,10 @@ app.get('/auth', function (req, res) {
         redirect_uri: 'https://storks.elcaminosoftware.com:3000/auth'
       }
     }, (tokenError, tokenResponse, tokenBody) => {
-      console.log(tokenError)
       fs.writeFileSync('session.json', JSON.stringify(JSON.parse(tokenBody)))
       res.redirect('/home')
     })
   } else {
-
     return res.send('Ingresando a la app...')
   }
 })

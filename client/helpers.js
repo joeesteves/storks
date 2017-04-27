@@ -10,6 +10,10 @@ export const fetch2JSON = (url, options = {}) => {
 } 
 export const fromPromise = (p) => Rx.Observable.fromPromise(p)
 
+export const getProductById = (id) => {
+  return fetch2JSON(`https://api.mercadolibre.com/items/${id}`)
+}
+
 
 const _extractKeyValues = (partialStr) => {
   const result = partialStr.match(/(\w*)=(.*)/)
