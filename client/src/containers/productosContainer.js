@@ -4,10 +4,14 @@ import { connect } from 'react-redux'
 import { fetchProductos } from '../actions/productos'
 import { updateSearchFilter } from '../actions/filters'
 import { cookieParser } from '../../helpers'
+import Rx from 'rxjs'
 
 class ProductosContainter extends React.Component {
   componentDidMount() {
     fetchProductos(cookieParser(document.cookie))
+    Rx.Observable.fromEvent(document.getElementById('searchText'), 'keyup')
+    .debounce(() => Rx.Observable.timer(200))
+    .subscribe(this.handleOnSearch.bind(this))
   }
   handleOnSearch(se){
     this.props.onSearch(se.target.value)
@@ -25,7 +29,7 @@ class ProductosContainter extends React.Component {
           <span className="input-group-addon" id="sizing-addon1">
             <span className="glyphicon glyphicon-search"></span>
           </span>
-          <input type="text" className="form-control" placeholder="Buscar producto..." aria-describedby="sizing-addon1" onChange={this.handleOnSearch.bind(this)} />
+          <input id="searchText" type="text" className="form-control" placeholder="Buscar producto..." aria-describedby="sizing-addon1" />
         </div>
         <table className="table">
           <thead>
