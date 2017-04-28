@@ -1,12 +1,16 @@
 import React from 'react'
 import Producto from '../components/producto'
 import { connect } from 'react-redux'
-import { fetch_productos } from '../actions/productos'
+import { fetchProductos } from '../actions/productos'
+import { updateSearchFilter } from '../actions/filters'
 import { cookieParser } from '../../helpers'
 
 class ProductosContainter extends React.Component {
   componentDidMount() {
-    fetch_productos(cookieParser(document.cookie))
+    fetchProductos(cookieParser(document.cookie))
+  }
+  handleOnSearch(se){
+    this.props.onSearch(se.target.value)
   }
   render() {
     return (
@@ -21,7 +25,7 @@ class ProductosContainter extends React.Component {
           <span className="input-group-addon" id="sizing-addon1">
             <span className="glyphicon glyphicon-search"></span>
           </span>
-          <input type="text" className="form-control" placeholder="Buscar producto..." aria-describedby="sizing-addon1" />
+          <input type="text" className="form-control" placeholder="Buscar producto..." aria-describedby="sizing-addon1" onChange={this.handleOnSearch.bind(this)} />
         </div>
         <table className="table">
           <thead>
@@ -38,11 +42,22 @@ class ProductosContainter extends React.Component {
   }
 }
 
+const filterProductos = (productos, filters) => {
+  if(filters.searchText){
+    return productos.filter(producto => new RegExp(filters.searchText,"i").test(producto.title))
+  }else {
+    return productos
+  }
+}
 
 const mapStateToProps = state => ({
-  productos: state.productos
+  productos: filterProductos(state.productos, state.filters)
 })
+const mapDispatchToProps = {
+  onSearch: updateSearchFilter
+}
+
 
 export default connect(
-  mapStateToProps, null
+  mapStateToProps, mapDispatchToProps
 )(ProductosContainter)
