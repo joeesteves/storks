@@ -1,21 +1,17 @@
 import React from 'react'
-import Producto from '../components/producto'
 import { connect } from 'react-redux'
-import { fetchProductos } from '../actions/productos'
-import { updateSearchFilter } from '../actions/filters'
+// Components
+import Producto from '../components/producto'
+import Filters from '../components/filters'
+// Actions & Helpers
+import { fetchProductos, toggleEditProducto } from '../actions/productos'
 import { cookieParser } from '../../helpers'
-import Rx from 'rxjs'
 
 class ProductosContainter extends React.Component {
   componentDidMount() {
     fetchProductos(cookieParser(document.cookie))
-    Rx.Observable.fromEvent(document.getElementById('searchText'), 'keyup')
-    .debounce(() => Rx.Observable.timer(200))
-    .subscribe(this.handleOnSearch.bind(this))
   }
-  handleOnSearch(se){
-    this.props.onSearch(se.target.value)
-  }
+
   render() {
     return (
       <div className="panel panel-info">
@@ -25,20 +21,12 @@ class ProductosContainter extends React.Component {
         <div className="panel-body">
           <h3> Descripción de la pantalla </h3>
         </div>
-        <div className="input-group input-group-lg">
-          <span className="input-group-addon" id="sizing-addon1">
-            <span className="glyphicon glyphicon-search"></span>
-          </span>
-          <input id="searchText" type="text" className="form-control" placeholder="Buscar producto..." aria-describedby="sizing-addon1" />
-        </div>
+        <Filters />
         <table className="table">
-          <thead>
-            <tr>
-              <th>Nombre</th>
-            </tr>
-          </thead>
           <tbody>
-            {this.props.productos.map(producto => <Producto key={producto.id} nombre={producto.title} />)}
+            {this.props.productos.map(p => (
+              <Producto key={p.id} id={p.id} {...p} toggleEdit={this.props.toggleEdit} />
+              ))}
           </tbody>
         </table>
       </div>
@@ -47,9 +35,9 @@ class ProductosContainter extends React.Component {
 }
 
 const filterProductos = (productos, filters) => {
-  if(filters.searchText){
-    return productos.filter(producto => new RegExp(filters.searchText,"i").test(producto.title))
-  }else {
+  if (filters.searchText) {
+    return productos.filter(producto => new RegExp(filters.searchText, "i").test(producto.title))
+  } else {
     return productos
   }
 }
@@ -57,10 +45,10 @@ const filterProductos = (productos, filters) => {
 const mapStateToProps = state => ({
   productos: filterProductos(state.productos, state.filters)
 })
-const mapDispatchToProps = {
-  onSearch: updateSearchFilter
-}
 
+const mapDispatchToProps = {
+  toggleEdit: toggleEditProducto
+}
 
 export default connect(
   mapStateToProps, mapDispatchToProps

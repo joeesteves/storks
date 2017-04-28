@@ -13,3 +13,7 @@ export const fetchProductos = (sessionData) => {
 export const add_producto = (producto) => {
   return { type: productosAct.add, producto }
 }
+
+export const toggleEditProducto = (id) => {
+  return { type: productosAct.edit, id}
+}

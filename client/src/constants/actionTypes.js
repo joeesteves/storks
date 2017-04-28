@@ -1,6 +1,7 @@
 export const productosAct = {
   fetch: "FETCH_PRODUCTOS",
-  add: "ADD_PRODUCTO"
+  add: "ADD_PRODUCTO",
+  edit: "TOGGLE_EDIT_PRODUCTO"
 }
 
 export const filtersAct = {
