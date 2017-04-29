@@ -1,4 +1,5 @@
 const fs = require('fs'),
+  http = require('http'),
   https = require('https'),
   cors = require('cors'),
   express = require('express'),
@@ -15,7 +16,9 @@ const fs = require('fs'),
 https.createServer({
   key: fs.readFileSync(`${__dirname}/ssl/private.pem`),
   cert: fs.readFileSync(`${__dirname}/ssl/server.crt`)
-}, app).listen(3000);
+}, app).listen(3000)
+
+http.createServer(app).listen(8080)
 
 app.use(cors())
 app.use(bodyParser.json()) // support json encoded bodies
@@ -63,16 +66,30 @@ app.get('/productos', function (req, res) {
 })
 
 app.post('/producto', (req, res) => {
-  console.log(req.body)
   db.loadDatabase({}, () => {
-    const col = db.getCollection('adicionales') ? db.getCollection('adicionales') : db.addCollection('adicionales') 
-    Maybe(col.findOne({id: req.body.id}))
-    .map(prod => {
-      prod.licencias = req.body.licencias
-      col.update(prod)
-      return prod
-    }).isNothing ? col.insert(req.body) : null
+    const col = db.getCollection('adicionales') ? db.getCollection('adicionales') : db.addCollection('adicionales')
+    Maybe(col.findOne({ id: req.body.id }))
+      .map(prod => {
+        prod.licencias = req.body.licencias
+        col.update(prod)
+        return prod
+      }).isNothing ? col.insert(req.body) : null
     db.saveDatabase()
     res.status(201).send(req.body)
   })
+})
+
+app.all('/pago', (req, res, next) => {
+  console.log("ALL")
+  next()
+})
+app.post('/pago', (req, res) => {
+  console.log("POST")
+
+  res.sendStatus(200)
+})
+
+app.get('/pago', (req, res) => {
+  console.log("GET")
+  res.sendStatus(200)
 })
