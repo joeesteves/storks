@@ -1,0 +1,133 @@
+{
+  "id": 1363452782,
+  "date_created": "2017-04-29T16:36:09.000-04:00",
+  "date_closed": "2017-04-29T16:36:23.000-04:00",
+  "last_updated": "2017-04-29T16:36:23.000-04:00",
+  "feedback": {
+    "sale": null,
+    "purchase": null
+  },
+  "mediations": [],
+  "comments": null,
+  "order_request": {
+    "return": null,
+    "change": null
+  },
+  "fulfilled": null,
+  "shipping": {
+    "status": "to_be_agreed"
+  },
+  "expiration_date": "2017-05-20T16:36:23.000-04:00",
+  "status": "paid",
+  "status_detail": null,
+  "order_items": [
+    {
+      "item": {
+        "id": "MLA664258617",
+        "title": "Item De Prueba - Mcafee No Ofertar",
+        "category_id": "MLA403646",
+        "variation_id": null,
+        "seller_custom_field": null,
+        "variation_attributes": [],
+        "warranty": null,
+        "condition": "new"
+      },
+      "quantity": 1,
+      "unit_price": 800,
+      "currency_id": "ARS"
+    }
+  ],
+  "currency_id": "ARS",
+  "buyer": {
+    "id": 254309093,
+    "nickname": "TT874425",
+    "email": "ttest.f2y2bn+2-ogeztmmzuguzdqmjx@mail.mercadolibre.com",
+    "phone": {
+      "area_code": "01",
+      "number": "1111-1111",
+      "extension": "",
+      "verified": false
+    },
+    "alternative_phone": {
+      "area_code": "",
+      "number": "",
+      "extension": ""
+    },
+    "first_name": "Test",
+    "last_name": "Test",
+    "billing_info": {
+      "doc_type": null,
+      "doc_number": null
+    }
+  },
+  "seller": {
+    "id": 254307406,
+    "nickname": "TETE4597230",
+    "email": "ttest.ddgpnnv+2-ogeztmmzuguzdqmjt@mail.mercadolibre.com",
+    "phone": {
+      "area_code": "01",
+      "number": "1111-1111",
+      "extension": "",
+      "verified": false
+    },
+    "alternative_phone": {
+      "area_code": "",
+      "number": "",
+      "extension": ""
+    },
+    "first_name": "Test",
+    "last_name": "Test"
+  },
+  "payments": [
+    {
+      "id": 2704815797,
+      "order_id": 1363452782,
+      "payer_id": 254309093,
+      "collector": {
+        "id": 254307406
+      },
+      "card_id": 207580778,
+      "site_id": "MLA",
+      "reason": "Item De Prueba - Mcafee No Ofertar",
+      "payment_method_id": "nativa",
+      "currency_id": "ARS",
+      "installments": 3,
+      "issuer_id": "1007",
+      "atm_transfer_reference": {
+        "company_id": null,
+        "transaction_id": null
+      },
+      "coupon_id": null,
+      "activation_uri": null,
+      "operation_type": "regular_payment",
+      "payment_type": "credit_card",
+      "available_actions": [],
+      "status": "approved",
+      "status_code": "0",
+      "status_detail": "accredited",
+      "transaction_amount": 800,
+      "shipping_cost": 0,
+      "coupon_amount": 0,
+      "overpaid_amount": 0,
+      "total_paid_amount": 800,
+      "installment_amount": 266.67,
+      "deferred_period": null,
+      "date_approved": "2017-04-29T16:36:23.000-04:00",
+      "authorization_code": "1234567",
+      "transaction_order_id": "1234567",
+      "date_created": "2017-04-29T16:36:23.229-04:00",
+      "date_last_modified": "2017-04-29T16:36:23.197-04:00"
+    }
+  ],
+  "coupon": {
+    "id": null,
+    "amount": 0
+  },
+  "tags": [
+    "not_delivered",
+    "paid"
+  ],
+  "total_amount": 800,
+  "total_amount_with_shipping": 800,
+  "paid_amount": 800
+}

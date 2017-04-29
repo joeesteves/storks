@@ -1,0 +1,80 @@
+{
+  "collection": {
+    "id": 2704815797,
+    "site_id": "MLA",
+    "date_created": "2017-04-29T16:36:23.229-04:00",
+    "date_approved": "2017-04-29T16:36:23.197-04:00",
+    "money_release_date": "2017-05-20T16:36:23.197-04:00",
+    "last_modified": "2017-04-29T16:36:23.197-04:00",
+    "payer": {
+      "id": 254309093,
+      "first_name": "Test",
+      "last_name": "Test",
+      "phone": {
+        "area_code": "01",
+        "number": "1111-1111",
+        "extension": ""
+      },
+      "identification": {
+        "type": "DNI",
+        "number": "1111111"
+      },
+      "email": "test_user_30225296@testuser.com",
+      "nickname": "TT874425"
+    },
+    "order_id": "1363452782",
+    "external_reference": "1363452782",
+    "merchant_order_id": null,
+    "reason": "Item De Prueba - Mcafee No Ofertar",
+    "currency_id": "ARS",
+    "transaction_amount": 800,
+    "net_received_amount": 800,
+    "total_paid_amount": 800,
+    "shipping_cost": 0,
+    "coupon_amount": 0,
+    "coupon_fee": 0,
+    "finance_fee": 0,
+    "discount_fee": 0,
+    "coupon_id": null,
+    "status": "approved",
+    "status_detail": "accredited",
+    "installments": 3,
+    "issuer_id": 1007,
+    "installment_amount": 266.67,
+    "deferred_period": null,
+    "payment_type": "credit_card",
+    "marketplace": "MELI",
+    "operation_type": "regular_payment",
+    "transaction_order_id": "1234567",
+    "statement_descriptor": "MERCADOPAGO",
+    "cardholder": {
+      "name": "APRO Test Test",
+      "identification": {
+        "number": "11111111",
+        "type": "DNI"
+      }
+    },
+    "authorization_code": "1234567",
+    "marketplace_fee": 0,
+    "deduction_schema": null,
+    "refunds": [],
+    "amount_refunded": 0,
+    "last_modified_by_admin": null,
+    "api_version": "1",
+    "concept_id": null,
+    "concept_amount": 0,
+    "internal_metadata": {},
+    "collector": {
+      "id": 254307406,
+      "first_name": "Test",
+      "last_name": "Test",
+      "phone": {
+        "area_code": "01",
+        "number": "1111-1111",
+        "extension": ""
+      },
+      "email": "test_user_64413892@testuser.com",
+      "nickname": "TETE4597230"
+    }
+  }
+}

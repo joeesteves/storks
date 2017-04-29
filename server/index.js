@@ -9,8 +9,13 @@ const fs = require('fs'),
   RF = require('ramda-fantasy'),
   db = require('./lokidb').db,
   bodyParser = require('body-parser'),
-  Maybe = require('ramda-fantasy').Maybe
+  Maybe = require('ramda-fantasy').Maybe,
+  sendMail = require('./sendMail').sendMail
 
+// ToDo La session enviarla  a lokijs
+// Todo Implementar refresh_token
+
+let session = JSON.parse(fs.readFileSync('session.json'))
 
 // Create SSL server with autoSigned certs
 https.createServer({
@@ -51,12 +56,14 @@ app.get('/auth', function (req, res) {
 })
 
 
+// Home middleware para settear cookies
 app.use('/home', (req, res, next) => {
-  const session = JSON.parse(fs.readFileSync('session.json'))
+  session = JSON.parse(fs.readFileSync('session.json'))
   res.cookie("access_token", session.access_token)
   res.cookie("otra", "prueba")
   next()
 })
+
 app.use('/home', express.static(__dirname + '/../client/dist'))
 
 app.get('/productos', function (req, res) {
@@ -79,17 +86,16 @@ app.post('/producto', (req, res) => {
   })
 })
 
-app.all('/pago', (req, res, next) => {
-  console.log("ALL")
-  next()
-})
 app.post('/pago', (req, res) => {
-  console.log("POST")
+  // req.query {topic: 'payment', id: ## }
+  // Get PaymentData
+  //  https://api.mercadopago.com/collections/notifications/[ID]?access_token=[ACCESS_TOKEN]
+  // Con el order_id
+  // Consulto la orden y tendo el id de la publicacion. Con eso puedo buscar las licencias
+  //https://api.mercadolibre.com/orders/1363452782?access_token=APP_USR-5894928571543101-042912-3846c4032335fd66f1b78aaa02628872__M_J__-254307406 
 
-  res.sendStatus(200)
-})
-
-app.get('/pago', (req, res) => {
-  console.log("GET")
-  res.sendStatus(200)
+  sendMail((error, info) => {
+    const { data, status } = error ? { data: error, status: 500 } : { data: info, status: 200 }
+    res.status(status).send(data)
+  })
 })
