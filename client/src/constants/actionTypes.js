@@ -1,7 +1,7 @@
 export const productosAct = {
-  fetch: "FETCH_PRODUCTOS",
   add: "ADD_PRODUCTO",
-  edit: "TOGGLE_EDIT_PRODUCTO"
+  edit: "TOGGLE_EDIT_PRODUCTO",
+  offEdit: "TURN_OFF_EDIT_PRODUCTO"
 }
 
 export const filtersAct = {

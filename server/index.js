@@ -5,7 +5,11 @@ const fs = require('fs'),
   app = express(),
   authRedirectUrl = `https://auth.mercadolibre.com.ar/authorization?response_type=code&client_id=5894928571543101`,
   request = require('request'),
-  RF = require('ramda-fantasy')
+  RF = require('ramda-fantasy'),
+  db = require('./lokidb').db,
+  bodyParser = require('body-parser'),
+  Maybe = require('ramda-fantasy').Maybe
+
 
 // Create SSL server with autoSigned certs
 https.createServer({
@@ -14,6 +18,8 @@ https.createServer({
 }, app).listen(3000);
 
 app.use(cors())
+app.use(bodyParser.json()) // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })) // support encoded bodies
 
 // Redirect to auth
 app.get('/', (req, res) => {
@@ -49,3 +55,19 @@ app.use('/home', (req, res, next) => {
   next()
 })
 app.use('/home', express.static(__dirname + '/../client/dist'))
+
+app.get('/productos', function (req, res) {
+  db.loadDatabase({}, () => {
+    res.send(db.getCollection('adicionales').find())
+  })
+})
+
+app.post('/producto', (req, res) => {
+  db.loadDatabase({}, () => {
+    Maybe(db.getCollection('adicionales'))
+      .getOrElse(db.addCollection('adicionales'))
+      .insert(req.body)
+    db.saveDatabase()
+    res.status(201).send(req.body)
+  })
+})

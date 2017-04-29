@@ -1,15 +1,17 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { store } from '../../store'
 // Components
 import Producto from '../components/producto'
 import Filters from '../components/filters'
 // Actions & Helpers
-import { fetchProductos, toggleEditProducto } from '../actions/productos'
+import { fetchProductos, toggleEditProducto, turnOffEditProducto } from '../actions/productos'
 import { cookieParser } from '../../helpers'
 
 class ProductosContainter extends React.Component {
   componentDidMount() {
     fetchProductos(cookieParser(document.cookie))
+    document.addEventListener('keydown' ,(ev) => ev.keyCode === 27 ? store.dispatch(turnOffEditProducto()) : undefined )
   }
 
   render() {

@@ -5,13 +5,13 @@ export const cookieParser = (cookiesStr) => {
   return R.pipe(R.split(";"), R.map(_extractKeyValues), R.reduce(_merge, {}))(cookiesStr)
 }
 
-export const fetch2JSON = (url, options = {}) => {
+export const fetchJsonToObs = (url, options = {}) => {
   return Rx.Observable.fromPromise(fetch(url)).flatMap(p => fromPromise(p.json()) )
 } 
 export const fromPromise = (p) => Rx.Observable.fromPromise(p)
 
 export const getProductById = (id) => {
-  return fetch2JSON(`https://api.mercadolibre.com/items/${id}`)
+  return fetchJsonToObs(`https://api.mercadolibre.com/items/${id}`)
 }
 
 
