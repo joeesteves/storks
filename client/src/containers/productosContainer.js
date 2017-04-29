@@ -11,6 +11,7 @@ import { cookieParser } from '../../helpers'
 class ProductosContainter extends React.Component {
   componentDidMount() {
     fetchProductos(cookieParser(document.cookie))
+    // Esc Cierra los modals
     document.addEventListener('keydown' ,(ev) => ev.keyCode === 27 ? store.dispatch(turnOffEditProducto()) : undefined )
   }
 

@@ -10,7 +10,7 @@ export const fetchProductos = (sessionData) => {
         .flatMap(id => getProductById(id))
         .subscribe(prod => {
           const licencias = Maybe(produtosDatosAdicionales.find(producto => producto.id === prod.id))
-          .map(prod => prod.licencias).getOrElse([])
+            .map(prod => prod.licencias).getOrElse([])
           store.dispatch(add_producto({ ...prod, licencias }))
         })
     })
@@ -27,4 +27,17 @@ export const toggleEditProducto = (id) => {
 
 export const turnOffEditProducto = () => {
   return { type: productosAct.offEdit }
+}
+export const updateLicencias = (id, licencias) => {
+  console.log("id: " + id.toString())
+  console.log(licencias)
+  fetch('../producto', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ id, licencias })
+  }).then(res => res.json()).then(console.log)
+  return { type: productosAct.updateLicencias, licencias, id }
 }

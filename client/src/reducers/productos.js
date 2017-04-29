@@ -9,6 +9,8 @@ export default (state = [], action) => {
       return toggleEdit(state, action.id)
     case productosAct.offEdit:
       return state.map(offEdit)
+    case productosAct.updateLicencias:
+      return updateLicencias(state, action.id, action.licencias)
     default:
       return state
   }
@@ -17,4 +19,9 @@ export default (state = [], action) => {
 const toggleEdit = (productos, id) => (
   productos.map(producto => producto.id === id ? { ...producto, edit: !producto.edit } : producto)
 )
+
 const offEdit = prod => ({...prod, edit:false })
+
+const updateLicencias = (state, id, licencias) => (
+  state.map(producto => producto.id === id ? { ...producto, licencias } : producto)
+) 

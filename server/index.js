@@ -63,10 +63,15 @@ app.get('/productos', function (req, res) {
 })
 
 app.post('/producto', (req, res) => {
+  console.log(req.body)
   db.loadDatabase({}, () => {
-    Maybe(db.getCollection('adicionales'))
-      .getOrElse(db.addCollection('adicionales'))
-      .insert(req.body)
+    const col = db.getCollection('adicionales') ? db.getCollection('adicionales') : db.addCollection('adicionales') 
+    Maybe(col.findOne({id: req.body.id}))
+    .map(prod => {
+      prod.licencias = req.body.licencias
+      col.update(prod)
+      return prod
+    }).isNothing ? col.insert(req.body) : null
     db.saveDatabase()
     res.status(201).send(req.body)
   })
