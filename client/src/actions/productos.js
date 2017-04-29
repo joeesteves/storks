@@ -5,7 +5,7 @@ import { Maybe } from 'ramda-fantasy'
 export const fetchProductos = (sessionData) => {
   fetchJsonToObs('../productos')
     .subscribe(produtosDatosAdicionales => {
-      fetchJsonToObs(`https://api.mercadolibre.com/users/254307406/items/search?access_token=${sessionData.access_token}`)
+      fetchJsonToObs(`https://api.mercadolibre.com/users/${sessionData.user_id}/items/search?access_token=${sessionData.access_token}`)
         .flatMap(res => res.results)
         .flatMap(id => getProductById(id))
         .subscribe(prod => {

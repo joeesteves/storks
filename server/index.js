@@ -60,7 +60,7 @@ app.get('/auth', function (req, res) {
 app.use('/home', (req, res, next) => {
   session = JSON.parse(fs.readFileSync('session.json'))
   res.cookie("access_token", session.access_token)
-  res.cookie("otra", "prueba")
+  res.cookie("user_id", session.user_id)
   next()
 })
 

@@ -12254,7 +12254,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 const fetchProductos = sessionData => {
   __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* fetchJsonToObs */])('../productos').subscribe(produtosDatosAdicionales => {
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* fetchJsonToObs */])(`https://api.mercadolibre.com/users/254307406/items/search?access_token=${sessionData.access_token}`).flatMap(res => res.results).flatMap(id => __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__helpers__["c" /* getProductById */])(id)).subscribe(prod => {
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* fetchJsonToObs */])(`https://api.mercadolibre.com/users/${sessionData.user_id}/items/search?access_token=${sessionData.access_token}`).flatMap(res => res.results).flatMap(id => __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__helpers__["c" /* getProductById */])(id)).subscribe(prod => {
       const licencias = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_ramda_fantasy__["Maybe"])(produtosDatosAdicionales.find(producto => producto.id === prod.id)).map(prod => prod.licencias).getOrElse([]);
       __WEBPACK_IMPORTED_MODULE_2__store__["a" /* store */].dispatch(add_producto(_extends({}, prod, { licencias })));
     });
