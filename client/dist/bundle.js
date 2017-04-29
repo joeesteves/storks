@@ -6401,7 +6401,9 @@ const productosAct = {
   add: "ADD_PRODUCTO",
   edit: "TOGGLE_EDIT_PRODUCTO",
   offEdit: "TURN_OFF_EDIT_PRODUCTO",
-  updateLicencias: "UPDATE_LIC_PRODUCTO"
+  updateLicencias: "UPDATE_LIC_PRODUCTO",
+  addLicencia: "ADD_LIC_PRODUCTO",
+  removeLicencia: "REMOVE_LIC_PRODUCTO"
 };
 /* harmony export (immutable) */ __webpack_exports__["a"] = productosAct;
 
@@ -12292,6 +12294,18 @@ const updateLicencias = (id, licencias) => {
   return { type: __WEBPACK_IMPORTED_MODULE_0__constants_actionTypes__["a" /* productosAct */].updateLicencias, licencias, id };
 };
 /* harmony export (immutable) */ __webpack_exports__["d"] = updateLicencias;
+
+
+const addLicencia = id => {
+  return { type: __WEBPACK_IMPORTED_MODULE_0__constants_actionTypes__["a" /* productosAct */].addLicencia, id };
+};
+/* harmony export (immutable) */ __webpack_exports__["e"] = addLicencia;
+
+
+const removeLicencia = (id, index) => {
+  return { type: __WEBPACK_IMPORTED_MODULE_0__constants_actionTypes__["a" /* productosAct */].removeLicencia, id, index };
+};
+/* harmony export (immutable) */ __webpack_exports__["f"] = removeLicencia;
 
 
 /***/ }),
@@ -22460,6 +22474,8 @@ const updateSearchFilter = searchText => ({
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__actions_productos__ = __webpack_require__(156);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+var _this = this;
+
 
 
 
@@ -22472,6 +22488,9 @@ const EditarProducto = props => {
   const handleSubmit = () => {
     props.onSubmit(props.id, parseLicencias(document.getElementsByClassName(`licencias-${props.id}`)));
     props.toggleEdit();
+  };
+  const handleOnPlus = () => {
+    props.onPlus(props.id);
   };
 
   const parseLicencias = nodes => {
@@ -22507,8 +22526,8 @@ const EditarProducto = props => {
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { className: 'row' },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'glyphicon glyphicon-plus text-success' }),
-        props.licencias ? props.licencias.map((lic, i) => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__licencia__["a" /* default */], _extends({ key: i, id: props.id }, lic))) : ''
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'glyphicon glyphicon-plus text-success', onClick: handleOnPlus }),
+        props.licencias ? props.licencias.map((lic, i) => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__licencia__["a" /* default */], _extends({ key: i, id: props.id }, lic, { onMinus: props.onMinus.bind(_this, props.id, i) }))) : ''
       )
     ),
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('p', null)
@@ -22516,7 +22535,9 @@ const EditarProducto = props => {
 };
 
 const mapDispatchToProps = {
-  onSubmit: __WEBPACK_IMPORTED_MODULE_5__actions_productos__["d" /* updateLicencias */]
+  onSubmit: __WEBPACK_IMPORTED_MODULE_5__actions_productos__["d" /* updateLicencias */],
+  onPlus: __WEBPACK_IMPORTED_MODULE_5__actions_productos__["e" /* addLicencia */],
+  onMinus: __WEBPACK_IMPORTED_MODULE_5__actions_productos__["f" /* removeLicencia */]
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4_react_redux__["b" /* connect */])(null, mapDispatchToProps)(EditarProducto));
@@ -22577,13 +22598,18 @@ const mapDispatchToProps = {
 
 
 
-/* harmony default export */ __webpack_exports__["a"] = (props => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-  'div',
-  { className: `licencias-${props.id}` },
-  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'glyphicon glyphicon-minus text-success' }),
-  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', defaultValue: props.codigo }),
-  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', defaultValue: props.cantidad })
-));
+/* harmony default export */ __webpack_exports__["a"] = (props => {
+  const handleOnMinus = () => {
+    props.onMinus();
+  };
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+    'div',
+    { className: `licencias-${props.id}` },
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'glyphicon glyphicon-minus text-danger', onClick: handleOnMinus }),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', defaultValue: props.codigo, placeholder: 'indique c\xF3digo' }),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', defaultValue: props.cantidad })
+  );
+});
 
 /***/ }),
 /* 301 */
@@ -22699,6 +22725,10 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
       return state.map(offEdit);
     case __WEBPACK_IMPORTED_MODULE_0__constants_actionTypes__["a" /* productosAct */].updateLicencias:
       return updateLicencias(state, action.id, action.licencias);
+    case __WEBPACK_IMPORTED_MODULE_0__constants_actionTypes__["a" /* productosAct */].addLicencia:
+      return addLicencia(state, action.id);
+    case __WEBPACK_IMPORTED_MODULE_0__constants_actionTypes__["a" /* productosAct */].removeLicencia:
+      return removeLicencia(state, action.id, action.index);
     default:
       return state;
   }
@@ -22709,6 +22739,9 @@ const toggleEdit = (productos, id) => productos.map(producto => producto.id === 
 const offEdit = prod => _extends({}, prod, { edit: false });
 
 const updateLicencias = (state, id, licencias) => state.map(producto => producto.id === id ? _extends({}, producto, { licencias }) : producto);
+const addLicencia = (state, id) => state.map(producto => producto.id === id ? _extends({}, producto, { licencias: [...producto.licencias, { codigo: "", cantidad: 1 }] }) : producto);
+
+const removeLicencia = (state, id, index) => state.map(prod => prod.id === id ? _extends({}, prod, { licencias: [...prod.licencias.slice(0, index), ...prod.licencias.slice(index + 1)] }) : prod);
 
 /***/ }),
 /* 305 */

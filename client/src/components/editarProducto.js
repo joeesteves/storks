@@ -3,13 +3,16 @@ import Modal from 'react-modal'
 import { Maybe } from 'ramda-fantasy'
 import Licencia from './licencia'
 import { connect } from 'react-redux'
-import { updateLicencias } from '../actions/productos'
+import { updateLicencias, addLicencia, removeLicencia } from '../actions/productos'
 
 const EditarProducto = (props) => {
 
   const handleSubmit = () => {
     props.onSubmit(props.id, parseLicencias(document.getElementsByClassName(`licencias-${props.id}`)))
     props.toggleEdit()
+  }
+  const handleOnPlus = () => {
+    props.onPlus(props.id)
   }
 
   const parseLicencias = (nodes) => {
@@ -29,8 +32,8 @@ const EditarProducto = (props) => {
         <button className="btn btn-success" onClick={handleSubmit}> Guardar </button>
       </div>
       <div className="row">
-        <span className="glyphicon glyphicon-plus text-success"></span>
-        {props.licencias ? props.licencias.map((lic, i) => <Licencia key={i} id={props.id} { ...lic } />) : ''}
+        <span className="glyphicon glyphicon-plus text-success" onClick={handleOnPlus}></span>
+        {props.licencias ? props.licencias.map((lic, i) => <Licencia key={i} id={props.id} { ...lic } onMinus={props.onMinus.bind(this, props.id, i)}/>) : ''}
       </div>
     </h1>
     <p></p>
@@ -39,7 +42,9 @@ const EditarProducto = (props) => {
 }
 
 const mapDispatchToProps = {
-  onSubmit: updateLicencias
+  onSubmit: updateLicencias,
+  onPlus: addLicencia,
+  onMinus: removeLicencia
 }
 
 export default connect(null, mapDispatchToProps)(EditarProducto)

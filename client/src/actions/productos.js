@@ -41,3 +41,11 @@ export const updateLicencias = (id, licencias) => {
   }).then(res => res.json()).then(console.log)
   return { type: productosAct.updateLicencias, licencias, id }
 }
+
+export const addLicencia = (id) => {
+  return { type: productosAct.addLicencia, id }
+}
+
+export const removeLicencia = (id, index) => {
+  return { type: productosAct.removeLicencia, id, index }
+}
