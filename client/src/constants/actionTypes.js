@@ -8,5 +8,6 @@ export const productosAct = {
 }
 
 export const filtersAct = {
-  search: "FILTER_BY_SEARCH"
+  search: "FILTER_BY_SEARCH",
+  origen: "FILTER_BY_ORIGEN"
 }

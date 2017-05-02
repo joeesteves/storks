@@ -7,12 +7,13 @@ import Filters from '../components/filters'
 // Actions & Helpers
 import { fetchProductos, toggleEditProducto, turnOffEditProducto } from '../actions/productos'
 import { cookieParser } from '../../helpers'
+import { Maybe } from 'ramda-fantasy'
 
 class ProductosContainter extends React.Component {
   componentDidMount() {
     fetchProductos(cookieParser(document.cookie))
     // Esc Cierra los modals
-    document.addEventListener('keydown' ,(ev) => ev.keyCode === 27 ? store.dispatch(turnOffEditProducto()) : undefined )
+    document.addEventListener('keydown', (ev) => ev.keyCode === 27 ? store.dispatch(turnOffEditProducto()) : undefined)
   }
 
   render() {
@@ -22,14 +23,14 @@ class ProductosContainter extends React.Component {
           <h1> MIS PRODUCTOS </h1>
         </div>
         <div className="panel-body">
-          <h3> Descripción de la pantalla </h3>
+          <h3></h3>
         </div>
         <Filters />
         <table className="table">
           <tbody>
             {this.props.productos.map(p => (
               <Producto key={p.id} id={p.id} {...p} toggleEdit={this.props.toggleEdit} />
-              ))}
+            ))}
           </tbody>
         </table>
       </div>
@@ -38,11 +39,10 @@ class ProductosContainter extends React.Component {
 }
 
 const filterProductos = (productos, filters) => {
-  if (filters.searchText) {
-    return productos.filter(producto => new RegExp(filters.searchText, "i").test(producto.title))
-  } else {
-    return productos
-  }
+  if (filters.length === 0) return productos
+  return filterProductos(Maybe(filters[0].value)
+  .map(value => productos.filter(producto => new RegExp(value, "i").test(producto[filters[0].key])))
+  .getOrElse(productos), filters.slice(1))
 }
 
 const mapStateToProps = state => ({

@@ -2,12 +2,20 @@ import { productosAct } from '../constants/actionTypes'
 import { fetchJsonToObs, getProductById } from '../../helpers'
 import { store } from '../../store'
 import { Maybe } from 'ramda-fantasy'
+import Rx from 'rxjs'
+
 export const fetchProductos = (sessionData) => {
   fetchJsonToObs('../productos')
     .subscribe(produtosDatosAdicionales => {
-      fetchJsonToObs(`https://api.mercadolibre.com/users/${sessionData.user_id}/items/search?access_token=${sessionData.access_token}`)
-        .flatMap(res => res.results)
-        .flatMap(id => getProductById(id))
+      Rx.Observable.merge(
+        fetchJsonToObs(`https://api.mercadolibre.com/users/${sessionData.user_id}/items/search?access_token=${sessionData.access_token}`)
+          .flatMap(res => res.results)
+          .flatMap(id => getProductById(id))
+          .map(prod => ({ ...prod, origen: 'MercadoLibre' })),
+        fetchJsonToObs(`https://api.mercadoshops.com/v1/shops/${sessionData.user_id}/listings/search?access_token=${sessionData.access_token}`)
+          .flatMap(res => res.results)
+          .map(prod => ({ ...prod, origen: 'MercadoShops' }))
+      )
         .subscribe(prod => {
           const licencias = Maybe(produtosDatosAdicionales.find(producto => producto.id === prod.id))
             .map(prod => prod.licencias).getOrElse([])

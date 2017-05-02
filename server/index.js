@@ -89,10 +89,15 @@ app.post('/producto', (req, res) => {
 app.post('/pago', (req, res) => {
   // req.query {topic: 'payment', id: ## }
   // Get PaymentData
-  //  https://api.mercadopago.com/collections/notifications/[ID]?access_token=[ACCESS_TOKEN]
+  // https://api.mercadopago.com/collections/notifications/[ID]?access_token=[ACCESS_TOKEN]
+  // Guardar Nombre de comprador y mail 
   // Con el order_id
   // Consulto la orden y tendo el id de la publicacion. Con eso puedo buscar las licencias
-  //https://api.mercadolibre.com/orders/1363452782?access_token=APP_USR-5894928571543101-042912-3846c4032335fd66f1b78aaa02628872__M_J__-254307406 
+  // https://api.mercadolibre.com/orders/1363452782?access_token=APP_USR-5894928571543101-042912-3846c4032335fd66f1b78aaa02628872__M_J__-254307406 
+  // GUardar ID y nombre del producto
+  // Busco el producto y la licencia //
+  // Pasar toda esa data al mail para armar un mail asi
+  // Estimado
 
   sendMail((error, info) => {
     const { data, status } = error ? { data: error, status: 500 } : { data: info, status: 200 }
