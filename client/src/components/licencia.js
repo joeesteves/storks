@@ -6,13 +6,19 @@ export default (props) => {
     props.onMinus()
   }
   return (
-    <form className="form-inline">
-      <div className={`licencias-${props.id}`}>
-        <span className="glyphicon glyphicon-minus text-danger col-md-2" onClick={handleOnMinus}></span>
-        <input type='text' className="form-control col-md-3" defaultValue={props.codigo} placeholder="indique código" />
-        <input type='text' className="form-control col-md-3" defaultValue={props.cantidad} />
-        <input type='text' className="form-control col-md-3" defaultValue={props.downloadLink} />
-    </div>
-    </form>
+    <tr className={`licencias-${props.id}`}>
+      <td>
+        <span className="glyphicon glyphicon-minus text-danger" onClick={handleOnMinus}></span>
+      </td>
+      <td className="col-md-3">
+        <input type='text' className="form-control" defaultValue={props.codigo} placeholder="indique código" />
+      </td>
+      <td className="col-md-2">
+        <input type='text' className="form-control" defaultValue={props.cantidad} />
+      </td>
+      <td className="col-md-6">
+        <input type='text' className="form-control" defaultValue={props.downloadLink} />
+      </td>
+    </tr> 
   )
 }

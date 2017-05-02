@@ -31,7 +31,7 @@ class Filters extends React.Component {
             <input id="searchText" type="text" className="form-control" placeholder="Buscar producto..." aria-describedby="sizing-addon1" />
           </div>
         </div>
-        <div className="col-md-6">
+        <div style={{ zIndex: 0 }} className="col-md-6 input-group input-group-lg">
           <select id="selectOrigen" className="form-control">
             <option value=""> MercadoLibre & MercadoShops </option>
             <option value="MercadoLibre"> MercadoLibre </option>
