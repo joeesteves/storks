@@ -7,13 +7,11 @@ const fs = require('fs'),
   authRedirectUrl = `https://auth.mercadolibre.com.ar/authorization?response_type=code&client_id=5894928571543101`,
   request = require('request'),
   RF = require('ramda-fantasy'),
-  db = require('./lokidb').db,
   bodyParser = require('body-parser'),
   Maybe = require('ramda-fantasy').Maybe,
-  sendMail = require('./sendMail').sendMail
-
-// ToDo La session enviarla  a lokijs
-// Todo Implementar refresh_token
+  sendMail = require('./sendMail').sendMail,
+  Datastore = require('nedb'),
+  db = new Datastore({ filename: 'db', autoload: true })
 
 let session = JSON.parse(fs.readFileSync('session.json'))
 
@@ -67,22 +65,14 @@ app.use('/home', (req, res, next) => {
 app.use('/home', express.static(__dirname + '/../client/dist'))
 
 app.get('/productos', function (req, res) {
-  db.loadDatabase({}, () => {
-    res.send(db.getCollection('adicionales').find())
-  })
+  db.find({ doc_type: 'productos' }, (e, prods) => res.send(prods))
 })
 
 app.post('/producto', (req, res) => {
-  db.loadDatabase({}, () => {
-    const col = db.getCollection('adicionales') ? db.getCollection('adicionales') : db.addCollection('adicionales')
-    Maybe(col.findOne({ id: req.body.id }))
-      .map(prod => {
-        prod.licencias = req.body.licencias
-        col.update(prod)
-        return prod
-      }).isNothing ? col.insert(req.body) : null
-    db.saveDatabase()
-    res.status(201).send(req.body)
+  db.findOne({ id: req.body.id }, (e, doc) => {
+    Maybe(doc).map(doc => {
+      return db.update({ id: doc.id }, Object.assign({}, req.body, { doc_type: 'productos' }))
+    }).isNothing ? db.insert(Object.assign({}, req.body, { doc_type: 'productos' })) : null
   })
 })
 
@@ -98,9 +88,26 @@ app.post('/pago', (req, res) => {
   // Busco el producto y la licencia //
   // Pasar toda esa data al mail para armar un mail asi
   // Estimado
+  db.findOne({id: 'configuracion'}, (e, doc) => {
+    sendMail((error, info) => {
+      const { data, status } = error ? { data: error, status: 500 } : { data: info, status: 200 }
+      res.status(status).send(data)
+    }, doc)
 
-  sendMail((error, info) => {
-    const { data, status } = error ? { data: error, status: 500 } : { data: info, status: 200 }
-    res.status(status).send(data)
+  })
+})
+
+app.post('/configuracion', (req, res) => {
+  db.findOne({ id: 'configuracion' }, (err, doc) => {
+    Maybe(doc).map(doc => {
+      return db.update({ id: doc.id }, Object.assign({}, req.body, { id: 'configuracion' }))
+    }).isNothing ? db.insert(Object.assign({}, req.body, { id: 'configuracion' })) : null
+    res.status(201).send(req.body)
+  })
+})
+
+app.get('/configuracion', (req, res) => {
+  db.findOne({ id: 'configuracion' }, (err, doc) => {
+    res.status(200).send(Maybe(doc).getOrElse({email:'--', smtp: '--', password: '--'}))
   })
 })

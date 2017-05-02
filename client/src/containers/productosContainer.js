@@ -4,26 +4,37 @@ import { store } from '../../store'
 // Components
 import Producto from '../components/producto'
 import Filters from '../components/filters'
+import Configuracion from '../components/configuracion'
 // Actions & Helpers
 import { fetchProductos, toggleEditProducto, turnOffEditProducto } from '../actions/productos'
+import { fetchConfiguracion } from '../actions/configuracion'
+import { toggleEditConfiguracion } from '../actions/configuracion'
 import { cookieParser } from '../../helpers'
 import { Maybe } from 'ramda-fantasy'
 
 class ProductosContainter extends React.Component {
   componentDidMount() {
     fetchProductos(cookieParser(document.cookie))
+    fetchConfiguracion()
     // Esc Cierra los modals
     document.addEventListener('keydown', (ev) => ev.keyCode === 27 ? store.dispatch(turnOffEditProducto()) : undefined)
   }
 
+
   render() {
     return (
       <div className="panel panel-info">
-        <div className="panel-heading">
-          <h1> MIS PRODUCTOS </h1>
+        <div className="panel-heading row">
+          <div className="col-md-6">
+            <h1>LOGO y NOMBRE DE LA TIENDA</h1>
+          </div>
+          <div className="col-md-6">
+
+            <h1 style={{ float: 'right' }}><span className="glyphicon glyphicon-th-large" onClick={this.props.toggleConf}></span></h1>
+          </div>
         </div>
         <div className="panel-body">
-          <h3></h3>
+          <Configuracion toggleConf={this.props.toggleConf} />
         </div>
         <Filters />
         <table className="table">
@@ -33,7 +44,7 @@ class ProductosContainter extends React.Component {
             ))}
           </tbody>
         </table>
-      </div>
+      </div >
     )
   }
 }
@@ -41,8 +52,8 @@ class ProductosContainter extends React.Component {
 const filterProductos = (productos, filters) => {
   if (filters.length === 0) return productos
   return filterProductos(Maybe(filters[0].value)
-  .map(value => productos.filter(producto => new RegExp(value, "i").test(producto[filters[0].key])))
-  .getOrElse(productos), filters.slice(1))
+    .map(value => productos.filter(producto => new RegExp(value, "i").test(producto[filters[0].key])))
+    .getOrElse(productos), filters.slice(1))
 }
 
 const mapStateToProps = state => ({
@@ -50,7 +61,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = {
-  toggleEdit: toggleEditProducto
+  toggleEdit: toggleEditProducto,
+  toggleConf: toggleEditConfiguracion
 }
 
 export default connect(

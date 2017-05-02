@@ -11,3 +11,9 @@ export const filtersAct = {
   search: "FILTER_BY_SEARCH",
   origen: "FILTER_BY_ORIGEN"
 }
+
+export const configuracionAct = {
+  edit: "TOGGLE_EDIT_CONFIGURACION",
+  save: "SAVE_CONFIGURACION",
+  populate: "POPULATE_CONFIGURACION"
+}
