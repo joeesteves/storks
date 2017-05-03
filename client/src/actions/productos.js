@@ -17,9 +17,9 @@ export const fetchProductos = (sessionData) => {
           .map(prod => ({ ...prod, origen: 'MercadoShops' }))
       )
         .subscribe(prod => {
-          const licencias = Maybe(produtosDatosAdicionales.find(producto => producto.id === prod.id))
-            .map(prod => prod.licencias).getOrElse([])
-          store.dispatch(add_producto({ ...prod, licencias }))
+          const localProducto = Maybe(produtosDatosAdicionales.find(producto => producto.id === prod.id))
+          .getOrElse({licencias: [], template: ''})
+          store.dispatch(add_producto({ ...prod, ...localProducto }))
         })
     })
 
@@ -36,18 +36,16 @@ export const toggleEditProducto = (id) => {
 export const turnOffEditProducto = () => {
   return { type: productosAct.offEdit }
 }
-export const updateLicencias = (id, licencias) => {
-  console.log("id: " + id.toString())
-  console.log(licencias)
+export const updateProducto = (id, licencias, template) => {
   fetch('../producto', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ id, licencias })
-  }).then(res => res.json()).then(console.log)
-  return { type: productosAct.updateLicencias, licencias, id }
+    body: JSON.stringify({ id, licencias, template })
+  })
+  return { type: productosAct.updateProducto, licencias, template, id }
 }
 
 export const addLicencia = (id) => {

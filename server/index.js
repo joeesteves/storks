@@ -13,6 +13,9 @@ const fs = require('fs'),
   Datastore = require('nedb'),
   db = new Datastore({ filename: 'db', autoload: true })
 
+//AutoCompact every 20 min
+db.persistence.setAutocompactionInterval(1200000)
+
 let session = JSON.parse(fs.readFileSync('session.json'))
 
 // Create SSL server with autoSigned certs
@@ -71,7 +74,7 @@ app.get('/productos', function (req, res) {
 app.post('/producto', (req, res) => {
   db.findOne({ id: req.body.id }, (e, doc) => {
     Maybe(doc).map(doc => {
-      return db.update({ id: doc.id }, Object.assign({}, req.body, { doc_type: 'productos' }))
+      return db.update({ id: doc.id }, { $set: { licencias: req.body.licencias, template: req.body.template } })
     }).isNothing ? db.insert(Object.assign({}, req.body, { doc_type: 'productos' })) : null
   })
 })
@@ -88,14 +91,28 @@ app.post('/pago', (req, res) => {
   // Busco el producto y la licencia //
   // Pasar toda esa data al mail para armar un mail asi
   // Estimado
-  db.findOne({id: 'configuracion'}, (e, doc) => {
-    sendMail((error, info) => {
-      const { data, status } = error ? { data: error, status: 500 } : { data: info, status: 200 }
-      res.status(status).send(data)
-    }, doc)
+  db.findOne({ id: 191083848 }, (e, pDoc) => {
+    getLicencia(pDoc)
+    db.findOne({ id: 'configuracion' }, (e, doc) => {
+      sendMail((error, info) => {
+        const { data, status } = error ? { data: error, status: 500 } : { data: info, status: 200 }
+        res.status(status).send(data)
+      }, doc, pDoc.template, getLicencia(pDoc))
+
+    })
 
   })
 })
+const getLicencia = (producto) => {
+  const lic = producto.licencias[0]
+  if (lic.cantidad == 1) {
+    licencias = [...producto.licencias.slice(1)]
+  } else {
+    licencias = [Object.assign({}, lic, { cantidad: lic.cantidad -  1 }), ...producto.licencias.slice(1)]
+  }
+  db.update({ id: producto.id }, { $set: { licencias } })
+  return lic
+}
 
 app.post('/configuracion', (req, res) => {
   db.findOne({ id: 'configuracion' }, (err, doc) => {
@@ -108,6 +125,6 @@ app.post('/configuracion', (req, res) => {
 
 app.get('/configuracion', (req, res) => {
   db.findOne({ id: 'configuracion' }, (err, doc) => {
-    res.status(200).send(Maybe(doc).getOrElse({email:'--', smtp: '--', password: '--'}))
+    res.status(200).send(Maybe(doc).getOrElse({ email: '--', smtp: '--', password: '--' }))
   })
 })

@@ -4564,7 +4564,7 @@ const productosAct = {
   add: "ADD_PRODUCTO",
   edit: "TOGGLE_EDIT_PRODUCTO",
   offEdit: "TURN_OFF_EDIT_PRODUCTO",
-  updateLicencias: "UPDATE_LIC_PRODUCTO",
+  updateProducto: "UPDATE_LIC_PRODUCTO",
   addLicencia: "ADD_LIC_PRODUCTO",
   removeLicencia: "REMOVE_LIC_PRODUCTO"
 };
@@ -12573,8 +12573,8 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 const fetchProductos = sessionData => {
   __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* fetchJsonToObs */])('../productos').subscribe(produtosDatosAdicionales => {
     __WEBPACK_IMPORTED_MODULE_4_rxjs___default.a.Observable.merge(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* fetchJsonToObs */])(`https://api.mercadolibre.com/users/${sessionData.user_id}/items/search?access_token=${sessionData.access_token}`).flatMap(res => res.results).flatMap(id => __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__helpers__["c" /* getProductById */])(id)).map(prod => _extends({}, prod, { origen: 'MercadoLibre' })), __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* fetchJsonToObs */])(`https://api.mercadoshops.com/v1/shops/${sessionData.user_id}/listings/search?access_token=${sessionData.access_token}`).flatMap(res => res.results).map(prod => _extends({}, prod, { origen: 'MercadoShops' }))).subscribe(prod => {
-      const licencias = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_ramda_fantasy__["Maybe"])(produtosDatosAdicionales.find(producto => producto.id === prod.id)).map(prod => prod.licencias).getOrElse([]);
-      __WEBPACK_IMPORTED_MODULE_2__store__["a" /* store */].dispatch(add_producto(_extends({}, prod, { licencias })));
+      const localProducto = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_ramda_fantasy__["Maybe"])(produtosDatosAdicionales.find(producto => producto.id === prod.id)).getOrElse({ licencias: [], template: '' });
+      __WEBPACK_IMPORTED_MODULE_2__store__["a" /* store */].dispatch(add_producto(_extends({}, prod, localProducto)));
     });
   });
 };
@@ -12598,20 +12598,18 @@ const turnOffEditProducto = () => {
 };
 /* harmony export (immutable) */ __webpack_exports__["b"] = turnOffEditProducto;
 
-const updateLicencias = (id, licencias) => {
-  console.log("id: " + id.toString());
-  console.log(licencias);
+const updateProducto = (id, licencias, template) => {
   fetch('../producto', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ id, licencias })
-  }).then(res => res.json()).then(console.log);
-  return { type: __WEBPACK_IMPORTED_MODULE_0__constants_actionTypes__["b" /* productosAct */].updateLicencias, licencias, id };
+    body: JSON.stringify({ id, licencias, template })
+  });
+  return { type: __WEBPACK_IMPORTED_MODULE_0__constants_actionTypes__["b" /* productosAct */].updateProducto, licencias, template, id };
 };
-/* harmony export (immutable) */ __webpack_exports__["d"] = updateLicencias;
+/* harmony export (immutable) */ __webpack_exports__["d"] = updateProducto;
 
 
 const addLicencia = id => {
@@ -22660,7 +22658,7 @@ var _this = this;
 const EditarProducto = props => {
 
   const handleSubmit = () => {
-    props.onSubmit(props.id, parseLicencias(document.getElementsByClassName(`licencias-${props.id}`)));
+    props.onSubmit(props.id, parseLicencias(document.getElementsByClassName(`licencias-${props.id}`)), document.getElementById('mailTemplate').value);
     props.toggleEdit();
   };
   const handleOnPlus = () => {
@@ -22734,7 +22732,16 @@ const EditarProducto = props => {
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'tbody',
             null,
-            props.licencias ? props.licencias.map((lic, i) => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__licencia__["a" /* default */], _extends({ key: i, id: props.id }, lic, { onMinus: props.onMinus.bind(_this, props.id, i) }))) : ''
+            props.licencias ? props.licencias.map((lic, i) => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__licencia__["a" /* default */], _extends({ key: i, id: props.id }, lic, { onMinus: props.onMinus.bind(_this, props.id, i) }))) : '',
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'tr',
+              null,
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'td',
+                { colSpan: 4 },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { className: 'col-md-12', id: 'mailTemplate', defaultValue: props.template, rows: 15, width: '100%' })
+              )
+            )
           )
         )
       )
@@ -22744,7 +22751,7 @@ const EditarProducto = props => {
 };
 
 const mapDispatchToProps = {
-  onSubmit: __WEBPACK_IMPORTED_MODULE_5__actions_productos__["d" /* updateLicencias */],
+  onSubmit: __WEBPACK_IMPORTED_MODULE_5__actions_productos__["d" /* updateProducto */],
   onPlus: __WEBPACK_IMPORTED_MODULE_5__actions_productos__["e" /* addLicencia */],
   onMinus: __WEBPACK_IMPORTED_MODULE_5__actions_productos__["f" /* removeLicencia */]
 };
@@ -23029,8 +23036,8 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
       return toggleEdit(state, action.id);
     case __WEBPACK_IMPORTED_MODULE_0__constants_actionTypes__["b" /* productosAct */].offEdit:
       return state.map(offEdit);
-    case __WEBPACK_IMPORTED_MODULE_0__constants_actionTypes__["b" /* productosAct */].updateLicencias:
-      return updateLicencias(state, action.id, action.licencias);
+    case __WEBPACK_IMPORTED_MODULE_0__constants_actionTypes__["b" /* productosAct */].updateProducto:
+      return updateProducto(state, action.id, action.licencias, action.template);
     case __WEBPACK_IMPORTED_MODULE_0__constants_actionTypes__["b" /* productosAct */].addLicencia:
       return addLicencia(state, action.id);
     case __WEBPACK_IMPORTED_MODULE_0__constants_actionTypes__["b" /* productosAct */].removeLicencia:
@@ -23044,7 +23051,7 @@ const toggleEdit = (productos, id) => productos.map(producto => producto.id === 
 
 const offEdit = prod => _extends({}, prod, { edit: false });
 
-const updateLicencias = (state, id, licencias) => state.map(producto => producto.id === id ? _extends({}, producto, { licencias }) : producto);
+const updateProducto = (state, id, licencias, template) => state.map(producto => producto.id === id ? _extends({}, producto, { licencias, template }) : producto);
 const addLicencia = (state, id) => state.map(producto => producto.id === id ? _extends({}, producto, { licencias: [...producto.licencias, { codigo: "", cantidad: 1 }] }) : producto);
 
 const removeLicencia = (state, id, index) => state.map(prod => prod.id === id ? _extends({}, prod, { licencias: [...prod.licencias.slice(0, index), ...prod.licencias.slice(index + 1)] }) : prod);

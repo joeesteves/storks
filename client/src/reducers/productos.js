@@ -1,6 +1,5 @@
 import { productosAct } from '../constants/actionTypes'
 
-
 export default (state = [], action) => {
   switch (action.type) {
     case productosAct.add:
@@ -9,8 +8,8 @@ export default (state = [], action) => {
       return toggleEdit(state, action.id)
     case productosAct.offEdit:
       return state.map(offEdit)
-    case productosAct.updateLicencias:
-      return updateLicencias(state, action.id, action.licencias)
+    case productosAct.updateProducto:
+      return updateProducto(state, action.id, action.licencias, action.template)
     case productosAct.addLicencia:
       return addLicencia(state, action.id)
     case productosAct.removeLicencia:
@@ -26,8 +25,8 @@ const toggleEdit = (productos, id) => (
 
 const offEdit = prod => ({ ...prod, edit: false })
 
-const updateLicencias = (state, id, licencias) => (
-  state.map(producto => producto.id === id ? { ...producto, licencias } : producto)
+const updateProducto = (state, id, licencias, template) => (
+  state.map(producto => producto.id === id ? { ...producto, licencias, template } : producto)
 )
 const addLicencia = (state, id) => (
   state.map(producto => producto.id === id ? { ...producto, licencias: [...producto.licencias, { codigo: "", cantidad: 1 }] } : producto)
