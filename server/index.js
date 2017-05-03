@@ -6,14 +6,15 @@ const fs = require('fs'),
   app = express(),
   RF = require('ramda-fantasy'),
   R = require('ramda'),
-  myAppKeys = { client_id: '5894928571543101', cliente_secret: 'NI64BVwyCD2TzZmWUY3uNo3slZBxte7a', redirect_uri: 'https://storks.elcaminosoftware.com:3000/auth' },
+  port = 8282, //process.env.PORT ||
+  serverUri = '200.58.145.235',
+  myAppKeys = { client_id: '5894928571543101', cliente_secret: 'NI64BVwyCD2TzZmWUY3uNo3slZBxte7a', redirect_uri: `https://${serverUri}:${port}/auth` },
   authRedirectUrl = `https://auth.mercadolibre.com.ar/authorization?response_type=code&client_id=${myAppKeys.client_id}`,
   bodyParser = require('body-parser'),
   Maybe = require('ramda-fantasy').Maybe,
   sendMail = require('./sendMail').sendMail,
   Datastore = require('nedb'),
-  db = new Datastore({ filename: 'db', autoload: true }),
-  port = process.env.PORT || 3000
+  db = new Datastore({ filename: 'db', autoload: true })
 
 //AutoCompact every 20 min
 db.persistence.setAutocompactionInterval(1200000)
