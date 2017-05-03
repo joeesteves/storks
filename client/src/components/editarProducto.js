@@ -19,7 +19,7 @@ const EditarProducto = (props) => {
     let ary = []
     for (let node of nodes) {
       //children 1 es codigo y children 2 es cantidad..
-      ary.push({ codigo: node.children[1].children[0].value, cantidad: node.children[2].children[0].value, downloadLink: node.children[3].children[0].value })
+      ary.push({ codigo: node.children[1].children[0].value, cantidad: node.children[2].children[0].value, link: node.children[3].children[0].value })
     }
     return ary
   }

@@ -14,10 +14,10 @@ export default (props) => {
         <input type='text' className="form-control" defaultValue={props.codigo} placeholder="indique código" />
       </td>
       <td className="col-md-2">
-        <input type='text' className="form-control" defaultValue={props.cantidad} />
+        <input type='number' className="form-control" defaultValue={props.cantidad} />
       </td>
       <td className="col-md-6">
-        <input type='text' className="form-control" defaultValue={props.downloadLink} />
+        <input type='text' className="form-control" defaultValue={props.link} />
       </td>
     </tr> 
   )

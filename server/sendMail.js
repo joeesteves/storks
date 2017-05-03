@@ -14,6 +14,8 @@ const sendMail = (cb, conf, data = {}) => {
   transporter.sendMail(mailOptions, cb)
 }
 
-const parseTemplate = (data) => ['codigo', 'downloadLink'].reduce((prev, curr) => prev.replace(`@${curr}`, data[curr]), data.template)
+
+// nombre apodo email producto
+const parseTemplate = (data) => ['codigo', 'link', 'nombre', 'apodo', 'email', 'producto'].reduce((prev, curr) => prev.replace(`@${curr}`, data[curr]), data.template)
 
 module.exports = { sendMail }
