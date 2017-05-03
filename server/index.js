@@ -82,6 +82,8 @@ app.post('/producto', (req, res) => {
 })
 
 app.post('/pago', (req, res) => {
+  console.log('PAGO RECIBIDO')
+  console.log(JSON.stringify(req))
   // {"message":"invalid_token","cause":[],"error":"not_found","status":401} 
   // req.query {topic: 'payment', id: ## }
   // Get PaymentData
