@@ -22669,7 +22669,7 @@ const EditarProducto = props => {
     let ary = [];
     for (let node of nodes) {
       //children 1 es codigo y children 2 es cantidad..
-      ary.push({ codigo: node.children[1].children[0].value, cantidad: node.children[2].children[0].value, downloadLink: node.children[3].children[0].value });
+      ary.push({ codigo: node.children[1].children[0].value, cantidad: node.children[2].children[0].value, link: node.children[3].children[0].value });
     }
     return ary;
   };
@@ -22739,6 +22739,16 @@ const EditarProducto = props => {
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'td',
                 { colSpan: 4 },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'h3',
+                  null,
+                  'Template para mail Automatico'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'p',
+                  null,
+                  ' Puede usar los siguientes atributos @codigo, @link, @nombre, @apodo, @producto '
+                ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { className: 'col-md-12', id: 'mailTemplate', defaultValue: props.template, rows: 15, width: '100%' })
               )
             )
@@ -22871,12 +22881,12 @@ const mapDispatchToProps = {
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'td',
       { className: 'col-md-2' },
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'form-control', defaultValue: props.cantidad })
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'number', className: 'form-control', defaultValue: props.cantidad })
     ),
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'td',
       { className: 'col-md-6' },
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'form-control', defaultValue: props.downloadLink })
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'form-control', defaultValue: props.link })
     )
   );
 });

@@ -47,6 +47,8 @@ const EditarProducto = (props) => {
             {props.licencias ? props.licencias.map((lic, i) => <Licencia key={i} id={props.id} { ...lic } onMinus={props.onMinus.bind(this, props.id, i)} />) : ''}
             <tr>
               <td colSpan={4}>
+                <h3>Template para mail Automatico</h3>
+                <p> Puede usar los siguientes atributos @codigo, @link, @nombre, @apodo, @producto </p> 
                <textarea className="col-md-12" id="mailTemplate" defaultValue={props.template} rows={15} width={'100%'} />
               </td>
             </tr>

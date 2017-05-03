@@ -1,5 +1,4 @@
 const fs = require('fs'),
-  http = require('http'),
   https = require('https'),
   request = require('request'),
   cors = require('cors'),
@@ -13,7 +12,8 @@ const fs = require('fs'),
   Maybe = require('ramda-fantasy').Maybe,
   sendMail = require('./sendMail').sendMail,
   Datastore = require('nedb'),
-  db = new Datastore({ filename: 'db', autoload: true })
+  db = new Datastore({ filename: 'db', autoload: true }),
+  port = process.env.PORT || 3000
 
 //AutoCompact every 20 min
 db.persistence.setAutocompactionInterval(1200000)
@@ -25,9 +25,7 @@ let session = JSON.parse(fs.readFileSync('session.json'))
 https.createServer({
   key: fs.readFileSync(`${__dirname}/ssl/private.pem`),
   cert: fs.readFileSync(`${__dirname}/ssl/server.crt`)
-}, app).listen(3000)
-
-http.createServer(app).listen(8080)
+}, app).listen(port)
 
 app.use(cors())
 app.use(bodyParser.json()) // support json encoded bodies
