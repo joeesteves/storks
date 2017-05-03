@@ -4,3 +4,6 @@
 {"email":"admin@elcaminosoftware.com","smtp":"smtp.zoho.com","password":"Alfa17283946","id":"configuracion","_id":"aqUsk8sIqOEcUtak"}
 {"id":"MLA664258617","licencias":[],"template":"<html>\ncodigo = @codigo\nlink = @link\nnombre = @nombre\napodo = @apodo\nproducto = @producto\n</html>","doc_type":"productos","_id":"wtbhDyt5jYoet03d"}
 {"id":192850882,"licencias":[],"template":"<html>\n<h1> PROBANDOOO </h1>\n</html>","doc_type":"productos","_id":"zuThRUiFR7OQYDhd"}
+{"email":"admin@elcaminosoftware.com","smtp":"smtp.zoho.com22","password":"Alfa17283946","id":"configuracion","_id":"aqUsk8sIqOEcUtak"}
+{"email":"admin@elcaminosoftware.com","smtp":"smtp.zoho.com","password":"Alfa17283946","id":"configuracion","_id":"aqUsk8sIqOEcUtak"}
+{"id":"MLA664630750","licencias":[{"codigo":"FLOPPY_CODIGO","cantidad":"10","link":"WWW.DESCARGAFLOPPY.COM"}],"template":"Hola @nombre,\n            Gracias por la compra de @producto\nSu licencia para le uso del software comprado es @codigo!\nPara descargar su producto vaya al siguiente link: @link","doc_type":"productos","_id":"6uF3jpG4fIf44hY6"}

@@ -99,9 +99,7 @@ const flatDataForMails = ({ order, pay }) => {
     })
 }
 
-// array de productos {title, template, lic}
-
-
+// devuelve el producto con datos de distintos origenes {title, template, lic}
 const getLocalProducto = (product) => {
   return Rx.Observable.create(function (obs) {
     db.findOne({ id: product.id }, (err, localProduct) => {
