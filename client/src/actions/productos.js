@@ -37,7 +37,7 @@ export const turnOffEditProducto = () => {
   return { type: productosAct.offEdit }
 }
 export const updateProducto = (id, licencias, template) => {
-  fetch('../producto', {
+  fetch('../productos', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',

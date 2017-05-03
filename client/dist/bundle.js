@@ -12599,7 +12599,7 @@ const turnOffEditProducto = () => {
 /* harmony export (immutable) */ __webpack_exports__["b"] = turnOffEditProducto;
 
 const updateProducto = (id, licencias, template) => {
-  fetch('../producto', {
+  fetch('../productos', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
