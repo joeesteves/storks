@@ -49,6 +49,9 @@ const EditarProducto = (props) => {
               <td colSpan={4}>
                 <h3>Template para mail Automatico</h3>
                 <p> Puede usar los siguientes atributos @codigo, @link, @nombre, @apodo, @producto </p> 
+                <p> Para personalizar el asunto ese @asunto(AQUI EL ASUNTO)  ej: @asunto(Felicitaciones por tu compra)</p> 
+                <p> Si no indica @asunto por defecto va: Gracias por su compra</p> 
+
                <textarea className="col-md-12" id="mailTemplate" defaultValue={props.template} rows={15} width={'100%'} />
               </td>
             </tr>
