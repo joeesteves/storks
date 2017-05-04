@@ -26,7 +26,7 @@ const procesarPagos = (req, res) => {
         sendMail((error, info) => {
           const { data, status } = error ? { data: error, status: 500 } : { data: info, status: 200 }
           res.status(status).send(data)
-          if(status === 200 ){
+          if (status === 200) {
             mailData.updateLicenciasFx()
           }
         }, mailData)
@@ -81,7 +81,7 @@ const getOrderData = (pay) => {
 const getLicencia = (producto, db) => {
   console.log("LICENCIA")
   const lic = producto.licencias[0]
-  if (!lic) return { codigo: '', link: '', updateLicenciasFx: () => console.log("NO HAY LIC DISPONIBLES")}
+  if (!lic) return { codigo: '', link: '', updateLicenciasFx: () => console.log("NO HAY LIC DISPONIBLES") }
   if (lic.cantidad == 1) {
     licencias = [...producto.licencias.slice(1)]
   } else {
@@ -90,7 +90,7 @@ const getLicencia = (producto, db) => {
   const updateLicenciasFx = () => {
     console.log("UPDATING LIC")
     db.update({ id: producto.id }, { $set: { licencias } }, (e) => {
-      e ? console.log(e): console.log("Licencia Updated")
+      e ? console.log(e) : console.log("Licencia Updated")
     })
   }
   return Object.assign(lic, { updateLicenciasFx })

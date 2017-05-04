@@ -24,7 +24,9 @@ const checkMercadoShops = (intervaloEnSegundos) => {
             mailData.updateLicenciasFx()
           }
         }, mailData)
-      },(e)=>  console.log(e), (c) => console.log("COMPLETED"))
+      },
+      (e) => console.log(e),
+      () => console.log("COMPLETED"))
   }, intervaloEnSegundos * 1000)
 }
 
@@ -36,6 +38,7 @@ const firstTime = (mailData) => {
     msdb.findOne({ orderId: mailData.orderId }, (err, reg) => {
       if (reg) console.log("REPEATED ORDER")
       obs.next(Object.assign(mailData, { firstTime: reg ? false : true }))
+      obs.complete()
     })
   })
 }
@@ -53,6 +56,7 @@ const getPaidOpenOrders = (injSession) => {
           .catch(console.log)
       }
       obs.next(JSON.parse(body))
+      obs.complete()
     })
 
   })
