@@ -32,7 +32,7 @@ const procesarPagos = (req, res) => {
         }, mailData)
 
       }, err => {
-        res.status(404).send(err)
+        res.status(200).send(err)
         console.log(err)
       })
     })
