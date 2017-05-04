@@ -132,10 +132,9 @@ const getLocalProducto = (product) => {
   return Rx.Observable.create(function (obs) {
     db.findOne({ id: product.id }, (err, localProduct) => {
       Maybe(localProduct)
-        .map(localProduct => {
-          return noMail(localProduct) ? Maybe.Nothing : Object.assign(localProduct, product)
-        })
-        .map(lo => obs.next(lo)).isNothing ? obs.error("No existe producto con id" + JSON.stringify(product)) : null
+        .map(localProduct => noMail(localProduct) ? Maybe.Nothing : Object.assign(localProduct, product))
+        .map(lo => obs.next(lo))
+        .isNothing ? console.log("No existe producto con id" + JSON.stringify(product)) : null
       obs.complete()
     })
   })
