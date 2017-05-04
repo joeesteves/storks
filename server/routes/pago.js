@@ -31,6 +31,9 @@ const procesarPagos = (req, res) => {
           }
         }, mailData)
 
+      }, err => {
+        res.status(404).send(err)
+        console.log(err)
       })
     })
     .catch(e => {
@@ -53,9 +56,9 @@ const getPaymentData = (req) => {
     request(`https://api.mercadopago.com/collections/notifications/${req.query.id}?access_token=${session().access_token}`,
       (err, res, body) => {
         if (err || (res && res.statusCode >= 400)) return reject({ res, status: res.statusCode })
-        const jsonBody = JSON.parse(body)
+        const jsonBody = JSON.parse(body).collection
         if (jsonBody.marketplace === 'MELI') {
-          resolve(JSON.parse(body).collection)
+          resolve(jsonBody)
         } else {
           reject("SOLO SE PROCESAN IPN MERCADOLIBRE")
         }
@@ -131,7 +134,7 @@ const getLocalProducto = (product) => {
         .map(localProduct => {
           return noMail(localProduct) ? Maybe.Nothing : Object.assign(localProduct, product)
         })
-        .map(lo => obs.next(lo)).isNothing ? console.log('no existe producto con id' + JSON.stringify(product)) : null
+        .map(lo => obs.next(lo)).isNothing ? obs.error("No existe producto con id" + JSON.stringify(product)) : null
       obs.complete()
     })
   })

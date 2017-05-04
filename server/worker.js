@@ -25,7 +25,7 @@ const checkMercadoShops = (intervaloEnSegundos) => {
           }
         }, mailData)
       })
-  }, intervaloEnSegundos * 60000)
+  }, intervaloEnSegundos * 1000)
 }
 
 const saveOrderId = (orderId) => {
