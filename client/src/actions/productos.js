@@ -17,8 +17,8 @@ export const fetchProductos = (sessionData) => {
           .map(prod => ({ ...prod, origen: 'MercadoShops' }))
       )
         .subscribe(prod => {
-          const localProducto = Maybe(produtosDatosAdicionales.find(producto => producto.id === prod.id))
-          .getOrElse({licencias: [], template: ''})
+          const localProducto = Maybe(produtosDatosAdicionales.find(producto => producto.id == prod.id))
+            .getOrElse({ licencias: [], template: '' })
           store.dispatch(add_producto({ ...prod, ...localProducto }))
         })
     })

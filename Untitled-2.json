@@ -1,0 +1,1784 @@
+https://api.mercadoshops.com/v1/shops/254307406/orders/search?paid=true&channel=mshops&delivered=false&access_token=APP_USR-5894928571543101-050408-fbb691b6981029cc29f6a8ecd678174f__M_K__-254307406
+{
+  "seller_id": 254307406,
+  "query": null,
+  "paging": {
+    "total": 6,
+    "offset": 0,
+    "limit": 50
+  },
+  "results": [
+    {
+      "id": 290574007,
+      "store_id": 254307406,
+      "channel": "mshops",
+      "external_reference": 6,
+      "currency": "ARS",-
+      "amount": 684,
+      "products_total": 684,
+      "products_discounts_total": 0,
+      "products_grand_total": 684,
+      "discounts_total": 0,
+      "shipping_total": 0,
+      "grand_total": 684,
+      "creation_date": "2017-05-04T08:59:25.000-04:00",
+      "buyer_message": "dsadadasdas",
+      "status": {
+        "delivered": false,
+        "paid": true,
+        "closed": false,
+        "closed_reason": null,
+        "closed_date": null,
+        "processed": false,
+        "processed_date": null,
+        "contact_data_status": "new",
+        "order_status": null
+      },
+      "buyer": {
+        "id": 195809197,
+        "meli_cust_id": null,
+        "name": "jose",
+        "nickname": null,
+        "client_id": 618990801,
+        "mail": "ajesteves@gmail.com",
+        "mail2": null,
+        "phone": null,
+        "phone2": null,
+        "doc_number": null,
+        "doc_type": "DNI"
+      },
+      "payments": [
+        {
+          "id": 304816591,
+          "external_reference": 6,
+          "status": "approved",
+          "provider": "mercadopago",
+          "method": "master",
+          "currency": "ARS",
+          "amount": 684,
+          "paid": true,
+          "paid_date": "2017-05-04T08:59:35.000-04:00",
+          "provider_id": "2711659578",
+          "installments": null,
+          "fees": {
+            "finance_fee": null
+          }
+        }
+      ],
+      "shippings": [],
+      "invoice": {
+        "invoiced": false,
+        "type": null,
+        "number": null,
+        "invoiced_date": null
+      },
+      "products": [
+        {
+          "id": 195403879,
+          "channel": "mshops",
+          "external_reference": "192850919",
+          "sku": null,
+          "title": "Item De Prueba  - Antivirus Extra - No Ofertar",
+          "currency": "ARS",
+          "quantity": 2,
+          "unit_price": 342,
+          "amount": 684,
+          "free_shipping": false,
+          "variation_id": null,
+          "variations": [],
+          "promotion": null
+        }
+      ],
+      "notes": [],
+      "feedback": {
+        "buyer": null,
+        "seller": null
+      },
+      "promotions": [],
+      "free_shipping": false,
+      "total_last_updated": "2017-05-04T08:59:40.000-04:00"
+    },
+    {
+      "id": 290562068,
+      "store_id": 254307406,
+      "channel": "mshops",
+      "external_reference": 5,
+      "currency": "ARS",
+      "amount": 342,
+      "products_total": 342,
+      "products_discounts_total": 0,
+      "products_grand_total": 342,
+      "discounts_total": 0,
+      "shipping_total": 0,
+      "grand_total": 342,
+      "creation_date": "2017-05-04T08:42:36.000-04:00",
+      "buyer_message": "asdasd",
+      "status": {
+        "delivered": false,
+        "paid": true,
+        "closed": false,
+        "closed_reason": null,
+        "closed_date": null,
+        "processed": false,
+        "processed_date": null,
+        "contact_data_status": "new",
+        "order_status": null
+      },
+      "buyer": {
+        "id": 195797266,
+        "meli_cust_id": null,
+        "name": "jose",
+        "nickname": null,
+        "client_id": 618990801,
+        "mail": "ajesteves@gmail.com",
+        "mail2": null,
+        "phone": null,
+        "phone2": null,
+        "doc_number": null,
+        "doc_type": "DNI"
+      },
+      "payments": [
+        {
+          "id": 304793598,
+          "external_reference": 5,
+          "status": "approved",
+          "provider": "mercadopago",
+          "method": "master",
+          "currency": "ARS",
+          "amount": 342,
+          "paid": true,
+          "paid_date": "2017-05-04T08:42:56.000-04:00",
+          "provider_id": "2711649125",
+          "installments": null,
+          "fees": {
+            "finance_fee": null
+          }
+        }
+      ],
+      "shippings": [],
+      "invoice": {
+        "invoiced": false,
+        "type": null,
+        "number": null,
+        "invoiced_date": null
+      },
+      "products": [
+        {
+          "id": 195391921,
+          "channel": "mshops",
+          "external_reference": "192850919",
+          "sku": null,
+          "title": "Item De Prueba  - Antivirus Extra - No Ofertar",
+          "currency": "ARS",
+          "quantity": 1,
+          "unit_price": 342,
+          "amount": 342,
+          "free_shipping": false,
+          "variation_id": null,
+          "variations": [],
+          "promotion": null
+        }
+      ],
+      "notes": [],
+      "feedback": {
+        "buyer": null,
+        "seller": null
+      },
+      "promotions": [],
+      "free_shipping": false,
+      "total_last_updated": "2017-05-04T08:43:01.000-04:00"
+    },
+    {
+      "id": 290405911,
+      "store_id": 254307406,
+      "channel": "mshops",
+      "external_reference": 4,
+      "currency": "ARS",
+      "amount": 342,
+      "products_total": 342,
+      "products_discounts_total": 0,
+      "products_grand_total": 342,
+      "discounts_total": 0,
+      "shipping_total": 0,
+      "grand_total": 342,
+      "creation_date": "2017-05-03T13:04:35.000-04:00",
+      "buyer_message": "dsadasd",
+      "status": {
+        "delivered": false,
+        "paid": true,
+        "closed": false,
+        "closed_reason": null,
+        "closed_date": null,
+        "processed": false,
+        "processed_date": null,
+        "contact_data_status": "new",
+        "order_status": null
+      },
+      "buyer": {
+        "id": 195641290,
+        "meli_cust_id": null,
+        "name": "jose",
+        "nickname": null,
+        "client_id": 618990801,
+        "mail": "ajesteves@gmail.com",
+        "mail2": null,
+        "phone": null,
+        "phone2": null,
+        "doc_number": null,
+        "doc_type": "DNI"
+      },
+      "payments": [
+        {
+          "id": 304506878,
+          "external_reference": 4,
+          "status": "approved",
+          "provider": "mercadopago",
+          "method": "nativa",
+          "currency": "ARS",
+          "amount": 342,
+          "paid": true,
+          "paid_date": "2017-05-03T13:04:44.000-04:00",
+          "provider_id": "2710441688",
+          "installments": null,
+          "fees": {
+            "finance_fee": null
+          }
+        }
+      ],
+      "shippings": [],
+      "invoice": {
+        "invoiced": false,
+        "type": null,
+        "number": null,
+        "invoiced_date": null
+      },
+      "products": [
+        {
+          "id": 195234694,
+          "channel": "mshops",
+          "external_reference": "192850919",
+          "sku": null,
+          "title": "Item De Prueba  - Antivirus Extra - No Ofertar",
+          "currency": "ARS",
+          "quantity": 1,
+          "unit_price": 342,
+          "amount": 342,
+          "free_shipping": false,
+          "variation_id": null,
+          "variations": [],
+          "promotion": null
+        }
+      ],
+      "notes": [],
+      "feedback": {
+        "buyer": null,
+        "seller": null
+      },
+      "promotions": [],
+      "free_shipping": false,
+      "total_last_updated": "2017-05-03T16:27:12.000-04:00"
+    },
+    {
+      "id": 290405533,
+      "store_id": 254307406,
+      "channel": "mshops",
+      "external_reference": 3,
+      "currency": "ARS",
+      "amount": 250,
+      "products_total": 250,
+      "products_discounts_total": 0,
+      "products_grand_total": 250,
+      "discounts_total": 0,
+      "shipping_total": 0,
+      "grand_total": 250,
+      "creation_date": "2017-05-03T12:56:55.000-04:00",
+      "buyer_message": "asdasd",
+      "status": {
+        "delivered": false,
+        "paid": true,
+        "closed": false,
+        "closed_reason": null,
+        "closed_date": null,
+        "processed": false,
+        "processed_date": null,
+        "contact_data_status": "new",
+        "order_status": null
+      },
+      "buyer": {
+        "id": 195640912,
+        "meli_cust_id": null,
+        "name": "jose",
+        "nickname": null,
+        "client_id": 618990801,
+        "mail": "ajesteves@gmail.com",
+        "mail2": null,
+        "phone": null,
+        "phone2": null,
+        "doc_number": null,
+        "doc_type": "DNI"
+      },
+      "payments": [
+        {
+          "id": 304506199,
+          "external_reference": 3,
+          "status": "approved",
+          "provider": "mercadopago",
+          "method": "nativa",
+          "currency": "ARS",
+          "amount": 250,
+          "paid": true,
+          "paid_date": "2017-05-03T12:57:21.000-04:00",
+          "provider_id": "2710435063",
+          "installments": null,
+          "fees": {
+            "finance_fee": null
+          }
+        }
+      ],
+      "shippings": [
+        {
+          "id": 127870467,
+          "external_reference": 1,
+          "ship_type": "N",
+          "channel_status": "pending",
+          "status": "pending",
+          "receiver": {
+            "doc_type": null,
+            "doc_number": null,
+            "name": "Jose",
+            "email": "ajesteves@gmail.com",
+            "phone": null,
+            "address": "adsd 123",
+            "zip": "1661",
+            "neighbourhood": null,
+            "municipality": null,
+            "city": "bs as",
+            "state_id": "AR-B",
+            "country_id": "AR"
+          },
+          "additional_info": "chubut 123",
+          "method_id": null,
+          "method": "A convenir",
+          "currency": "ARS",
+          "amount": 0,
+          "tracking_code": null,
+          "observations": "asdasd",
+          "date_created": "2017-05-03T16:26:22.000-04:00"
+        }
+      ],
+      "invoice": {
+        "invoiced": false,
+        "type": null,
+        "number": null,
+        "invoiced_date": null
+      },
+      "products": [
+        {
+          "id": 195234316,
+          "channel": "mshops",
+          "external_reference": "193329834",
+          "sku": null,
+          "title": "item - mercadoShops",
+          "currency": "ARS",
+          "quantity": 1,
+          "unit_price": 250,
+          "amount": 250,
+          "free_shipping": false,
+          "variation_id": null,
+          "variations": [],
+          "promotion": null
+        }
+      ],
+      "notes": [],
+      "feedback": {
+        "buyer": null,
+        "seller": null
+      },
+      "promotions": [],
+      "free_shipping": false,
+      "total_last_updated": "2017-05-03T16:26:22.000-04:00"
+    },
+    {
+      "id": 290408888,
+      "store_id": 254307406,
+      "channel": "mshops",
+      "external_reference": 2,
+      "currency": "ARS",
+      "amount": 500,
+      "products_total": 500,
+      "products_discounts_total": 0,
+      "products_grand_total": 500,
+      "discounts_total": 0,
+      "shipping_total": 0,
+      "grand_total": 500,
+      "creation_date": "2017-05-03T12:49:58.000-04:00",
+      "buyer_message": "comentario",
+      "status": {
+        "delivered": false,
+        "paid": true,
+        "closed": false,
+        "closed_reason": null,
+        "closed_date": null,
+        "processed": false,
+        "processed_date": null,
+        "contact_data_status": "new",
+        "order_status": null
+      },
+      "buyer": {
+        "id": 195644264,
+        "meli_cust_id": null,
+        "name": "jose",
+        "nickname": null,
+        "client_id": 618990801,
+        "mail": "ajesteves@gmail.com",
+        "mail2": null,
+        "phone": null,
+        "phone2": null,
+        "doc_number": null,
+        "doc_type": "DNI"
+      },
+      "payments": [
+        {
+          "id": 304512686,
+          "external_reference": 2,
+          "status": "approved",
+          "provider": "mercadopago",
+          "method": "nativa",
+          "currency": "ARS",
+          "amount": 500,
+          "paid": true,
+          "paid_date": "2017-05-03T12:50:09.000-04:00",
+          "provider_id": "2710186173",
+          "installments": null,
+          "fees": {
+            "finance_fee": null
+          }
+        }
+      ],
+      "shippings": [],
+      "invoice": {
+        "invoiced": false,
+        "type": null,
+        "number": null,
+        "invoiced_date": null
+      },
+      "products": [
+        {
+          "id": 195237700,
+          "channel": "mshops",
+          "external_reference": "192850205",
+          "sku": null,
+          "title": "Item De Prueba - Antivirus Avg - No Ofertar",
+          "currency": "ARS",
+          "quantity": 1,
+          "unit_price": 500,
+          "amount": 500,
+          "free_shipping": false,
+          "variation_id": null,
+          "variations": [],
+          "promotion": null
+        }
+      ],
+      "notes": [],
+      "feedback": {
+        "buyer": null,
+        "seller": null
+      },
+      "promotions": [],
+      "free_shipping": false,
+      "total_last_updated": "2017-05-03T16:31:10.000-04:00"
+    },
+    {
+      "id": 290403658,
+      "store_id": 254307406,
+      "channel": "mshops",
+      "external_reference": 1,
+      "currency": "ARS",
+      "amount": 800,
+      "products_total": 800,
+      "products_discounts_total": 0,
+      "products_grand_total": 800,
+      "discounts_total": 0,
+      "shipping_total": 0,
+      "grand_total": 800,
+      "creation_date": "2017-05-03T12:43:00.000-04:00",
+      "buyer_message": "comentario agregado por js",
+      "status": {
+        "delivered": false,
+        "paid": true,
+        "closed": false,
+        "closed_reason": null,
+        "closed_date": null,
+        "processed": false,
+        "processed_date": null,
+        "contact_data_status": "new",
+        "order_status": null
+      },
+      "buyer": {
+        "id": 195639038,
+        "meli_cust_id": null,
+        "name": "jose",
+        "nickname": null,
+        "client_id": 618990801,
+        "mail": "ajesteves@gmail.com",
+        "mail2": null,
+        "phone": null,
+        "phone2": null,
+        "doc_number": null,
+        "doc_type": "DNI"
+      },
+      "payments": [
+        {
+          "id": 304502593,
+          "external_reference": 1,
+          "status": "approved",
+          "provider": "mercadopago",
+          "method": "nativa",
+          "currency": "ARS",
+          "amount": 800,
+          "paid": true,
+          "paid_date": "2017-05-03T12:43:25.000-04:00",
+          "provider_id": "2710181105",
+          "installments": null,
+          "fees": {
+            "finance_fee": null
+          }
+        }
+      ],
+      "shippings": [],
+      "invoice": {
+        "invoiced": false,
+        "type": null,
+        "number": null,
+        "invoiced_date": null
+      },
+      "products": [
+        {
+          "id": 195232415,
+          "channel": "mshops",
+          "external_reference": "192850882",
+          "sku": null,
+          "title": "Item De Prueba - Mcafee No Ofertar",
+          "currency": "ARS",
+          "quantity": 1,
+          "unit_price": 800,
+          "amount": 800,
+          "free_shipping": false,
+          "variation_id": null,
+          "variations": [],
+          "promotion": null
+        }
+      ],
+      "notes": [],
+      "feedback": {
+        "buyer": null,
+        "seller": null
+      },
+      "promotions": [],
+      "free_shipping": false,
+      "total_last_updated": "2017-05-03T16:24:16.000-04:00"
+    }
+  ],
+  "orders": [
+    {
+      "id": "creation_date_desc",
+      "name": "Order by creation date descending"
+    }
+  ],
+  "filters": [
+    {
+      "id": "paid",
+      "name": "Paid",
+      "values": [
+        {
+          "id": "true",
+          "name": "Paid orders",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "delivered",
+      "name": "Delivered",
+      "values": [
+        {
+          "id": "false",
+          "name": "Not delivered orders",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "channel",
+      "name": "Channel",
+      "values": [
+        {
+          "id": "mshops",
+          "name": "Mshops orders",
+          "results": 6
+        }
+      ]
+    }
+  ],
+  "available_orders": [
+    {
+      "id": "creation_date_asc",
+      "name": "Order by creation date ascending"
+    },
+    {
+      "id": "creation_date_desc",
+      "name": "Order by creation date descending"
+    },
+    {
+      "id": "client_id_asc",
+      "name": "Order by client id ascending"
+    },
+    {
+      "id": "client_id_desc",
+      "name": "Order by client id descending"
+    },
+    {
+      "id": "name_asc",
+      "name": "Order by client name ascending"
+    },
+    {
+      "id": "name_desc",
+      "name": "Order by client name ascending"
+    },
+    {
+      "id": "total_last_updated_asc",
+      "name": "Order by total last updated ascending"
+    },
+    {
+      "id": "total_last_updated_desc",
+      "name": "Order by total last updated descending"
+    }
+  ],
+  "available_filters": [
+    {
+      "id": "status",
+      "name": "Status",
+      "values": [
+        {
+          "id": "new",
+          "name": "New orders",
+          "results": 0
+        },
+        {
+          "id": "first_contact",
+          "name": "Orders with first contact made",
+          "results": 0
+        },
+        {
+          "id": "confirmed_data",
+          "name": "Orders with confirmed data",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "processed",
+      "name": "Processed",
+      "values": [
+        {
+          "id": "true",
+          "name": "Processed orders",
+          "results": 0
+        },
+        {
+          "id": "false",
+          "name": "Not processed orders",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "paid",
+      "name": "Paid",
+      "values": [
+        {
+          "id": "true",
+          "name": "Paid orders",
+          "results": 0
+        },
+        {
+          "id": "false",
+          "name": "Not paid orders",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "delivered",
+      "name": "Delivered",
+      "values": [
+        {
+          "id": "true",
+          "name": "Delivered orders",
+          "results": 0
+        },
+        {
+          "id": "false",
+          "name": "Not delivered orders",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "closed",
+      "name": "Closed",
+      "values": [
+        {
+          "id": "true",
+          "name": "Closed orders",
+          "results": 0
+        },
+        {
+          "id": "false",
+          "name": "Not closed orders",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "channel",
+      "name": "Channel",
+      "values": [
+        {
+          "id": "meli",
+          "name": "Meli orders",
+          "results": 0
+        },
+        {
+          "id": "mshops",
+          "name": "Mshops orders",
+          "results": 6
+        }
+      ]
+    },
+    {
+      "id": "buyer_feedback",
+      "name": "Buyer feedback",
+      "values": [
+        {
+          "id": "true",
+          "name": "Buyer feedback completed",
+          "results": 0
+        },
+        {
+          "id": "false",
+          "name": "Buyer feedback not completed",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "seller_feedback",
+      "name": "Seller feedback",
+      "values": [
+        {
+          "id": "true",
+          "name": "Seller feedback completed",
+          "results": 0
+        },
+        {
+          "id": "false",
+          "name": "Seller feedback not completed",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "feedback",
+      "name": "Feedback (buyer + seller)",
+      "values": [
+        {
+          "id": "true",
+          "name": "Seller and buyer feedback completed",
+          "results": 0
+        },
+        {
+          "id": "false",
+          "name": "Seller and buyer feedback not completed",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "shipping",
+      "name": "Shipping status",
+      "values": [
+        {
+          "id": "pending",
+          "name": "Pending",
+          "results": 1
+        },
+        {
+          "id": "pickup",
+          "name": "Pickup",
+          "results": 0
+        },
+        {
+          "id": "on_route",
+          "name": "On route",
+          "results": 0
+        },
+        {
+          "id": "print_tag",
+          "name": "Print tag",
+          "results": 0
+        },
+        {
+          "id": "to_be_agreed",
+          "name": "To be agreed",
+          "results": 5
+        },
+        {
+          "id": "in_progress",
+          "name": "In progress",
+          "results": 0
+        },
+        {
+          "id": "delivered",
+          "name": "In progress",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "pending_process",{
+  "seller_id": 254307406,
+  "query": null,
+  "paging": {
+    "total": 6,
+    "offset": 0,
+    "limit": 50
+  },
+  "results": [
+    {
+      "id": 290574007,
+      "store_id": 254307406,
+      "channel": "mshops",
+      "external_reference": 6,
+      "currency": "ARS",
+      "amount": 684,
+      "products_total": 684,
+      "products_discounts_total": 0,
+      "products_grand_total": 684,
+      "discounts_total": 0,
+      "shipping_total": 0,
+      "grand_total": 684,
+      "creation_date": "2017-05-04T08:59:25.000-04:00",
+      "buyer_message": "dsadadasdas",
+      "status": {
+        "delivered": false,
+        "paid": true,
+        "closed": false,
+        "closed_reason": null,
+        "closed_date": null,
+        "processed": false,
+        "processed_date": null,
+        "contact_data_status": "new",
+        "order_status": null
+      },
+      "buyer": {
+        "id": 195809197,
+        "meli_cust_id": null,
+        "name": "jose",
+        "nickname": null,
+        "client_id": 618990801,
+        "mail": "ajesteves@gmail.com",
+        "mail2": null,
+        "phone": null,
+        "phone2": null,
+        "doc_number": null,
+        "doc_type": "DNI"
+      },
+      "payments": [
+        {
+          "id": 304816591,
+          "external_reference": 6,
+          "status": "approved",
+          "provider": "mercadopago",
+          "method": "master",
+          "currency": "ARS",
+          "amount": 684,
+          "paid": true,
+          "paid_date": "2017-05-04T08:59:35.000-04:00",
+          "provider_id": "2711659578",
+          "installments": null,
+          "fees": {
+            "finance_fee": null
+          }
+        }
+      ],
+      "shippings": [],
+      "invoice": {
+        "invoiced": false,
+        "type": null,
+        "number": null,
+        "invoiced_date": null
+      },
+      "products": [
+        {
+          "id": 195403879,
+          "channel": "mshops",
+          "external_reference": "192850919",
+          "sku": null,
+          "title": "Item De Prueba  - Antivirus Extra - No Ofertar",
+          "currency": "ARS",
+          "quantity": 2,
+          "unit_price": 342,
+          "amount": 684,
+          "free_shipping": false,
+          "variation_id": null,
+          "variations": [],
+          "promotion": null
+        }
+      ],
+      "notes": [],
+      "feedback": {
+        "buyer": null,
+        "seller": null
+      },
+      "promotions": [],
+      "free_shipping": false,
+      "total_last_updated": "2017-05-04T08:59:40.000-04:00"
+    },
+    {
+      "id": 290562068,
+      "store_id": 254307406,
+      "channel": "mshops",
+      "external_reference": 5,
+      "currency": "ARS",
+      "amount": 342,
+      "products_total": 342,
+      "products_discounts_total": 0,
+      "products_grand_total": 342,
+      "discounts_total": 0,
+      "shipping_total": 0,
+      "grand_total": 342,
+      "creation_date": "2017-05-04T08:42:36.000-04:00",
+      "buyer_message": "asdasd",
+      "status": {
+        "delivered": false,
+        "paid": true,
+        "closed": false,
+        "closed_reason": null,
+        "closed_date": null,
+        "processed": false,
+        "processed_date": null,
+        "contact_data_status": "new",
+        "order_status": null
+      },
+      "buyer": {
+        "id": 195797266,
+        "meli_cust_id": null,
+        "name": "jose",
+        "nickname": null,
+        "client_id": 618990801,
+        "mail": "ajesteves@gmail.com",
+        "mail2": null,
+        "phone": null,
+        "phone2": null,
+        "doc_number": null,
+        "doc_type": "DNI"
+      },
+      "payments": [
+        {
+          "id": 304793598,
+          "external_reference": 5,
+          "status": "approved",
+          "provider": "mercadopago",
+          "method": "master",
+          "currency": "ARS",
+          "amount": 342,
+          "paid": true,
+          "paid_date": "2017-05-04T08:42:56.000-04:00",
+          "provider_id": "2711649125",
+          "installments": null,
+          "fees": {
+            "finance_fee": null
+          }
+        }
+      ],
+      "shippings": [],
+      "invoice": {
+        "invoiced": false,
+        "type": null,
+        "number": null,
+        "invoiced_date": null
+      },
+      "products": [
+        {
+          "id": 195391921,
+          "channel": "mshops",
+          "external_reference": "192850919",
+          "sku": null,
+          "title": "Item De Prueba  - Antivirus Extra - No Ofertar",
+          "currency": "ARS",
+          "quantity": 1,
+          "unit_price": 342,
+          "amount": 342,
+          "free_shipping": false,
+          "variation_id": null,
+          "variations": [],
+          "promotion": null
+        }
+      ],
+      "notes": [],
+      "feedback": {
+        "buyer": null,
+        "seller": null
+      },
+      "promotions": [],
+      "free_shipping": false,
+      "total_last_updated": "2017-05-04T08:43:01.000-04:00"
+    },
+    {
+      "id": 290405911,
+      "store_id": 254307406,
+      "channel": "mshops",
+      "external_reference": 4,
+      "currency": "ARS",
+      "amount": 342,
+      "products_total": 342,
+      "products_discounts_total": 0,
+      "products_grand_total": 342,
+      "discounts_total": 0,
+      "shipping_total": 0,
+      "grand_total": 342,
+      "creation_date": "2017-05-03T13:04:35.000-04:00",
+      "buyer_message": "dsadasd",
+      "status": {
+        "delivered": false,
+        "paid": true,
+        "closed": false,
+        "closed_reason": null,
+        "closed_date": null,
+        "processed": false,
+        "processed_date": null,
+        "contact_data_status": "new",
+        "order_status": null
+      },
+      "buyer": {
+        "id": 195641290,
+        "meli_cust_id": null,
+        "name": "jose",
+        "nickname": null,
+        "client_id": 618990801,
+        "mail": "ajesteves@gmail.com",
+        "mail2": null,
+        "phone": null,
+        "phone2": null,
+        "doc_number": null,
+        "doc_type": "DNI"
+      },
+      "payments": [
+        {
+          "id": 304506878,
+          "external_reference": 4,
+          "status": "approved",
+          "provider": "mercadopago",
+          "method": "nativa",
+          "currency": "ARS",
+          "amount": 342,
+          "paid": true,
+          "paid_date": "2017-05-03T13:04:44.000-04:00",
+          "provider_id": "2710441688",
+          "installments": null,
+          "fees": {
+            "finance_fee": null
+          }
+        }
+      ],
+      "shippings": [],
+      "invoice": {
+        "invoiced": false,
+        "type": null,
+        "number": null,
+        "invoiced_date": null
+      },
+      "products": [
+        {
+          "id": 195234694,
+          "channel": "mshops",
+          "external_reference": "192850919",
+          "sku": null,
+          "title": "Item De Prueba  - Antivirus Extra - No Ofertar",
+          "currency": "ARS",
+          "quantity": 1,
+          "unit_price": 342,
+          "amount": 342,
+          "free_shipping": false,
+          "variation_id": null,
+          "variations": [],
+          "promotion": null
+        }
+      ],
+      "notes": [],
+      "feedback": {
+        "buyer": null,
+        "seller": null
+      },
+      "promotions": [],
+      "free_shipping": false,
+      "total_last_updated": "2017-05-03T16:27:12.000-04:00"
+    },
+    {
+      "id": 290405533,
+      "store_id": 254307406,
+      "channel": "mshops",
+      "external_reference": 3,
+      "currency": "ARS",
+      "amount": 250,
+      "products_total": 250,
+      "products_discounts_total": 0,
+      "products_grand_total": 250,
+      "discounts_total": 0,
+      "shipping_total": 0,
+      "grand_total": 250,
+      "creation_date": "2017-05-03T12:56:55.000-04:00",
+      "buyer_message": "asdasd",
+      "status": {
+        "delivered": false,
+        "paid": true,
+        "closed": false,
+        "closed_reason": null,
+        "closed_date": null,
+        "processed": false,
+        "processed_date": null,
+        "contact_data_status": "new",
+        "order_status": null
+      },
+      "buyer": {
+        "id": 195640912,
+        "meli_cust_id": null,
+        "name": "jose",
+        "nickname": null,
+        "client_id": 618990801,
+        "mail": "ajesteves@gmail.com",
+        "mail2": null,
+        "phone": null,
+        "phone2": null,
+        "doc_number": null,
+        "doc_type": "DNI"
+      },
+      "payments": [
+        {
+          "id": 304506199,
+          "external_reference": 3,
+          "status": "approved",
+          "provider": "mercadopago",
+          "method": "nativa",
+          "currency": "ARS",
+          "amount": 250,
+          "paid": true,
+          "paid_date": "2017-05-03T12:57:21.000-04:00",
+          "provider_id": "2710435063",
+          "installments": null,
+          "fees": {
+            "finance_fee": null
+          }
+        }
+      ],
+      "shippings": [
+        {
+          "id": 127870467,
+          "external_reference": 1,
+          "ship_type": "N",
+          "channel_status": "pending",
+          "status": "pending",
+          "receiver": {
+            "doc_type": null,
+            "doc_number": null,
+            "name": "Jose",
+            "email": "ajesteves@gmail.com",
+            "phone": null,
+            "address": "adsd 123",
+            "zip": "1661",
+            "neighbourhood": null,
+            "municipality": null,
+            "city": "bs as",
+            "state_id": "AR-B",
+            "country_id": "AR"
+          },
+          "additional_info": "chubut 123",
+          "method_id": null,
+          "method": "A convenir",
+          "currency": "ARS",
+          "amount": 0,
+          "tracking_code": null,
+          "observations": "asdasd",
+          "date_created": "2017-05-03T16:26:22.000-04:00"
+        }
+      ],
+      "invoice": {
+        "invoiced": false,
+        "type": null,
+        "number": null,
+        "invoiced_date": null
+      },
+      "products": [
+        {
+          "id": 195234316,
+          "channel": "mshops",
+          "external_reference": "193329834",
+          "sku": null,
+          "title": "item - mercadoShops",
+          "currency": "ARS",
+          "quantity": 1,
+          "unit_price": 250,
+          "amount": 250,
+          "free_shipping": false,
+          "variation_id": null,
+          "variations": [],
+          "promotion": null
+        }
+      ],
+      "notes": [],
+      "feedback": {
+        "buyer": null,
+        "seller": null
+      },
+      "promotions": [],
+      "free_shipping": false,
+      "total_last_updated": "2017-05-03T16:26:22.000-04:00"
+    },
+    {
+      "id": 290408888,
+      "store_id": 254307406,
+      "channel": "mshops",
+      "external_reference": 2,
+      "currency": "ARS",
+      "amount": 500,
+      "products_total": 500,
+      "products_discounts_total": 0,
+      "products_grand_total": 500,
+      "discounts_total": 0,
+      "shipping_total": 0,
+      "grand_total": 500,
+      "creation_date": "2017-05-03T12:49:58.000-04:00",
+      "buyer_message": "comentario",
+      "status": {
+        "delivered": false,
+        "paid": true,
+        "closed": false,
+        "closed_reason": null,
+        "closed_date": null,
+        "processed": false,
+        "processed_date": null,
+        "contact_data_status": "new",
+        "order_status": null
+      },
+      "buyer": {
+        "id": 195644264,
+        "meli_cust_id": null,
+        "name": "jose",
+        "nickname": null,
+        "client_id": 618990801,
+        "mail": "ajesteves@gmail.com",
+        "mail2": null,
+        "phone": null,
+        "phone2": null,
+        "doc_number": null,
+        "doc_type": "DNI"
+      },
+      "payments": [
+        {
+          "id": 304512686,
+          "external_reference": 2,
+          "status": "approved",
+          "provider": "mercadopago",
+          "method": "nativa",
+          "currency": "ARS",
+          "amount": 500,
+          "paid": true,
+          "paid_date": "2017-05-03T12:50:09.000-04:00",
+          "provider_id": "2710186173",
+          "installments": null,
+          "fees": {
+            "finance_fee": null
+          }
+        }
+      ],
+      "shippings": [],
+      "invoice": {
+        "invoiced": false,
+        "type": null,
+        "number": null,
+        "invoiced_date": null
+      },
+      "products": [
+        {
+          "id": 195237700,
+          "channel": "mshops",
+          "external_reference": "192850205",
+          "sku": null,
+          "title": "Item De Prueba - Antivirus Avg - No Ofertar",
+          "currency": "ARS",
+          "quantity": 1,
+          "unit_price": 500,
+          "amount": 500,
+          "free_shipping": false,
+          "variation_id": null,
+          "variations": [],
+          "promotion": null
+        }
+      ],
+      "notes": [],
+      "feedback": {
+        "buyer": null,
+        "seller": null
+      },
+      "promotions": [],
+      "free_shipping": false,
+      "total_last_updated": "2017-05-03T16:31:10.000-04:00"
+    },
+    {
+      "id": 290403658,
+      "store_id": 254307406,
+      "channel": "mshops",
+      "external_reference": 1,
+      "currency": "ARS",
+      "amount": 800,
+      "products_total": 800,
+      "products_discounts_total": 0,
+      "products_grand_total": 800,
+      "discounts_total": 0,
+      "shipping_total": 0,
+      "grand_total": 800,
+      "creation_date": "2017-05-03T12:43:00.000-04:00",
+      "buyer_message": "comentario agregado por js",
+      "status": {
+        "delivered": false,
+        "paid": true,
+        "closed": false,
+        "closed_reason": null,
+        "closed_date": null,
+        "processed": false,
+        "processed_date": null,
+        "contact_data_status": "new",
+        "order_status": null
+      },
+      "buyer": {
+        "id": 195639038,
+        "meli_cust_id": null,
+        "name": "jose",
+        "nickname": null,
+        "client_id": 618990801,
+        "mail": "ajesteves@gmail.com",
+        "mail2": null,
+        "phone": null,
+        "phone2": null,
+        "doc_number": null,
+        "doc_type": "DNI"
+      },
+      "payments": [
+        {
+          "id": 304502593,
+          "external_reference": 1,
+          "status": "approved",
+          "provider": "mercadopago",
+          "method": "nativa",
+          "currency": "ARS",
+          "amount": 800,
+          "paid": true,
+          "paid_date": "2017-05-03T12:43:25.000-04:00",
+          "provider_id": "2710181105",
+          "installments": null,
+          "fees": {
+            "finance_fee": null
+          }
+        }
+      ],
+      "shippings": [],
+      "invoice": {
+        "invoiced": false,
+        "type": null,
+        "number": null,
+        "invoiced_date": null
+      },
+      "products": [
+        {
+          "id": 195232415,
+          "channel": "mshops",
+          "external_reference": "192850882",
+          "sku": null,
+          "title": "Item De Prueba - Mcafee No Ofertar",
+          "currency": "ARS",
+          "quantity": 1,
+          "unit_price": 800,
+          "amount": 800,
+          "free_shipping": false,
+          "variation_id": null,
+          "variations": [],
+          "promotion": null
+        }
+      ],
+      "notes": [],
+      "feedback": {
+        "buyer": null,
+        "seller": null
+      },
+      "promotions": [],
+      "free_shipping": false,
+      "total_last_updated": "2017-05-03T16:24:16.000-04:00"
+    }
+  ],
+  "orders": [
+    {
+      "id": "creation_date_desc",
+      "name": "Order by creation date descending"
+    }
+  ],
+  "filters": [
+    {
+      "id": "paid",
+      "name": "Paid",
+      "values": [
+        {
+          "id": "true",
+          "name": "Paid orders",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "delivered",
+      "name": "Delivered",
+      "values": [
+        {
+          "id": "false",
+          "name": "Not delivered orders",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "channel",
+      "name": "Channel",
+      "values": [
+        {
+          "id": "mshops",
+          "name": "Mshops orders",
+          "results": 6
+        }
+      ]
+    }
+  ],
+  "available_orders": [
+    {
+      "id": "creation_date_asc",
+      "name": "Order by creation date ascending"
+    },
+    {
+      "id": "creation_date_desc",
+      "name": "Order by creation date descending"
+    },
+    {
+      "id": "client_id_asc",
+      "name": "Order by client id ascending"
+    },
+    {
+      "id": "client_id_desc",
+      "name": "Order by client id descending"
+    },
+    {
+      "id": "name_asc",
+      "name": "Order by client name ascending"
+    },
+    {
+      "id": "name_desc",
+      "name": "Order by client name ascending"
+    },
+    {
+      "id": "total_last_updated_asc",
+      "name": "Order by total last updated ascending"
+    },
+    {
+      "id": "total_last_updated_desc",
+      "name": "Order by total last updated descending"
+    }
+  ],
+  "available_filters": [
+    {
+      "id": "status",
+      "name": "Status",
+      "values": [
+        {
+          "id": "new",
+          "name": "New orders",
+          "results": 0
+        },
+        {
+          "id": "first_contact",
+          "name": "Orders with first contact made",
+          "results": 0
+        },
+        {
+          "id": "confirmed_data",
+          "name": "Orders with confirmed data",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "processed",
+      "name": "Processed",
+      "values": [
+        {
+          "id": "true",
+          "name": "Processed orders",
+          "results": 0
+        },
+        {
+          "id": "false",
+          "name": "Not processed orders",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "paid",
+      "name": "Paid",
+      "values": [
+        {
+          "id": "true",
+          "name": "Paid orders",
+          "results": 0
+        },
+        {
+          "id": "false",
+          "name": "Not paid orders",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "delivered",
+      "name": "Delivered",
+      "values": [
+        {
+          "id": "true",
+          "name": "Delivered orders",
+          "results": 0
+        },
+        {
+          "id": "false",
+          "name": "Not delivered orders",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "closed",
+      "name": "Closed",
+      "values": [
+        {
+          "id": "true",
+          "name": "Closed orders",
+          "results": 0
+        },
+        {
+          "id": "false",
+          "name": "Not closed orders",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "channel",
+      "name": "Channel",
+      "values": [
+        {
+          "id": "meli",
+          "name": "Meli orders",
+          "results": 0
+        },
+        {
+          "id": "mshops",
+          "name": "Mshops orders",
+          "results": 6
+        }
+      ]
+    },
+    {
+      "id": "buyer_feedback",
+      "name": "Buyer feedback",
+      "values": [
+        {
+          "id": "true",
+          "name": "Buyer feedback completed",
+          "results": 0
+        },
+        {
+          "id": "false",
+          "name": "Buyer feedback not completed",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "seller_feedback",
+      "name": "Seller feedback",
+      "values": [
+        {
+          "id": "true",
+          "name": "Seller feedback completed",
+          "results": 0
+        },
+        {
+          "id": "false",
+          "name": "Seller feedback not completed",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "feedback",
+      "name": "Feedback (buyer + seller)",
+      "values": [
+        {
+          "id": "true",
+          "name": "Seller and buyer feedback completed",
+          "results": 0
+        },
+        {
+          "id": "false",
+          "name": "Seller and buyer feedback not completed",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "shipping",
+      "name": "Shipping status",
+      "values": [
+        {
+          "id": "pending",
+          "name": "Pending",
+          "results": 1
+        },
+        {
+          "id": "pickup",
+          "name": "Pickup",
+          "results": 0
+        },
+        {
+          "id": "on_route",
+          "name": "On route",
+          "results": 0
+        },
+        {
+          "id": "print_tag",
+          "name": "Print tag",
+          "results": 0
+        },
+        {
+          "id": "to_be_agreed",
+          "name": "To be agreed",
+          "results": 5
+        },
+        {
+          "id": "in_progress",
+          "name": "In progress",
+          "results": 0
+        },
+        {
+          "id": "delivered",
+          "name": "In progress",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "pending_process",
+      "name": "Not processed orders",
+      "values": [
+        {
+          "id": "pending_process",
+          "name": "Not processed orders",
+          "results": 6
+        }
+      ]
+    },
+    {
+      "id": "pending_shipment",
+      "name": "Not shipped orders",
+      "values": [
+        {
+          "id": "pending_shipment",
+          "name": "Not shipped orders",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "pending_feedback",
+      "name": "Pending feedback orders",
+      "values": [
+        {
+          "id": "pending_feedback",
+          "name": "Pending feedback orders",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "closed_orders",
+      "name": "Closed orders",
+      "values": [
+        {
+          "id": "closed_orders",
+          "name": "Closed orders",
+          "results": 0
+        }
+      ]
+    }
+  ]
+}
+      "name": "Not processed orders",
+      "values": [
+        {
+          "id": "pending_process",
+          "name": "Not processed orders",
+          "results": 6
+        }
+      ]
+    },
+    {
+      "id": "pending_shipment",
+      "name": "Not shipped orders",
+      "values": [
+        {
+          "id": "pending_shipment",
+          "name": "Not shipped orders",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "pending_feedback",
+      "name": "Pending feedback orders",
+      "values": [
+        {
+          "id": "pending_feedback",
+          "name": "Pending feedback orders",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "closed_orders",
+      "name": "Closed orders",
+      "values": [
+        {
+          "id": "closed_orders",
+          "name": "Closed orders",
+          "results": 0
+        }
+      ]
+    }
+  ]
+}

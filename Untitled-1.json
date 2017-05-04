@@ -1,0 +1,3480 @@
+{
+  "paging": {
+    "total": 23,
+    "limit": 30,
+    "offset": 0{
+  "seller_id": 254307406,
+  "query": null,
+  "paging": {
+    "total": 6,
+    "offset": 0,
+    "limit": 50
+  },
+  "results": [
+    {
+      "id": 290574007,
+      "store_id": 254307406,
+      "channel": "mshops",
+      "external_reference": 6,
+      "currency": "ARS",
+      "amount": 684,
+      "products_total": 684,
+      "products_discounts_total": 0,
+      "products_grand_total": 684,
+      "discounts_total": 0,
+      "shipping_total": 0,
+      "grand_total": 684,
+      "creation_date": "2017-05-04T08:59:25.000-04:00",
+      "buyer_message": "dsadadasdas",
+      "status": {
+        "delivered": false,
+        "paid": true,
+        "closed": false,
+        "closed_reason": null,
+        "closed_date": null,
+        "processed": false,
+        "processed_date": null,
+        "contact_data_status": "new",
+        "order_status": null
+      },
+      "buyer": {
+        "id": 195809197,
+        "meli_cust_id": null,
+        "name": "jose",
+        "nickname": null,
+        "client_id": 618990801,
+        "mail": "ajesteves@gmail.com",
+        "mail2": null,
+        "phone": null,
+        "phone2": null,
+        "doc_number": null,
+        "doc_type": "DNI"
+      },
+      "payments": [
+        {
+          "id": 304816591,
+          "external_reference": 6,
+          "status": "approved",
+          "provider": "mercadopago",
+          "method": "master",
+          "currency": "ARS",
+          "amount": 684,
+          "paid": true,
+          "paid_date": "2017-05-04T08:59:35.000-04:00",
+          "provider_id": "2711659578",
+          "installments": null,
+          "fees": {
+            "finance_fee": null
+          }
+        }
+      ],
+      "shippings": [],
+      "invoice": {
+        "invoiced": false,
+        "type": null,
+        "number": null,
+        "invoiced_date": null
+      },
+      "products": [
+        {
+          "id": 195403879,
+          "channel": "mshops",
+          "external_reference": "192850919",
+          "sku": null,
+          "title": "Item De Prueba  - Antivirus Extra - No Ofertar",
+          "currency": "ARS",
+          "quantity": 2,
+          "unit_price": 342,
+          "amount": 684,
+          "free_shipping": false,
+          "variation_id": null,
+          "variations": [],
+          "promotion": null
+        }
+      ],
+      "notes": [],
+      "feedback": {
+        "buyer": null,
+        "seller": null
+      },
+      "promotions": [],
+      "free_shipping": false,
+      "total_last_updated": "2017-05-04T08:59:40.000-04:00"
+    },
+    {
+      "id": 290562068,
+      "store_id": 254307406,
+      "channel": "mshops",
+      "external_reference": 5,
+      "currency": "ARS",
+      "amount": 342,
+      "products_total": 342,
+      "products_discounts_total": 0,
+      "products_grand_total": 342,
+      "discounts_total": 0,
+      "shipping_total": 0,
+      "grand_total": 342,
+      "creation_date": "2017-05-04T08:42:36.000-04:00",
+      "buyer_message": "asdasd",
+      "status": {
+        "delivered": false,
+        "paid": true,
+        "closed": false,
+        "closed_reason": null,
+        "closed_date": null,
+        "processed": false,
+        "processed_date": null,
+        "contact_data_status": "new",
+        "order_status": null
+      },
+      "buyer": {
+        "id": 195797266,
+        "meli_cust_id": null,
+        "name": "jose",
+        "nickname": null,
+        "client_id": 618990801,
+        "mail": "ajesteves@gmail.com",
+        "mail2": null,
+        "phone": null,
+        "phone2": null,
+        "doc_number": null,
+        "doc_type": "DNI"
+      },
+      "payments": [
+        {
+          "id": 304793598,
+          "external_reference": 5,
+          "status": "approved",
+          "provider": "mercadopago",
+          "method": "master",
+          "currency": "ARS",
+          "amount": 342,
+          "paid": true,
+          "paid_date": "2017-05-04T08:42:56.000-04:00",
+          "provider_id": "2711649125",
+          "installments": null,
+          "fees": {
+            "finance_fee": null
+          }
+        }
+      ],
+      "shippings": [],
+      "invoice": {
+        "invoiced": false,
+        "type": null,
+        "number": null,
+        "invoiced_date": null
+      },
+      "products": [
+        {
+          "id": 195391921,
+          "channel": "mshops",
+          "external_reference": "192850919",
+          "sku": null,
+          "title": "Item De Prueba  - Antivirus Extra - No Ofertar",
+          "currency": "ARS",
+          "quantity": 1,
+          "unit_price": 342,
+          "amount": 342,
+          "free_shipping": false,
+          "variation_id": null,
+          "variations": [],
+          "promotion": null
+        }
+      ],
+      "notes": [],
+      "feedback": {
+        "buyer": null,
+        "seller": null
+      },
+      "promotions": [],
+      "free_shipping": false,
+      "total_last_updated": "2017-05-04T08:43:01.000-04:00"
+    },
+    {
+      "id": 290405911,
+      "store_id": 254307406,
+      "channel": "mshops",
+      "external_reference": 4,
+      "currency": "ARS",
+      "amount": 342,
+      "products_total": 342,
+      "products_discounts_total": 0,
+      "products_grand_total": 342,
+      "discounts_total": 0,
+      "shipping_total": 0,
+      "grand_total": 342,
+      "creation_date": "2017-05-03T13:04:35.000-04:00",
+      "buyer_message": "dsadasd",
+      "status": {
+        "delivered": false,
+        "paid": true,
+        "closed": false,
+        "closed_reason": null,
+        "closed_date": null,
+        "processed": false,
+        "processed_date": null,
+        "contact_data_status": "new",
+        "order_status": null
+      },
+      "buyer": {
+        "id": 195641290,
+        "meli_cust_id": null,
+        "name": "jose",
+        "nickname": null,
+        "client_id": 618990801,
+        "mail": "ajesteves@gmail.com",
+        "mail2": null,
+        "phone": null,
+        "phone2": null,
+        "doc_number": null,
+        "doc_type": "DNI"
+      },
+      "payments": [
+        {
+          "id": 304506878,
+          "external_reference": 4,
+          "status": "approved",
+          "provider": "mercadopago",
+          "method": "nativa",
+          "currency": "ARS",
+          "amount": 342,
+          "paid": true,
+          "paid_date": "2017-05-03T13:04:44.000-04:00",
+          "provider_id": "2710441688",
+          "installments": null,
+          "fees": {
+            "finance_fee": null
+          }
+        }
+      ],
+      "shippings": [],
+      "invoice": {
+        "invoiced": false,
+        "type": null,
+        "number": null,
+        "invoiced_date": null
+      },
+      "products": [
+        {
+          "id": 195234694,
+          "channel": "mshops",
+          "external_reference": "192850919",
+          "sku": null,
+          "title": "Item De Prueba  - Antivirus Extra - No Ofertar",
+          "currency": "ARS",
+          "quantity": 1,
+          "unit_price": 342,
+          "amount": 342,
+          "free_shipping": false,
+          "variation_id": null,
+          "variations": [],
+          "promotion": null
+        }
+      ],
+      "notes": [],
+      "feedback": {
+        "buyer": null,
+        "seller": null
+      },
+      "promotions": [],
+      "free_shipping": false,
+      "total_last_updated": "2017-05-03T16:27:12.000-04:00"
+    },
+    {
+      "id": 290405533,
+      "store_id": 254307406,
+      "channel": "mshops",
+      "external_reference": 3,
+      "currency": "ARS",
+      "amount": 250,
+      "products_total": 250,
+      "products_discounts_total": 0,
+      "products_grand_total": 250,
+      "discounts_total": 0,
+      "shipping_total": 0,
+      "grand_total": 250,
+      "creation_date": "2017-05-03T12:56:55.000-04:00",
+      "buyer_message": "asdasd",
+      "status": {
+        "delivered": false,
+        "paid": true,
+        "closed": false,
+        "closed_reason": null,
+        "closed_date": null,
+        "processed": false,
+        "processed_date": null,
+        "contact_data_status": "new",
+        "order_status": null
+      },
+      "buyer": {
+        "id": 195640912,
+        "meli_cust_id": null,
+        "name": "jose",
+        "nickname": null,
+        "client_id": 618990801,
+        "mail": "ajesteves@gmail.com",
+        "mail2": null,
+        "phone": null,
+        "phone2": null,
+        "doc_number": null,
+        "doc_type": "DNI"
+      },
+      "payments": [
+        {
+          "id": 304506199,
+          "external_reference": 3,
+          "status": "approved",
+          "provider": "mercadopago",
+          "method": "nativa",
+          "currency": "ARS",
+          "amount": 250,
+          "paid": true,
+          "paid_date": "2017-05-03T12:57:21.000-04:00",
+          "provider_id": "2710435063",
+          "installments": null,
+          "fees": {
+            "finance_fee": null
+          }
+        }
+      ],
+      "shippings": [
+        {
+          "id": 127870467,
+          "external_reference": 1,
+          "ship_type": "N",
+          "channel_status": "pending",
+          "status": "pending",
+          "receiver": {
+            "doc_type": null,
+            "doc_number": null,
+            "name": "Jose",
+            "email": "ajesteves@gmail.com",
+            "phone": null,
+            "address": "adsd 123",
+            "zip": "1661",
+            "neighbourhood": null,
+            "municipality": null,
+            "city": "bs as",
+            "state_id": "AR-B",
+            "country_id": "AR"
+          },
+          "additional_info": "chubut 123",
+          "method_id": null,
+          "method": "A convenir",
+          "currency": "ARS",
+          "amount": 0,
+          "tracking_code": null,
+          "observations": "asdasd",
+          "date_created": "2017-05-03T16:26:22.000-04:00"
+        }
+      ],
+      "invoice": {
+        "invoiced": false,
+        "type": null,
+        "number": null,
+        "invoiced_date": null
+      },
+      "products": [
+        {
+          "id": 195234316,
+          "channel": "mshops",
+          "external_reference": "193329834",
+          "sku": null,
+          "title": "item - mercadoShops",
+          "currency": "ARS",
+          "quantity": 1,
+          "unit_price": 250,
+          "amount": 250,
+          "free_shipping": false,
+          "variation_id": null,
+          "variations": [],
+          "promotion": null
+        }
+      ],
+      "notes": [],
+      "feedback": {
+        "buyer": null,
+        "seller": null
+      },
+      "promotions": [],
+      "free_shipping": false,
+      "total_last_updated": "2017-05-03T16:26:22.000-04:00"
+    },
+    {
+      "id": 290408888,
+      "store_id": 254307406,
+      "channel": "mshops",
+      "external_reference": 2,
+      "currency": "ARS",
+      "amount": 500,
+      "products_total": 500,
+      "products_discounts_total": 0,
+      "products_grand_total": 500,
+      "discounts_total": 0,
+      "shipping_total": 0,
+      "grand_total": 500,
+      "creation_date": "2017-05-03T12:49:58.000-04:00",
+      "buyer_message": "comentario",
+      "status": {
+        "delivered": false,
+        "paid": true,
+        "closed": false,
+        "closed_reason": null,
+        "closed_date": null,
+        "processed": false,
+        "processed_date": null,
+        "contact_data_status": "new",
+        "order_status": null
+      },
+      "buyer": {
+        "id": 195644264,
+        "meli_cust_id": null,
+        "name": "jose",
+        "nickname": null,
+        "client_id": 618990801,
+        "mail": "ajesteves@gmail.com",
+        "mail2": null,
+        "phone": null,
+        "phone2": null,
+        "doc_number": null,
+        "doc_type": "DNI"
+      },
+      "payments": [
+        {
+          "id": 304512686,
+          "external_reference": 2,
+          "status": "approved",
+          "provider": "mercadopago",
+          "method": "nativa",
+          "currency": "ARS",
+          "amount": 500,
+          "paid": true,
+          "paid_date": "2017-05-03T12:50:09.000-04:00",
+          "provider_id": "2710186173",
+          "installments": null,
+          "fees": {
+            "finance_fee": null
+          }
+        }
+      ],
+      "shippings": [],
+      "invoice": {
+        "invoiced": false,
+        "type": null,
+        "number": null,
+        "invoiced_date": null
+      },
+      "products": [
+        {
+          "id": 195237700,
+          "channel": "mshops",
+          "external_reference": "192850205",
+          "sku": null,
+          "title": "Item De Prueba - Antivirus Avg - No Ofertar",
+          "currency": "ARS",
+          "quantity": 1,
+          "unit_price": 500,
+          "amount": 500,
+          "free_shipping": false,
+          "variation_id": null,
+          "variations": [],
+          "promotion": null
+        }
+      ],
+      "notes": [],
+      "feedback": {
+        "buyer": null,
+        "seller": null
+      },
+      "promotions": [],
+      "free_shipping": false,
+      "total_last_updated": "2017-05-03T16:31:10.000-04:00"
+    },
+    {
+      "id": 290403658,
+      "store_id": 254307406,
+      "channel": "mshops",
+      "external_reference": 1,
+      "currency": "ARS",
+      "amount": 800,
+      "products_total": 800,
+      "products_discounts_total": 0,
+      "products_grand_total": 800,
+      "discounts_total": 0,
+      "shipping_total": 0,
+      "grand_total": 800,
+      "creation_date": "2017-05-03T12:43:00.000-04:00",
+      "buyer_message": "comentario agregado por js",
+      "status": {
+        "delivered": false,
+        "paid": true,
+        "closed": false,
+        "closed_reason": null,
+        "closed_date": null,
+        "processed": false,
+        "processed_date": null,
+        "contact_data_status": "new",
+        "order_status": null
+      },
+      "buyer": {
+        "id": 195639038,
+        "meli_cust_id": null,
+        "name": "jose",
+        "nickname": null,
+        "client_id": 618990801,
+        "mail": "ajesteves@gmail.com",
+        "mail2": null,
+        "phone": null,
+        "phone2": null,
+        "doc_number": null,
+        "doc_type": "DNI"
+      },
+      "payments": [
+        {
+          "id": 304502593,
+          "external_reference": 1,
+          "status": "approved",
+          "provider": "mercadopago",
+          "method": "nativa",
+          "currency": "ARS",
+          "amount": 800,
+          "paid": true,
+          "paid_date": "2017-05-03T12:43:25.000-04:00",
+          "provider_id": "2710181105",
+          "installments": null,
+          "fees": {
+            "finance_fee": null
+          }
+        }
+      ],
+      "shippings": [],
+      "invoice": {
+        "invoiced": false,
+        "type": null,
+        "number": null,
+        "invoiced_date": null
+      },
+      "products": [
+        {
+          "id": 195232415,
+          "channel": "mshops",
+          "external_reference": "192850882",
+          "sku": null,
+          "title": "Item De Prueba - Mcafee No Ofertar",
+          "currency": "ARS",
+          "quantity": 1,
+          "unit_price": 800,
+          "amount": 800,
+          "free_shipping": false,
+          "variation_id": null,
+          "variations": [],
+          "promotion": null
+        }
+      ],
+      "notes": [],
+      "feedback": {
+        "buyer": null,
+        "seller": null
+      },
+      "promotions": [],
+      "free_shipping": false,
+      "total_last_updated": "2017-05-03T16:24:16.000-04:00"
+    }
+  ],
+  "orders": [
+    {
+      "id": "creation_date_desc",
+      "name": "Order by creation date descending"
+    }
+  ],
+  "filters": [
+    {
+      "id": "paid",
+      "name": "Paid",
+      "values": [
+        {
+          "id": "true",
+          "name": "Paid orders",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "delivered",
+      "name": "Delivered",
+      "values": [
+        {
+          "id": "false",
+          "name": "Not delivered orders",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "channel",
+      "name": "Channel",
+      "values": [
+        {
+          "id": "mshops",
+          "name": "Mshops orders",
+          "results": 6
+        }
+      ]
+    }
+  ],
+  "available_orders": [
+    {
+      "id": "creation_date_asc",
+      "name": "Order by creation date ascending"
+    },
+    {
+      "id": "creation_date_desc",
+      "name": "Order by creation date descending"
+    },
+    {
+      "id": "client_id_asc",
+      "name": "Order by client id ascending"
+    },
+    {
+      "id": "client_id_desc",
+      "name": "Order by client id descending"
+    },
+    {
+      "id": "name_asc",
+      "name": "Order by client name ascending"
+    },
+    {
+      "id": "name_desc",
+      "name": "Order by client name ascending"
+    },
+    {
+      "id": "total_last_updated_asc",
+      "name": "Order by total last updated ascending"
+    },
+    {
+      "id": "total_last_updated_desc",
+      "name": "Order by total last updated descending"
+    }
+  ],
+  "available_filters": [
+    {
+      "id": "status",
+      "name": "Status",
+      "values": [
+        {
+          "id": "new",
+          "name": "New orders",
+          "results": 0
+        },
+        {
+          "id": "first_contact",
+          "name": "Orders with first contact made",
+          "results": 0
+        },
+        {
+          "id": "confirmed_data",
+          "name": "Orders with confirmed data",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "processed",
+      "name": "Processed",
+      "values": [
+        {
+          "id": "true",
+          "name": "Processed orders",
+          "results": 0
+        },
+        {
+          "id": "false",
+          "name": "Not processed orders",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "paid",
+      "name": "Paid",
+      "values": [
+        {
+          "id": "true",
+          "name": "Paid orders",
+          "results": 0
+        },
+        {
+          "id": "false",
+          "name": "Not paid orders",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "delivered",
+      "name": "Delivered",
+      "values": [
+        {
+          "id": "true",
+          "name": "Delivered orders",
+          "results": 0
+        },
+        {
+          "id": "false",
+          "name": "Not delivered orders",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "closed",
+      "name": "Closed",
+      "values": [
+        {
+          "id": "true",
+          "name": "Closed orders",
+          "results": 0
+        },
+        {
+          "id": "false",
+          "name": "Not closed orders",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "channel",
+      "name": "Channel",
+      "values": [
+        {
+          "id": "meli",
+          "name": "Meli orders",
+          "results": 0
+        },
+        {
+          "id": "mshops",
+          "name": "Mshops orders",
+          "results": 6
+        }
+      ]
+    },
+    {
+      "id": "buyer_feedback",
+      "name": "Buyer feedback",
+      "values": [
+        {
+          "id": "true",
+          "name": "Buyer feedback completed",
+          "results": 0
+        },
+        {
+          "id": "false",
+          "name": "Buyer feedback not completed",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "seller_feedback",
+      "name": "Seller feedback",
+      "values": [
+        {
+          "id": "true",
+          "name": "Seller feedback completed",
+          "results": 0
+        },
+        {
+          "id": "false",
+          "name": "Seller feedback not completed",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "feedback",
+      "name": "Feedback (buyer + seller)",
+      "values": [
+        {
+          "id": "true",
+          "name": "Seller and buyer feedback completed",
+          "results": 0
+        },
+        {
+          "id": "false",
+          "name": "Seller and buyer feedback not completed",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "shipping",
+      "name": "Shipping status",
+      "values": [
+        {
+          "id": "pending",
+          "name": "Pending",
+          "results": 1
+        },
+        {
+          "id": "pickup",
+          "name": "Pickup",
+          "results": 0
+        },
+        {
+          "id": "on_route",
+          "name": "On route",
+          "results": 0
+        },
+        {
+          "id": "print_tag",
+          "name": "Print tag",
+          "results": 0
+        },
+        {
+          "id": "to_be_agreed",
+          "name": "To be agreed",
+          "results": 5
+        },
+        {
+          "id": "in_progress",
+          "name": "In progress",
+          "results": 0
+        },
+        {
+          "id": "delivered",
+          "name": "In progress",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "pending_process",
+      "name": "Not processed orders",
+      "values": [
+        {
+          "id": "pending_process",
+          "name": "Not processed orders",
+          "results": 6
+        }
+      ]
+    },
+    {
+      "id": "pending_shipment",
+      "name": "Not shipped orders",
+      "values": [
+        {
+          "id": "pending_shipment",
+          "name": "Not shipped orders",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "pending_feedback",
+      "name": "Pending feedback orders",
+      "values": [
+        {
+          "id": "pending_feedback",
+          "name": "Pending feedback orders",
+          "results": 0
+        }
+      ]
+    },
+    {
+      "id": "closed_orders",
+      "name": "Closed orders",
+      "values": [
+        {
+          "id": "closed_orders",
+          "name": "Closed orders",
+          "results": 0
+        }
+      ]
+    }
+  ]
+}
+  },
+  "results": [
+    {
+      "id": 2701199691,
+      "date_created": "2017-04-27T10:07:05.000-04:00",
+      "date_approved": null,
+      "date_last_updated": "2017-04-27T10:31:59.000-04:00",
+      "money_release_date": null,
+      "collector": {
+        "id": 254307406,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_64413892@testuser.com",
+        "nickname": "TETE4597230",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test"
+      },
+      "operation_type": "regular_payment",
+      "issuer_id": null,
+      "payment_method_id": "rapipago",
+      "payment_type_id": "ticket",
+      "status": "cancelled",
+      "status_detail": "by_payer",
+      "currency_id": "ARS",
+      "description": "Antivirus Avg",
+      "live_mode": true,
+      "payer": {
+        "id": 254309093
+      },
+      "order": {
+        "id": "1361943058",
+        "type": "mercadolibre"
+      },
+      "external_reference": "1361943058",
+      "transaction_amount": 500,
+      "transaction_amount_refunded": 0,
+      "coupon_amount": 0,
+      "shipping_cost": 0,
+      "differential_pricing_id": null,
+      "transaction_details": {
+        "net_received_amount": 500,
+        "total_paid_amount": 500,
+        "overpaid_amount": 0,
+        "external_resource_url": "https://www.mercadopago.com/mla/payments/ticket/helper?payment_id=2701199691&payment_method_reference_id=2312519189&caller_id=254309093",
+        "installment_amount": 500,
+        "financial_institution": null,
+        "financial_institution_description": null,
+        "payment_method_reference_id": "2312519189"
+      },
+      "captured": true,
+      "binary_mode": false,
+      "call_for_authorize_id": null,
+      "card": {},
+      "statement_descriptor": null,
+      "installments": null,
+      "notification_url": null,
+      "refunds": [],
+      "application_id": "2568868276694852",
+      "additional_info": {
+        "items": [],
+        "payer": {
+          "first_name": null,
+          "phone": {
+            "area_code": null,
+            "number": null
+          },
+          "address": {
+            "zip_code": null,
+            "street_name": null,
+            "street_number": null
+          },
+          "last_name": null,
+          "registration_date": null
+        },
+        "shipments": {
+          "receiver_address": {
+            "zip_code": null,
+            "floor": null,
+            "street_name": null,
+            "apartment": null
+          }
+        }
+      },
+      "metadata": {},
+      "fee_details": []
+    },
+    {
+      "id": 2701538298,
+      "date_created": "2017-04-27T15:30:35.000-04:00",
+      "date_approved": "2017-04-27T15:30:34.000-04:00",
+      "date_last_updated": "2017-04-27T15:30:34.000-04:00",
+      "money_release_date": "2017-05-18T15:30:34.000-04:00",
+      "collector": {
+        "id": 254307406,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_64413892@testuser.com",
+        "nickname": "TETE4597230",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test"
+      },
+      "operation_type": "regular_payment",
+      "issuer_id": 2,
+      "payment_method_id": "amex",
+      "payment_type_id": "credit_card",
+      "status": "approved",
+      "status_detail": "accredited",
+      "currency_id": "ARS",
+      "description": "Item De Prueba  - Antivirus Extra - No Ofertar",
+      "live_mode": true,
+      "payer": {
+        "id": 254309093,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_30225296@testuser.com",
+        "nickname": "TT874425",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test",
+        "type": "registered"
+      },
+      "order": {
+        "id": "1362195652",
+        "type": "mercadolibre"
+      },
+      "external_reference": "1362195652",
+      "transaction_amount": 342,
+      "transaction_amount_refunded": 0,
+      "coupon_amount": 0,
+      "shipping_cost": 0,
+      "differential_pricing_id": null,
+      "transaction_details": {
+        "net_received_amount": 342,
+        "total_paid_amount": 342,
+        "overpaid_amount": 0,
+        "external_resource_url": null,
+        "installment_amount": 342,
+        "financial_institution": null,
+        "financial_institution_description": null,
+        "payment_method_reference_id": null
+      },
+      "captured": true,
+      "binary_mode": false,
+      "call_for_authorize_id": null,
+      "card": {},
+      "statement_descriptor": "MERCADOPAGO",
+      "installments": 1,
+      "notification_url": null,
+      "refunds": [],
+      "application_id": "2568868276694852",
+      "additional_info": {
+        "items": [],
+        "payer": {
+          "first_name": null,
+          "phone": {
+            "area_code": null,
+            "number": null
+          },
+          "address": {
+            "zip_code": null,
+            "street_name": null,
+            "street_number": null
+          },
+          "last_name": null,
+          "registration_date": null
+        },
+        "shipments": {
+          "receiver_address": {
+            "zip_code": null,
+            "floor": null,
+            "street_name": null,
+            "apartment": null
+          }
+        }
+      },
+      "metadata": {},
+      "fee_details": []
+    },
+    {
+      "id": 2700799985,
+      "date_created": "2017-04-27T10:17:02.000-04:00",
+      "date_approved": null,
+      "date_last_updated": "2017-04-27T10:17:02.000-04:00",
+      "money_release_date": null,
+      "collector": {
+        "id": 254307406,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_64413892@testuser.com",
+        "nickname": "TETE4597230",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test"
+      },
+      "operation_type": "regular_payment",
+      "issuer_id": 2,
+      "payment_method_id": "amex",
+      "payment_type_id": "credit_card",
+      "status": "rejected",
+      "status_detail": "cc_rejected_high_risk",
+      "currency_id": "ARS",
+      "description": "Item De Prueba - Mcafee No Ofertar",
+      "live_mode": true,
+      "payer": {
+        "id": 254309093
+      },
+      "order": {
+        "id": "1361951845",
+        "type": "mercadolibre"
+      },
+      "external_reference": "1361951845",
+      "transaction_amount": 800,
+      "transaction_amount_refunded": 0,
+      "coupon_amount": 0,
+      "shipping_cost": 0,
+      "differential_pricing_id": null,
+      "transaction_details": {
+        "net_received_amount": 800,
+        "total_paid_amount": 800,
+        "overpaid_amount": 0,
+        "external_resource_url": null,
+        "installment_amount": 800,
+        "financial_institution": null,
+        "financial_institution_description": null,
+        "payment_method_reference_id": null
+      },
+      "captured": true,
+      "binary_mode": false,
+      "call_for_authorize_id": null,
+      "card": {},
+      "statement_descriptor": "MERCADOPAGO",
+      "installments": 1,
+      "notification_url": null,
+      "refunds": [],
+      "application_id": "2568868276694852",
+      "additional_info": {
+        "items": [],
+        "payer": {
+          "first_name": null,
+          "phone": {
+            "area_code": null,
+            "number": null
+          },
+          "address": {
+            "zip_code": null,
+            "street_name": null,
+            "street_number": null
+          },
+          "last_name": null,
+          "registration_date": null
+        },
+        "shipments": {
+          "receiver_address": {
+            "zip_code": null,
+            "floor": null,
+            "street_name": null,
+            "apartment": null
+          }
+        }
+      },
+      "metadata": {},
+      "fee_details": []
+    },
+    {
+      "id": 2701219898,
+      "date_created": "2017-04-27T10:33:21.000-04:00",
+      "date_approved": null,
+      "date_last_updated": "2017-04-27T10:33:21.000-04:00",
+      "money_release_date": null,
+      "collector": {
+        "id": 254307406,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_64413892@testuser.com",
+        "nickname": "TETE4597230",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test"
+      },
+      "operation_type": "regular_payment",
+      "issuer_id": 2,
+      "payment_method_id": "amex",
+      "payment_type_id": "credit_card",
+      "status": "rejected",
+      "status_detail": "cc_rejected_high_risk",
+      "currency_id": "ARS",
+      "description": "Item De Prueba - Antivirus Avg - No Ofertar",
+      "live_mode": true,
+      "payer": {
+        "id": 254309093
+      },
+      "order": {
+        "id": "1361965107",
+        "type": "mercadolibre"
+      },
+      "external_reference": "1361965107",
+      "transaction_amount": 500,
+      "transaction_amount_refunded": 0,
+      "coupon_amount": 0,
+      "shipping_cost": 0,
+      "differential_pricing_id": null,
+      "transaction_details": {
+        "net_received_amount": 500,
+        "total_paid_amount": 500,
+        "overpaid_amount": 0,
+        "external_resource_url": null,
+        "installment_amount": 500,
+        "financial_institution": null,
+        "financial_institution_description": null,
+        "payment_method_reference_id": null
+      },
+      "captured": true,
+      "binary_mode": false,
+      "call_for_authorize_id": null,
+      "card": {},
+      "statement_descriptor": "MERCADOPAGO",
+      "installments": 1,
+      "notification_url": null,
+      "refunds": [],
+      "application_id": "2568868276694852",
+      "additional_info": {
+        "items": [],
+        "payer": {
+          "first_name": null,
+          "phone": {
+            "area_code": null,
+            "number": null
+          },
+          "address": {
+            "zip_code": null,
+            "street_name": null,
+            "street_number": null
+          },
+          "last_name": null,
+          "registration_date": null
+        },
+        "shipments": {
+          "receiver_address": {
+            "zip_code": null,
+            "floor": null,
+            "street_name": null,
+            "apartment": null
+          }
+        }
+      },
+      "metadata": {},
+      "fee_details": []
+    },
+    {
+      "id": 2711647338,
+      "date_created": "2017-05-04T08:40:26.000-04:00",
+      "date_approved": "2017-05-04T08:40:25.000-04:00",
+      "date_last_updated": "2017-05-04T08:40:25.000-04:00",
+      "money_release_date": "2017-05-25T08:40:25.000-04:00",
+      "collector": {
+        "id": 254307406,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_64413892@testuser.com",
+        "nickname": "TETE4597230",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test"
+      },
+      "operation_type": "regular_payment",
+      "issuer_id": 1007,
+      "payment_method_id": "nativa",
+      "payment_type_id": "credit_card",
+      "status": "approved",
+      "status_detail": "accredited",
+      "currency_id": "ARS",
+      "description": "Item De Prueba - Mcafee No Ofertar",
+      "live_mode": true,
+      "payer": {
+        "id": 254309093,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_30225296@testuser.com",
+        "nickname": "TT874425",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test",
+        "type": "registered"
+      },
+      "order": {
+        "id": "1366175981",
+        "type": "mercadolibre"
+      },
+      "external_reference": "1366175981",
+      "transaction_amount": 800,
+      "transaction_amount_refunded": 0,
+      "coupon_amount": 0,
+      "shipping_cost": 0,
+      "differential_pricing_id": null,
+      "transaction_details": {
+        "net_received_amount": 712,
+        "total_paid_amount": 800,
+        "overpaid_amount": 0,
+        "external_resource_url": null,
+        "installment_amount": 800,
+        "financial_institution": null,
+        "financial_institution_description": null,
+        "payment_method_reference_id": null
+      },
+      "captured": true,
+      "binary_mode": false,
+      "call_for_authorize_id": null,
+      "card": {
+        "id": 207580778,
+        "first_six_digits": "546553",
+        "expiration_month": 1,
+        "cardholder": {
+          "identification": {
+            "number": "11111111",
+            "type": "DNI"
+          },
+          "name": "APRO Test Test"
+        },
+        "expiration_year": 2020,
+        "date_created": "2017-04-27T15:23:21.000-04:00",
+        "date_last_updated": "2017-05-03T13:47:40.000-04:00",
+        "last_four_digits": "0176"
+      },
+      "statement_descriptor": "MERCADOPAGO",
+      "installments": 1,
+      "notification_url": null,
+      "refunds": [],
+      "application_id": "2568868276694852",
+      "additional_info": {
+        "items": [],
+        "payer": {
+          "first_name": null,
+          "phone": {
+            "area_code": null,
+            "number": null
+          },
+          "address": {
+            "zip_code": null,
+            "street_name": null,
+            "street_number": null
+          },
+          "last_name": null,
+          "registration_date": null
+        },
+        "shipments": {
+          "receiver_address": {
+            "zip_code": null,
+            "floor": null,
+            "street_name": null,
+            "apartment": null
+          }
+        }
+      },
+      "metadata": {},
+      "fee_details": [
+        {
+          "amount": 88,
+          "fee_payer": "collector",
+          "type": "application_fee"
+        }
+      ]
+    },
+    {
+      "id": 2710435063,
+      "date_created": "2017-05-03T12:57:21.000-04:00",
+      "date_approved": "2017-05-03T12:57:21.000-04:00",
+      "date_last_updated": "2017-05-03T12:57:21.000-04:00",
+      "money_release_date": "2017-05-24T12:57:21.000-04:00",
+      "collector": {
+        "id": 254307406,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_64413892@testuser.com",
+        "nickname": "TETE4597230",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test"
+      },
+      "operation_type": "regular_payment",
+      "issuer_id": 1007,
+      "payment_method_id": "nativa",
+      "payment_type_id": "credit_card",
+      "status": "approved",
+      "status_detail": "accredited",
+      "currency_id": "ARS",
+      "description": "MS-3 item - mercadoShops",
+      "live_mode": true,
+      "payer": {
+        "id": 254309093,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_30225296@testuser.com",
+        "nickname": "TT874425",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test",
+        "type": "registered"
+      },
+      "order": {
+        "id": 493272092,
+        "type": "mercadopago"
+      },
+      "external_reference": "3",
+      "transaction_amount": 250,
+      "transaction_amount_refunded": 0,
+      "coupon_amount": 0,
+      "shipping_cost": 0,
+      "differential_pricing_id": null,
+      "transaction_details": {
+        "net_received_amount": 236.22,
+        "total_paid_amount": 250,
+        "overpaid_amount": 0,
+        "external_resource_url": null,
+        "installment_amount": 250,
+        "financial_institution": null,
+        "financial_institution_description": null,
+        "payment_method_reference_id": null
+      },
+      "captured": true,
+      "binary_mode": false,
+      "call_for_authorize_id": null,
+      "card": {
+        "id": 207580778,
+        "first_six_digits": "546553",
+        "expiration_month": 1,
+        "cardholder": {
+          "identification": {
+            "number": "11111111",
+            "type": "DNI"
+          },
+          "name": "APRO Test Test"
+        },
+        "expiration_year": 2020,
+        "date_created": "2017-04-27T15:23:21.000-04:00",
+        "date_last_updated": "2017-05-03T12:50:45.000-04:00",
+        "last_four_digits": "0176"
+      },
+      "statement_descriptor": "MERCADOPAGO",
+      "installments": 1,
+      "notification_url": null,
+      "refunds": [],
+      "application_id": "7880631381565864",
+      "additional_info": {
+        "items": [],
+        "payer": {
+          "first_name": null,
+          "phone": {
+            "area_code": null,
+            "number": null
+          },
+          "address": {
+            "zip_code": null,
+            "street_name": null,
+            "street_number": null
+          },
+          "last_name": null,
+          "registration_date": null
+        },
+        "shipments": {
+          "receiver_address": {
+            "zip_code": null,
+            "floor": null,
+            "street_name": null,
+            "apartment": null
+          }
+        }
+      },
+      "metadata": {},
+      "fee_details": [
+        {
+          "amount": 13.78,
+          "fee_payer": "collector",
+          "type": "mercadopago_fee"
+        }
+      ]
+    },
+    {
+      "id": 2710441688,
+      "date_created": "2017-05-03T13:04:44.000-04:00",
+      "date_approved": "2017-05-03T13:04:44.000-04:00",
+      "date_last_updated": "2017-05-03T13:04:44.000-04:00",
+      "money_release_date": "2017-05-24T13:04:44.000-04:00",
+      "collector": {
+        "id": 254307406,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_64413892@testuser.com",
+        "nickname": "TETE4597230",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test"
+      },
+      "operation_type": "regular_payment",
+      "issuer_id": 1007,
+      "payment_method_id": "nativa",
+      "payment_type_id": "credit_card",
+      "status": "approved",
+      "status_detail": "accredited",
+      "currency_id": "ARS",
+      "description": "MS-4 Item De Prueba  - Antivirus Extra - No Ofertar",
+      "live_mode": true,
+      "payer": {
+        "id": 254309093,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_30225296@testuser.com",
+        "nickname": "TT874425",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test",
+        "type": "registered"
+      },
+      "order": {
+        "id": 493277076,
+        "type": "mercadopago"
+      },
+      "external_reference": "4",
+      "transaction_amount": 342,
+      "transaction_amount_refunded": 0,
+      "coupon_amount": 0,
+      "shipping_cost": 0,
+      "differential_pricing_id": null,
+      "transaction_details": {
+        "net_received_amount": 323.16,
+        "total_paid_amount": 342,
+        "overpaid_amount": 0,
+        "external_resource_url": null,
+        "installment_amount": 342,
+        "financial_institution": null,
+        "financial_institution_description": null,
+        "payment_method_reference_id": null
+      },
+      "captured": true,
+      "binary_mode": false,
+      "call_for_authorize_id": null,
+      "card": {
+        "id": 207580778,
+        "first_six_digits": "546553",
+        "expiration_month": 1,
+        "cardholder": {
+          "identification": {
+            "number": "11111111",
+            "type": "DNI"
+          },
+          "name": "APRO Test Test"
+        },
+        "expiration_year": 2020,
+        "date_created": "2017-04-27T15:23:21.000-04:00",
+        "date_last_updated": "2017-05-03T12:56:53.000-04:00",
+        "last_four_digits": "0176"
+      },
+      "statement_descriptor": "MERCADOPAGO",
+      "installments": 1,
+      "notification_url": null,
+      "refunds": [],
+      "application_id": "7880631381565864",
+      "additional_info": {
+        "items": [],
+        "payer": {
+          "first_name": null,
+          "phone": {
+            "area_code": null,
+            "number": null
+          },
+          "address": {
+            "zip_code": null,
+            "street_name": null,
+            "street_number": null
+          },
+          "last_name": null,
+          "registration_date": null
+        },
+        "shipments": {
+          "receiver_address": {
+            "zip_code": null,
+            "floor": null,
+            "street_name": null,
+            "apartment": null
+          }
+        }
+      },
+      "metadata": {},
+      "fee_details": [
+        {
+          "amount": 18.84,
+          "fee_payer": "collector",
+          "type": "mercadopago_fee"
+        }
+      ]
+    },
+    {
+      "id": 2711649125,
+      "date_created": "2017-05-04T08:42:56.000-04:00",
+      "date_approved": "2017-05-04T08:42:56.000-04:00",
+      "date_last_updated": "2017-05-04T08:42:56.000-04:00",
+      "money_release_date": "2017-05-25T08:42:56.000-04:00",
+      "collector": {
+        "id": 254307406,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_64413892@testuser.com",
+        "nickname": "TETE4597230",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test"
+      },
+      "operation_type": "regular_payment",
+      "issuer_id": 3,
+      "payment_method_id": "master",
+      "payment_type_id": "credit_card",
+      "status": "approved",
+      "status_detail": "accredited",
+      "currency_id": "ARS",
+      "description": "MS-5 Item De Prueba  - Antivirus Extra - No Ofertar",
+      "live_mode": true,
+      "payer": {
+        "id": 254309093,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_30225296@testuser.com",
+        "nickname": "TT874425",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test",
+        "type": "registered"
+      },
+      "order": {
+        "id": 493622874,
+        "type": "mercadopago"
+      },
+      "external_reference": "5",
+      "transaction_amount": 342,
+      "transaction_amount_refunded": 0,
+      "coupon_amount": 0,
+      "shipping_cost": 0,
+      "differential_pricing_id": null,
+      "transaction_details": {
+        "net_received_amount": 323.16,
+        "total_paid_amount": 342,
+        "overpaid_amount": 0,
+        "external_resource_url": null,
+        "installment_amount": 342,
+        "financial_institution": null,
+        "financial_institution_description": null,
+        "payment_method_reference_id": null
+      },
+      "captured": true,
+      "binary_mode": false,
+      "call_for_authorize_id": null,
+      "card": {
+        "id": 207574348,
+        "first_six_digits": "503175",
+        "expiration_month": 11,
+        "cardholder": {
+          "identification": {
+            "number": "11111111",
+            "type": "DNI"
+          },
+          "name": "APRO Test Test"
+        },
+        "expiration_year": 2020,
+        "date_created": "2017-04-27T15:25:43.000-04:00",
+        "date_last_updated": "2017-04-27T15:25:43.000-04:00",
+        "last_four_digits": "0604"
+      },
+      "statement_descriptor": "MERCADOPAGO",
+      "installments": 1,
+      "notification_url": null,
+      "refunds": [],
+      "application_id": "7880631381565864",
+      "additional_info": {
+        "items": [],
+        "payer": {
+          "first_name": null,
+          "phone": {
+            "area_code": null,
+            "number": null
+          },
+          "address": {
+            "zip_code": null,
+            "street_name": null,
+            "street_number": null
+          },
+          "last_name": null,
+          "registration_date": null
+        },
+        "shipments": {
+          "receiver_address": {
+            "zip_code": null,
+            "floor": null,
+            "street_name": null,
+            "apartment": null
+          }
+        }
+      },
+      "metadata": {},
+      "fee_details": [
+        {
+          "amount": 18.84,
+          "fee_payer": "collector",
+          "type": "mercadopago_fee"
+        }
+      ]
+    },
+    {
+      "id": 2701278594,
+      "date_created": "2017-04-27T11:51:10.000-04:00",
+      "date_approved": null,
+      "date_last_updated": "2017-04-27T15:22:49.000-04:00",
+      "money_release_date": null,
+      "collector": {
+        "id": 254307406,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_64413892@testuser.com",
+        "nickname": "TETE4597230",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test"
+      },
+      "operation_type": "regular_payment",
+      "issuer_id": 3,
+      "payment_method_id": "master",
+      "payment_type_id": "credit_card",
+      "status": "cancelled",
+      "status_detail": "by_payer",
+      "currency_id": "ARS",
+      "description": "Item De Prueba - Antivirus Avg - No Ofertar",
+      "live_mode": true,
+      "payer": {
+        "id": 254309093
+      },
+      "order": {
+        "id": "1362023217",
+        "type": "mercadolibre"
+      },
+      "external_reference": "1362023217",
+      "transaction_amount": 500,
+      "transaction_amount_refunded": 0,
+      "coupon_amount": 0,
+      "shipping_cost": 0,
+      "differential_pricing_id": null,
+      "transaction_details": {
+        "net_received_amount": 500,
+        "total_paid_amount": 500,
+        "overpaid_amount": 0,
+        "external_resource_url": null,
+        "installment_amount": 500,
+        "financial_institution": null,
+        "financial_institution_description": null,
+        "payment_method_reference_id": null
+      },
+      "captured": true,
+      "binary_mode": false,
+      "call_for_authorize_id": null,
+      "card": {},
+      "statement_descriptor": "MERCADOPAGO",
+      "installments": 1,
+      "notification_url": null,
+      "refunds": [],
+      "application_id": "2568868276694852",
+      "additional_info": {
+        "items": [],
+        "payer": {
+          "first_name": null,
+          "phone": {
+            "area_code": null,
+            "number": null
+          },
+          "address": {
+            "zip_code": null,
+            "street_name": null,
+            "street_number": null
+          },
+          "last_name": null,
+          "registration_date": null
+        },
+        "shipments": {
+          "receiver_address": {
+            "zip_code": null,
+            "floor": null,
+            "street_name": null,
+            "apartment": null
+          }
+        }
+      },
+      "metadata": {},
+      "fee_details": []
+    },
+    {
+      "id": 2709840195,
+      "date_created": "2017-05-03T12:35:57.000-04:00",
+      "date_approved": "2017-05-03T12:35:57.000-04:00",
+      "date_last_updated": "2017-05-03T12:35:57.000-04:00",
+      "money_release_date": "2017-05-24T12:35:57.000-04:00",
+      "collector": {
+        "id": 254307406,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_64413892@testuser.com",
+        "nickname": "TETE4597230",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test"
+      },
+      "operation_type": "regular_payment",
+      "issuer_id": 1007,
+      "payment_method_id": "nativa",
+      "payment_type_id": "credit_card",
+      "status": "approved",
+      "status_detail": "accredited",
+      "currency_id": "ARS",
+      "description": "Item De Prueba - Antivirus Panda - No Ofertar",
+      "live_mode": true,
+      "payer": {
+        "id": 254309093,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_30225296@testuser.com",
+        "nickname": "TT874425",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test",
+        "type": "registered"
+      },
+      "order": {
+        "id": "1365837714",
+        "type": "mercadolibre"
+      },
+      "external_reference": "1365837714",
+      "transaction_amount": 500,
+      "transaction_amount_refunded": 0,
+      "coupon_amount": 0,
+      "shipping_cost": 0,
+      "differential_pricing_id": null,
+      "transaction_details": {
+        "net_received_amount": 445,
+        "total_paid_amount": 500,
+        "overpaid_amount": 0,
+        "external_resource_url": null,
+        "installment_amount": 166.67,
+        "financial_institution": null,
+        "financial_institution_description": null,
+        "payment_method_reference_id": null
+      },
+      "captured": true,
+      "binary_mode": false,
+      "call_for_authorize_id": null,
+      "card": {
+        "id": 207580778,
+        "first_six_digits": "546553",
+        "expiration_month": 1,
+        "cardholder": {
+          "identification": {
+            "number": "11111111",
+            "type": "DNI"
+          },
+          "name": "APRO Test Test"
+        },
+        "expiration_year": 2020,
+        "date_created": "2017-04-27T15:23:21.000-04:00",
+        "date_last_updated": "2017-04-29T16:44:40.000-04:00",
+        "last_four_digits": "0176"
+      },
+      "statement_descriptor": "MERCADOPAGO",
+      "installments": 3,
+      "notification_url": null,
+      "refunds": [],
+      "application_id": "2568868276694852",
+      "additional_info": {
+        "items": [],
+        "payer": {
+          "first_name": null,
+          "phone": {
+            "area_code": null,
+            "number": null
+          },
+          "address": {
+            "zip_code": null,
+            "street_name": null,
+            "street_number": null
+          },
+          "last_name": null,
+          "registration_date": null
+        },
+        "shipments": {
+          "receiver_address": {
+            "zip_code": null,
+            "floor": null,
+            "street_name": null,
+            "apartment": null
+          }
+        }
+      },
+      "metadata": {},
+      "fee_details": [
+        {
+          "amount": 55,
+          "fee_payer": "collector",
+          "type": "application_fee"
+        }
+      ]
+    },
+    {
+      "id": 2701689275,
+      "date_created": "2017-04-27T15:25:12.000-04:00",
+      "date_approved": "2017-04-27T15:25:12.000-04:00",
+      "date_last_updated": "2017-04-27T15:25:12.000-04:00",
+      "money_release_date": "2017-05-18T15:25:12.000-04:00",
+      "collector": {
+        "id": 254307406,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_64413892@testuser.com",
+        "nickname": "TETE4597230",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test"
+      },
+      "operation_type": "regular_payment",
+      "issuer_id": 3,
+      "payment_method_id": "master",
+      "payment_type_id": "credit_card",
+      "status": "approved",
+      "status_detail": "accredited",
+      "currency_id": "ARS",
+      "description": "Item De Prueba - Mcafee No Ofertar",
+      "live_mode": true,
+      "payer": {
+        "id": 254309093,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_30225296@testuser.com",
+        "nickname": "TT874425",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test",
+        "type": "registered"
+      },
+      "order": {
+        "id": "1362194661",
+        "type": "mercadolibre"
+      },
+      "external_reference": "1362194661",
+      "transaction_amount": 800,
+      "transaction_amount_refunded": 0,
+      "coupon_amount": 0,
+      "shipping_cost": 0,
+      "differential_pricing_id": null,
+      "transaction_details": {
+        "net_received_amount": 800,
+        "total_paid_amount": 800,
+        "overpaid_amount": 0,
+        "external_resource_url": null,
+        "installment_amount": 800,
+        "financial_institution": null,
+        "financial_institution_description": null,
+        "payment_method_reference_id": null
+      },
+      "captured": true,
+      "binary_mode": false,
+      "call_for_authorize_id": null,
+      "card": {},
+      "statement_descriptor": "MERCADOPAGO",
+      "installments": 1,
+      "notification_url": null,
+      "refunds": [],
+      "application_id": "2568868276694852",
+      "additional_info": {
+        "items": [],
+        "payer": {
+          "first_name": null,
+          "phone": {
+            "area_code": null,
+            "number": null
+          },
+          "address": {
+            "zip_code": null,
+            "street_name": null,
+            "street_number": null
+          },
+          "last_name": null,
+          "registration_date": null
+        },
+        "shipments": {
+          "receiver_address": {
+            "zip_code": null,
+            "floor": null,
+            "street_name": null,
+            "apartment": null
+          }
+        }
+      },
+      "metadata": {},
+      "fee_details": []
+    },
+    {
+      "id": 2704595120,
+      "date_created": "2017-04-29T16:44:09.000-04:00",
+      "date_approved": "2017-04-29T16:44:09.000-04:00",
+      "date_last_updated": "2017-04-29T16:44:09.000-04:00",
+      "money_release_date": "2017-05-20T16:44:09.000-04:00",
+      "collector": {
+        "id": 254307406,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_64413892@testuser.com",
+        "nickname": "TETE4597230",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test"
+      },
+      "operation_type": "regular_payment",
+      "issuer_id": 1007,
+      "payment_method_id": "nativa",
+      "payment_type_id": "credit_card",
+      "status": "approved",
+      "status_detail": "accredited",
+      "currency_id": "ARS",
+      "description": "Item De Prueba - Antivirus Avg - No Ofertar",
+      "live_mode": true,
+      "payer": {
+        "id": 254309093,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_30225296@testuser.com",
+        "nickname": "TT874425",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test",
+        "type": "registered"
+      },
+      "order": {
+        "id": "1363454833",
+        "type": "mercadolibre"
+      },
+      "external_reference": "1363454833",
+      "transaction_amount": 500,
+      "transaction_amount_refunded": 0,
+      "coupon_amount": 0,
+      "shipping_cost": 0,
+      "differential_pricing_id": null,
+      "transaction_details": {
+        "net_received_amount": 500,
+        "total_paid_amount": 500,
+        "overpaid_amount": 0,
+        "external_resource_url": null,
+        "installment_amount": 166.67,
+        "financial_institution": null,
+        "financial_institution_description": null,
+        "payment_method_reference_id": null
+      },
+      "captured": true,
+      "binary_mode": false,
+      "call_for_authorize_id": null,
+      "card": {
+        "id": 207580778,
+        "first_six_digits": "546553",
+        "expiration_month": 1,
+        "cardholder": {
+          "identification": {
+            "number": "11111111",
+            "type": "DNI"
+          },
+          "name": "APRO Test Test"
+        },
+        "expiration_year": 2020,
+        "date_created": "2017-04-27T15:23:21.000-04:00",
+        "date_last_updated": "2017-04-29T16:36:55.000-04:00",
+        "last_four_digits": "0176"
+      },
+      "statement_descriptor": "MERCADOPAGO",
+      "installments": 3,
+      "notification_url": null,
+      "refunds": [],
+      "application_id": "2568868276694852",
+      "additional_info": {
+        "items": [],
+        "payer": {
+          "first_name": null,
+          "phone": {
+            "area_code": null,
+            "number": null
+          },
+          "address": {
+            "zip_code": null,
+            "street_name": null,
+            "street_number": null
+          },
+          "last_name": null,
+          "registration_date": null
+        },
+        "shipments": {
+          "receiver_address": {
+            "zip_code": null,
+            "floor": null,
+            "street_name": null,
+            "apartment": null
+          }
+        }
+      },
+      "metadata": {},
+      "fee_details": []
+    },
+    {
+      "id": 2701128926,
+      "date_created": "2017-04-27T10:23:07.000-04:00",
+      "date_approved": null,
+      "date_last_updated": "2017-04-27T10:23:06.000-04:00",
+      "money_release_date": null,
+      "collector": {
+        "id": 254307406,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_64413892@testuser.com",
+        "nickname": "TETE4597230",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test"
+      },
+      "operation_type": "regular_payment",
+      "issuer_id": 2,
+      "payment_method_id": "amex",
+      "payment_type_id": "credit_card",
+      "status": "rejected",
+      "status_detail": "cc_rejected_high_risk",
+      "currency_id": "ARS",
+      "description": "Item De Prueba - Antivirus Panda - No Ofertar",
+      "live_mode": true,
+      "payer": {
+        "id": 254309093
+      },
+      "order": {
+        "id": "1361955467",
+        "type": "mercadolibre"
+      },
+      "external_reference": "1361955467",
+      "transaction_amount": 500,
+      "transaction_amount_refunded": 0,
+      "coupon_amount": 0,
+      "shipping_cost": 0,
+      "differential_pricing_id": null,
+      "transaction_details": {
+        "net_received_amount": 500,
+        "total_paid_amount": 500,
+        "overpaid_amount": 0,
+        "external_resource_url": null,
+        "installment_amount": 500,
+        "financial_institution": null,
+        "financial_institution_description": null,
+        "payment_method_reference_id": null
+      },
+      "captured": true,
+      "binary_mode": false,
+      "call_for_authorize_id": null,
+      "card": {},
+      "statement_descriptor": "MERCADOPAGO",
+      "installments": 1,
+      "notification_url": null,
+      "refunds": [],
+      "application_id": "2568868276694852",
+      "additional_info": {
+        "items": [],
+        "payer": {
+          "first_name": null,
+          "phone": {
+            "area_code": null,
+            "number": null
+          },
+          "address": {
+            "zip_code": null,
+            "street_name": null,
+            "street_number": null
+          },
+          "last_name": null,
+          "registration_date": null
+        },
+        "shipments": {
+          "receiver_address": {
+            "zip_code": null,
+            "floor": null,
+            "street_name": null,
+            "apartment": null
+          }
+        }
+      },
+      "metadata": {},
+      "fee_details": []
+    },
+    {
+      "id": 2710294173,
+      "date_created": "2017-05-03T13:46:54.000-04:00",
+      "date_approved": "2017-05-03T13:46:54.000-04:00",
+      "date_last_updated": "2017-05-03T13:46:54.000-04:00",
+      "money_release_date": "2017-05-24T13:46:54.000-04:00",
+      "collector": {
+        "id": 254307406,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_64413892@testuser.com",
+        "nickname": "TETE4597230",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test"
+      },
+      "operation_type": "regular_payment",
+      "issuer_id": 1007,
+      "payment_method_id": "nativa",
+      "payment_type_id": "credit_card",
+      "status": "approved",
+      "status_detail": "accredited",
+      "currency_id": "ARS",
+      "description": "Item De Prueba - Antivirus Avg - No Ofertar",
+      "live_mode": true,
+      "payer": {
+        "id": 254309093,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_30225296@testuser.com",
+        "nickname": "TT874425",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test",
+        "type": "registered"
+      },
+      "order": {
+        "id": "1365897832",
+        "type": "mercadolibre"
+      },
+      "external_reference": "1365897832",
+      "transaction_amount": 500,
+      "transaction_amount_refunded": 0,
+      "coupon_amount": 0,
+      "shipping_cost": 0,
+      "differential_pricing_id": null,
+      "transaction_details": {
+        "net_received_amount": 445,
+        "total_paid_amount": 500,
+        "overpaid_amount": 0,
+        "external_resource_url": null,
+        "installment_amount": 166.67,
+        "financial_institution": null,
+        "financial_institution_description": null,
+        "payment_method_reference_id": null
+      },
+      "captured": true,
+      "binary_mode": false,
+      "call_for_authorize_id": null,
+      "card": {
+        "id": 207580778,
+        "first_six_digits": "546553",
+        "expiration_month": 1,
+        "cardholder": {
+          "identification": {
+            "number": "11111111",
+            "type": "DNI"
+          },
+          "name": "APRO Test Test"
+        },
+        "expiration_year": 2020,
+        "date_created": "2017-04-27T15:23:21.000-04:00",
+        "date_last_updated": "2017-05-03T13:05:20.000-04:00",
+        "last_four_digits": "0176"
+      },
+      "statement_descriptor": "MERCADOPAGO",
+      "installments": 3,
+      "notification_url": null,
+      "refunds": [],
+      "application_id": "2568868276694852",
+      "additional_info": {
+        "items": [],
+        "payer": {
+          "first_name": null,
+          "phone": {
+            "area_code": null,
+            "number": null
+          },
+          "address": {
+            "zip_code": null,
+            "street_name": null,
+            "street_number": null
+          },
+          "last_name": null,
+          "registration_date": null
+        },
+        "shipments": {
+          "receiver_address": {
+            "zip_code": null,
+            "floor": null,
+            "street_name": null,
+            "apartment": null
+          }
+        }
+      },
+      "metadata": {},
+      "fee_details": [
+        {
+          "amount": 55,
+          "fee_payer": "collector",
+          "type": "application_fee"
+        }
+      ]
+    },
+    {
+      "id": 2704815797,
+      "date_created": "2017-04-29T16:36:23.000-04:00",
+      "date_approved": "2017-04-29T16:36:23.000-04:00",
+      "date_last_updated": "2017-04-29T16:36:23.000-04:00",
+      "money_release_date": "2017-05-20T16:36:23.000-04:00",
+      "collector": {
+        "id": 254307406,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_64413892@testuser.com",
+        "nickname": "TETE4597230",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test"
+      },
+      "operation_type": "regular_payment",
+      "issuer_id": 1007,
+      "payment_method_id": "nativa",
+      "payment_type_id": "credit_card",
+      "status": "approved",
+      "status_detail": "accredited",
+      "currency_id": "ARS",
+      "description": "Item De Prueba - Mcafee No Ofertar",
+      "live_mode": true,
+      "payer": {
+        "id": 254309093,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_30225296@testuser.com",
+        "nickname": "TT874425",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test",
+        "type": "registered"
+      },
+      "order": {
+        "id": "1363452782",
+        "type": "mercadolibre"
+      },
+      "external_reference": "1363452782",
+      "transaction_amount": 800,
+      "transaction_amount_refunded": 0,
+      "coupon_amount": 0,
+      "shipping_cost": 0,
+      "differential_pricing_id": null,
+      "transaction_details": {
+        "net_received_amount": 800,
+        "total_paid_amount": 800,
+        "overpaid_amount": 0,
+        "external_resource_url": null,
+        "installment_amount": 266.67,
+        "financial_institution": null,
+        "financial_institution_description": null,
+        "payment_method_reference_id": null
+      },
+      "captured": true,
+      "binary_mode": false,
+      "call_for_authorize_id": null,
+      "card": {
+        "id": 207580778,
+        "first_six_digits": "546553",
+        "expiration_month": 1,
+        "cardholder": {
+          "identification": {
+            "number": "11111111",
+            "type": "DNI"
+          },
+          "name": "APRO Test Test"
+        },
+        "expiration_year": 2020,
+        "date_created": "2017-04-27T15:23:21.000-04:00",
+        "date_last_updated": "2017-04-29T16:31:33.000-04:00",
+        "last_four_digits": "0176"
+      },
+      "statement_descriptor": "MERCADOPAGO",
+      "installments": 3,
+      "notification_url": null,
+      "refunds": [],
+      "application_id": "2568868276694852",
+      "additional_info": {
+        "items": [],
+        "payer": {
+          "first_name": null,
+          "phone": {
+            "area_code": null,
+            "number": null
+          },
+          "address": {
+            "zip_code": null,
+            "street_name": null,
+            "street_number": null
+          },
+          "last_name": null,
+          "registration_date": null
+        },
+        "shipments": {
+          "receiver_address": {
+            "zip_code": null,
+            "floor": null,
+            "street_name": null,
+            "apartment": null
+          }
+        }
+      },
+      "metadata": {},
+      "fee_details": []
+    },
+    {
+      "id": 2710181105,
+      "date_created": "2017-05-03T12:43:25.000-04:00",
+      "date_approved": "2017-05-03T12:43:25.000-04:00",
+      "date_last_updated": "2017-05-03T12:43:25.000-04:00",
+      "money_release_date": "2017-05-24T12:43:25.000-04:00",
+      "collector": {
+        "id": 254307406,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_64413892@testuser.com",
+        "nickname": "TETE4597230",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test"
+      },
+      "operation_type": "regular_payment",
+      "issuer_id": 1007,
+      "payment_method_id": "nativa",
+      "payment_type_id": "credit_card",
+      "status": "approved",
+      "status_detail": "accredited",
+      "currency_id": "ARS",
+      "description": "MS-1 Item De Prueba - Mcafee No Ofertar",
+      "live_mode": true,
+      "payer": {
+        "id": 254309093,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_30225296@testuser.com",
+        "nickname": "TT874425",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test",
+        "type": "registered"
+      },
+      "order": {
+        "id": 493263255,
+        "type": "mercadopago"
+      },
+      "external_reference": "1",
+      "transaction_amount": 800,
+      "transaction_amount_refunded": 0,
+      "coupon_amount": 0,
+      "shipping_cost": 0,
+      "differential_pricing_id": null,
+      "transaction_details": {
+        "net_received_amount": 755.92,
+        "total_paid_amount": 800,
+        "overpaid_amount": 0,
+        "external_resource_url": null,
+        "installment_amount": 800,
+        "financial_institution": null,
+        "financial_institution_description": null,
+        "payment_method_reference_id": null
+      },
+      "captured": true,
+      "binary_mode": false,
+      "call_for_authorize_id": null,
+      "card": {
+        "id": 207580778,
+        "first_six_digits": "546553",
+        "expiration_month": 1,
+        "cardholder": {
+          "identification": {
+            "number": "11111111",
+            "type": "DNI"
+          },
+          "name": "APRO Test Test"
+        },
+        "expiration_year": 2020,
+        "date_created": "2017-04-27T15:23:21.000-04:00",
+        "date_last_updated": "2017-05-03T12:36:35.000-04:00",
+        "last_four_digits": "0176"
+      },
+      "statement_descriptor": "MERCADOPAGO",
+      "installments": 1,
+      "notification_url": null,
+      "refunds": [],
+      "application_id": "7880631381565864",
+      "additional_info": {
+        "items": [],
+        "payer": {
+          "first_name": null,
+          "phone": {
+            "area_code": null,
+            "number": null
+          },
+          "address": {
+            "zip_code": null,
+            "street_name": null,
+            "street_number": null
+          },
+          "last_name": null,
+          "registration_date": null
+        },
+        "shipments": {
+          "receiver_address": {
+            "zip_code": null,
+            "floor": null,
+            "street_name": null,
+            "apartment": null
+          }
+        }
+      },
+      "metadata": {},
+      "fee_details": [
+        {
+          "amount": 44.08,
+          "fee_payer": "collector",
+          "type": "mercadopago_fee"
+        }
+      ]
+    },
+    {
+      "id": 2701532976,
+      "date_created": "2017-04-27T15:21:08.000-04:00",
+      "date_approved": "2017-04-27T15:21:08.000-04:00",
+      "date_last_updated": "2017-04-27T15:21:08.000-04:00",
+      "money_release_date": "2017-05-18T15:21:08.000-04:00",
+      "collector": {
+        "id": 254307406,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_64413892@testuser.com",
+        "nickname": "TETE4597230",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test"
+      },
+      "operation_type": "regular_payment",
+      "issuer_id": 5,
+      "payment_method_id": "naranja",
+      "payment_type_id": "credit_card",
+      "status": "approved",
+      "status_detail": "accredited",
+      "currency_id": "ARS",
+      "description": "Item De Prueba - Antivirus Panda - No Ofertar",
+      "live_mode": true,
+      "payer": {
+        "id": 254309093,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_30225296@testuser.com",
+        "nickname": "TT874425",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test",
+        "type": "registered"
+      },
+      "order": {
+        "id": "1362188812",
+        "type": "mercadolibre"
+      },
+      "external_reference": "1362188812",
+      "transaction_amount": 500,
+      "transaction_amount_refunded": 0,
+      "coupon_amount": 0,
+      "shipping_cost": 0,
+      "differential_pricing_id": null,
+      "transaction_details": {
+        "net_received_amount": 500,
+        "total_paid_amount": 500,
+        "overpaid_amount": 0,
+        "external_resource_url": null,
+        "installment_amount": 500,
+        "financial_institution": null,
+        "financial_institution_description": null,
+        "payment_method_reference_id": null
+      },
+      "captured": true,
+      "binary_mode": false,
+      "call_for_authorize_id": null,
+      "card": {},
+      "statement_descriptor": "WWW.MERCADOPAGO.COM",
+      "installments": 1,
+      "notification_url": null,
+      "refunds": [],
+      "application_id": "2568868276694852",
+      "additional_info": {
+        "items": [],
+        "payer": {
+          "first_name": null,
+          "phone": {
+            "area_code": null,
+            "number": null
+          },
+          "address": {
+            "zip_code": null,
+            "street_name": null,
+            "street_number": null
+          },
+          "last_name": null,
+          "registration_date": null
+        },
+        "shipments": {
+          "receiver_address": {
+            "zip_code": null,
+            "floor": null,
+            "street_name": null,
+            "apartment": null
+          }
+        }
+      },
+      "metadata": {},
+      "fee_details": []
+    },
+    {
+      "id": 2704454065,
+      "date_created": "2017-04-29T16:26:57.000-04:00",
+      "date_approved": "2017-04-29T16:26:57.000-04:00",
+      "date_last_updated": "2017-04-29T16:26:57.000-04:00",
+      "money_release_date": "2017-05-20T16:26:57.000-04:00",
+      "collector": {
+        "id": 254307406,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_64413892@testuser.com",
+        "nickname": "TETE4597230",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test"
+      },
+      "operation_type": "regular_payment",
+      "issuer_id": 1007,
+      "payment_method_id": "nativa",
+      "payment_type_id": "credit_card",
+      "status": "approved",
+      "status_detail": "accredited",
+      "currency_id": "ARS",
+      "description": "Item De Prueba  - Antivirus Extra - No Ofertar",
+      "live_mode": true,
+      "payer": {
+        "id": 254309093,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_30225296@testuser.com",
+        "nickname": "TT874425",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test",
+        "type": "registered"
+      },
+      "order": {
+        "id": "1363448119",
+        "type": "mercadolibre"
+      },
+      "external_reference": "1363448119",
+      "transaction_amount": 342,
+      "transaction_amount_refunded": 0,
+      "coupon_amount": 0,
+      "shipping_cost": 0,
+      "differential_pricing_id": null,
+      "transaction_details": {
+        "net_received_amount": 342,
+        "total_paid_amount": 342,
+        "overpaid_amount": 0,
+        "external_resource_url": null,
+        "installment_amount": 114,
+        "financial_institution": null,
+        "financial_institution_description": null,
+        "payment_method_reference_id": null
+      },
+      "captured": true,
+      "binary_mode": false,
+      "call_for_authorize_id": null,
+      "card": {
+        "id": 207580778,
+        "first_six_digits": "546553",
+        "expiration_month": 1,
+        "cardholder": {
+          "identification": {
+            "number": "11111111",
+            "type": "DNI"
+          },
+          "name": "APRO Test Test"
+        },
+        "expiration_year": 2020,
+        "date_created": "2017-04-27T15:23:21.000-04:00",
+        "date_last_updated": "2017-04-27T15:23:21.000-04:00",
+        "last_four_digits": "0176"
+      },
+      "statement_descriptor": "MERCADOPAGO",
+      "installments": 3,
+      "notification_url": null,
+      "refunds": [],
+      "application_id": "2568868276694852",
+      "additional_info": {
+        "items": [],
+        "payer": {
+          "first_name": null,
+          "phone": {
+            "area_code": null,
+            "number": null
+          },
+          "address": {
+            "zip_code": null,
+            "street_name": null,
+            "street_number": null
+          },
+          "last_name": null,
+          "registration_date": null
+        },
+        "shipments": {
+          "receiver_address": {
+            "zip_code": null,
+            "floor": null,
+            "street_name": null,
+            "apartment": null
+          }
+        }
+      },
+      "metadata": {},
+      "fee_details": []
+    },
+    {
+      "id": 2710186173,
+      "date_created": "2017-05-03T12:50:10.000-04:00",
+      "date_approved": "2017-05-03T12:50:09.000-04:00",
+      "date_last_updated": "2017-05-03T12:50:09.000-04:00",
+      "money_release_date": "2017-05-24T12:50:09.000-04:00",
+      "collector": {
+        "id": 254307406,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_64413892@testuser.com",
+        "nickname": "TETE4597230",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test"
+      },
+      "operation_type": "regular_payment",
+      "issuer_id": 1007,
+      "payment_method_id": "nativa",
+      "payment_type_id": "credit_card",
+      "status": "approved",
+      "status_detail": "accredited",
+      "currency_id": "ARS",
+      "description": "MS-2 Item De Prueba - Antivirus Avg - No Ofertar",
+      "live_mode": true,
+      "payer": {
+        "id": 254309093,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_30225296@testuser.com",
+        "nickname": "TT874425",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test",
+        "type": "registered"
+      },
+      "order": {
+        "id": 493273943,
+        "type": "mercadopago"
+      },
+      "external_reference": "2",
+      "transaction_amount": 500,
+      "transaction_amount_refunded": 0,
+      "coupon_amount": 0,
+      "shipping_cost": 0,
+      "differential_pricing_id": null,
+      "transaction_details": {
+        "net_received_amount": 472.45,
+        "total_paid_amount": 500,
+        "overpaid_amount": 0,
+        "external_resource_url": null,
+        "installment_amount": 500,
+        "financial_institution": null,
+        "financial_institution_description": null,
+        "payment_method_reference_id": null
+      },
+      "captured": true,
+      "binary_mode": false,
+      "call_for_authorize_id": null,
+      "card": {
+        "id": 207580778,
+        "first_six_digits": "546553",
+        "expiration_month": 1,
+        "cardholder": {
+          "identification": {
+            "number": "11111111",
+            "type": "DNI"
+          },
+          "name": "APRO Test Test"
+        },
+        "expiration_year": 2020,
+        "date_created": "2017-04-27T15:23:21.000-04:00",
+        "date_last_updated": "2017-05-03T12:42:54.000-04:00",
+        "last_four_digits": "0176"
+      },
+      "statement_descriptor": "MERCADOPAGO",
+      "installments": 1,
+      "notification_url": null,
+      "refunds": [],
+      "application_id": "7880631381565864",
+      "additional_info": {
+        "items": [],
+        "payer": {
+          "first_name": null,
+          "phone": {
+            "area_code": null,
+            "number": null
+          },
+          "address": {
+            "zip_code": null,
+            "street_name": null,
+            "street_number": null
+          },
+          "last_name": null,
+          "registration_date": null
+        },
+        "shipments": {
+          "receiver_address": {
+            "zip_code": null,
+            "floor": null,
+            "street_name": null,
+            "apartment": null
+          }
+        }
+      },
+      "metadata": {},
+      "fee_details": [
+        {
+          "amount": 27.55,
+          "fee_payer": "collector",
+          "type": "mercadopago_fee"
+        }
+      ]
+    },
+    {
+      "id": 2701688457,
+      "date_created": "2017-04-27T15:23:44.000-04:00",
+      "date_approved": "2017-04-27T15:23:44.000-04:00",
+      "date_last_updated": "2017-04-27T15:23:44.000-04:00",
+      "money_release_date": "2017-05-18T15:23:44.000-04:00",
+      "collector": {
+        "id": 254307406,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_64413892@testuser.com",
+        "nickname": "TETE4597230",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test"
+      },
+      "operation_type": "regular_payment",
+      "issuer_id": 1007,
+      "payment_method_id": "nativa",
+      "payment_type_id": "credit_card",
+      "status": "approved",
+      "status_detail": "accredited",
+      "currency_id": "ARS",
+      "description": "Item De Prueba - Antivirus Avg - No Ofertar",
+      "live_mode": true,
+      "payer": {
+        "id": 254309093,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_30225296@testuser.com",
+        "nickname": "TT874425",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test",
+        "type": "registered"
+      },
+      "order": {
+        "id": "1362192487",
+        "type": "mercadolibre"
+      },
+      "external_reference": "1362192487",
+      "transaction_amount": 500,
+      "transaction_amount_refunded": 0,
+      "coupon_amount": 0,
+      "shipping_cost": 0,
+      "differential_pricing_id": null,
+      "transaction_details": {
+        "net_received_amount": 500,
+        "total_paid_amount": 500,
+        "overpaid_amount": 0,
+        "external_resource_url": null,
+        "installment_amount": 500,
+        "financial_institution": null,
+        "financial_institution_description": null,
+        "payment_method_reference_id": null
+      },
+      "captured": true,
+      "binary_mode": false,
+      "call_for_authorize_id": null,
+      "card": {},
+      "statement_descriptor": "MERCADOPAGO",
+      "installments": 1,
+      "notification_url": null,
+      "refunds": [],
+      "application_id": "2568868276694852",
+      "additional_info": {
+        "items": [],
+        "payer": {
+          "first_name": null,
+          "phone": {
+            "area_code": null,
+            "number": null
+          },
+          "address": {
+            "zip_code": null,
+            "street_name": null,
+            "street_number": null
+          },
+          "last_name": null,
+          "registration_date": null
+        },
+        "shipments": {
+          "receiver_address": {
+            "zip_code": null,
+            "floor": null,
+            "street_name": null,
+            "apartment": null
+          }
+        }
+      },
+      "metadata": {},
+      "fee_details": []
+    },
+    {
+      "id": 2704592025,
+      "date_created": "2017-04-29T16:31:58.000-04:00",
+      "date_approved": "2017-04-29T16:31:58.000-04:00",
+      "date_last_updated": "2017-04-29T16:31:58.000-04:00",
+      "money_release_date": "2017-05-20T16:31:58.000-04:00",
+      "collector": {
+        "id": 254307406,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_64413892@testuser.com",
+        "nickname": "TETE4597230",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test"
+      },
+      "operation_type": "regular_payment",
+      "issuer_id": 1007,
+      "payment_method_id": "nativa",
+      "payment_type_id": "credit_card",
+      "status": "approved",
+      "status_detail": "accredited",
+      "currency_id": "ARS",
+      "description": "Item De Prueba  - Antivirus Extra - No Ofertar",
+      "live_mode": true,
+      "payer": {
+        "id": 254309093,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_30225296@testuser.com",
+        "nickname": "TT874425",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test",
+        "type": "registered"
+      },
+      "order": {
+        "id": "1363447647",
+        "type": "mercadolibre"
+      },
+      "external_reference": "1363447647",
+      "transaction_amount": 342,
+      "transaction_amount_refunded": 0,
+      "coupon_amount": 0,
+      "shipping_cost": 0,
+      "differential_pricing_id": null,
+      "transaction_details": {
+        "net_received_amount": 342,
+        "total_paid_amount": 342,
+        "overpaid_amount": 0,
+        "external_resource_url": null,
+        "installment_amount": 114,
+        "financial_institution": null,
+        "financial_institution_description": null,
+        "payment_method_reference_id": null
+      },
+      "captured": true,
+      "binary_mode": false,
+      "call_for_authorize_id": null,
+      "card": {
+        "id": 207580778,
+        "first_six_digits": "546553",
+        "expiration_month": 1,
+        "cardholder": {
+          "identification": {
+            "number": "11111111",
+            "type": "DNI"
+          },
+          "name": "APRO Test Test"
+        },
+        "expiration_year": 2020,
+        "date_created": "2017-04-27T15:23:21.000-04:00",
+        "date_last_updated": "2017-04-29T16:26:33.000-04:00",
+        "last_four_digits": "0176"
+      },
+      "statement_descriptor": "MERCADOPAGO",
+      "installments": 3,
+      "notification_url": null,
+      "refunds": [],
+      "application_id": "2568868276694852",
+      "additional_info": {
+        "items": [],
+        "payer": {
+          "first_name": null,
+          "phone": {
+            "area_code": null,
+            "number": null
+          },
+          "address": {
+            "zip_code": null,
+            "street_name": null,
+            "street_number": null
+          },
+          "last_name": null,
+          "registration_date": null
+        },
+        "shipments": {
+          "receiver_address": {
+            "zip_code": null,
+            "floor": null,
+            "street_name": null,
+            "apartment": null
+          }
+        }
+      },
+      "metadata": {},
+      "fee_details": []
+    },
+    {
+      "id": 2701216592,
+      "date_created": "2017-04-27T10:29:08.000-04:00",
+      "date_approved": null,
+      "date_last_updated": "2017-04-27T15:24:10.000-04:00",
+      "money_release_date": null,
+      "collector": {
+        "id": 254307406,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_64413892@testuser.com",
+        "nickname": "TETE4597230",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test"
+      },
+      "operation_type": "regular_payment",
+      "issuer_id": 3,
+      "payment_method_id": "master",
+      "payment_type_id": "credit_card",
+      "status": "cancelled",
+      "status_detail": "by_payer",
+      "currency_id": "ARS",
+      "description": "Item De Prueba - Mcafee No Ofertar",
+      "live_mode": true,
+      "payer": {
+        "id": 254309093
+      },
+      "order": {
+        "id": "1361961358",
+        "type": "mercadolibre"
+      },
+      "external_reference": "1361961358",
+      "transaction_amount": 800,
+      "transaction_amount_refunded": 0,
+      "coupon_amount": 0,
+      "shipping_cost": 0,
+      "differential_pricing_id": null,
+      "transaction_details": {
+        "net_received_amount": 800,
+        "total_paid_amount": 800,
+        "overpaid_amount": 0,
+        "external_resource_url": null,
+        "installment_amount": 800,
+        "financial_institution": null,
+        "financial_institution_description": null,
+        "payment_method_reference_id": null
+      },
+      "captured": true,
+      "binary_mode": false,
+      "call_for_authorize_id": null,
+      "card": {},
+      "statement_descriptor": "MERCADOPAGO",
+      "installments": 1,
+      "notification_url": null,
+      "refunds": [],
+      "application_id": "2568868276694852",
+      "additional_info": {
+        "items": [],
+        "payer": {
+          "first_name": null,
+          "phone": {
+            "area_code": null,
+            "number": null
+          },
+          "address": {
+            "zip_code": null,
+            "street_name": null,
+            "street_number": null
+          },
+          "last_name": null,
+          "registration_date": null
+        },
+        "shipments": {
+          "receiver_address": {
+            "zip_code": null,
+            "floor": null,
+            "street_name": null,
+            "apartment": null
+          }
+        }
+      },
+      "metadata": {},
+      "fee_details": []
+    },
+    {
+      "id": 2711659578,
+      "date_created": "2017-05-04T08:59:35.000-04:00",
+      "date_approved": "2017-05-04T08:59:35.000-04:00",
+      "date_last_updated": "2017-05-04T08:59:35.000-04:00",
+      "money_release_date": "2017-05-25T08:59:35.000-04:00",
+      "collector": {
+        "id": 254307406,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_64413892@testuser.com",
+        "nickname": "TETE4597230",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test"
+      },
+      "operation_type": "regular_payment",
+      "issuer_id": 3,
+      "payment_method_id": "master",
+      "payment_type_id": "credit_card",
+      "status": "approved",
+      "status_detail": "accredited",
+      "currency_id": "ARS",
+      "description": "MS-6 Item De Prueba  - Antivirus Extra - No Ofertar",
+      "live_mode": true,
+      "payer": {
+        "id": 254309093,
+        "first_name": "Test",
+        "phone": {
+          "extension": null,
+          "area_code": "01",
+          "number": "1111-1111"
+        },
+        "email": "test_user_30225296@testuser.com",
+        "nickname": "TT874425",
+        "identification": {
+          "number": "1111111",
+          "type": "DNI"
+        },
+        "last_name": "Test",
+        "type": "registered"
+      },
+      "order": {
+        "id": 493640120,
+        "type": "mercadopago"
+      },
+      "external_reference": "6",
+      "transaction_amount": 684,
+      "transaction_amount_refunded": 0,
+      "coupon_amount": 0,
+      "shipping_cost": 0,
+      "differential_pricing_id": null,
+      "transaction_details": {
+        "net_received_amount": 646.31,
+        "total_paid_amount": 684,
+        "overpaid_amount": 0,
+        "external_resource_url": null,
+        "installment_amount": 684,
+        "financial_institution": null,
+        "financial_institution_description": null,
+        "payment_method_reference_id": null
+      },
+      "captured": true,
+      "binary_mode": false,
+      "call_for_authorize_id": null,
+      "card": {
+        "id": 207574348,
+        "first_six_digits": "503175",
+        "expiration_month": 11,
+        "cardholder": {
+          "identification": {
+            "number": "11111111",
+            "type": "DNI"
+          },
+          "name": "APRO Test Test"
+        },
+        "expiration_year": 2020,
+        "date_created": "2017-04-27T15:25:43.000-04:00",
+        "date_last_updated": "2017-05-04T08:43:36.000-04:00",
+        "last_four_digits": "0604"
+      },
+      "statement_descriptor": "MERCADOPAGO",
+      "installments": 1,
+      "notification_url": null,
+      "refunds": [],
+      "application_id": "7880631381565864",
+      "additional_info": {
+        "items": [],
+        "payer": {
+          "first_name": null,
+          "phone": {
+            "area_code": null,
+            "number": null
+          },
+          "address": {
+            "zip_code": null,
+            "street_name": null,
+            "street_number": null
+          },
+          "last_name": null,
+          "registration_date": null
+        },
+        "shipments": {
+          "receiver_address": {
+            "zip_code": null,
+            "floor": null,
+            "street_name": null,
+            "apartment": null
+          }
+        }
+      },
+      "metadata": {},
+      "fee_details": [
+        {
+          "amount": 37.69,
+          "fee_payer": "collector",
+          "type": "mercadopago_fee"
+        }
+      ]
+    }
+  ]
+}

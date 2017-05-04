@@ -1,9 +1,4 @@
-{"id":191083848,"licencias":[{"codigo":"usuario: pepe y esta clave: 1234","cantidad":9,"link":"www.chau.com"}],"template":"<html>\n\nPara descargar este link use este @codigo\nlink de descarga @link\n<h1> BIENVENIDO </h1>\n<a href='https://github.com/louischatriot/nedb#creatingloading-a-database'>MIRA ESTO </a>\n</html>","doc_type":"productos","_id":"B8fqZ8dyu7vXgKGq"}
-{"id":192851458,"licencias":[{"codigo":"sadasd","cantidad":"1","link":"adsad"},{"codigo":"asdasd","cantidad":"1","link":"asdsadasd"}],"template":"este es el panda","doc_type":"productos","_id":"LFF439xikwFI2M30"}
-{"id":192850919,"licencias":[{"codigo":"hgoia","cantidad":"22","link":"56464"}],"template":"","doc_type":"productos","_id":"M6yaYya2spItcDDZ"}
+{"id":"193329834","licencias":[{"codigo":"hola","cantidad":48,"link":"www.licencias.com"},{"codigo":"chau","cantidad":"1000","link":"www.millec.com"}],"template":"@link","_id":"BfZaU6QlbPb9wBjP","doc_type":"productos"}
+{"id":"192850919","doc_type":"productos","licencias":[{"codigo":"preu","cantidad":"15","link":"dasdas"}],"template":"","_id":"DDfzALuGsmSBe5fg"}
+{"id":"MLA664630732","doc_type":"productos","licencias":[{"codigo":"sdasd","cantidad":"1","link":"123123"}],"template":"","_id":"LvxtgyM0wkxhyi05"}
 {"email":"admin@elcaminosoftware.com","smtp":"smtp.zoho.com","password":"Alfa17283946","id":"configuracion","_id":"aqUsk8sIqOEcUtak"}
-{"id":"MLA664258617","licencias":[],"template":"<html>\ncodigo = @codigo\nlink = @link\nnombre = @nombre\napodo = @apodo\nproducto = @producto\n</html>","doc_type":"productos","_id":"wtbhDyt5jYoet03d"}
-{"id":192850882,"licencias":[],"template":"<html>\n<h1> PROBANDOOO </h1>\n</html>","doc_type":"productos","_id":"zuThRUiFR7OQYDhd"}
-{"email":"admin@elcaminosoftware.com","smtp":"smtp.zoho.com22","password":"Alfa17283946","id":"configuracion","_id":"aqUsk8sIqOEcUtak"}
-{"email":"admin@elcaminosoftware.com","smtp":"smtp.zoho.com","password":"Alfa17283946","id":"configuracion","_id":"aqUsk8sIqOEcUtak"}
-{"id":"MLA664630750","licencias":[{"codigo":"FLOPPY_CODIGO","cantidad":"10","link":"WWW.DESCARGAFLOPPY.COM"}],"template":"Hola @nombre,\n            Gracias por la compra de @producto\nSu licencia para le uso del software comprado es @codigo!\nPara descargar su producto vaya al siguiente link: @link","doc_type":"productos","_id":"6uF3jpG4fIf44hY6"}

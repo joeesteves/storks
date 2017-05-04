@@ -1,6 +1,6 @@
 const express = require('express'),
   router = express.Router(),
-  db = require('../db'),
+  db = require('../db').db,
   Maybe = require('ramda-fantasy').Maybe
 
 router.get('/', function (req, res) {
@@ -8,10 +8,8 @@ router.get('/', function (req, res) {
 })
 
 router.post('/', (req, res) => {
-  db.findOne({ id: req.body.id }, (e, doc) => {
-    Maybe(doc).map(doc => {
-      return db.update({ id: doc.id }, { $set: { licencias: req.body.licencias, template: req.body.template } })
-    }).isNothing ? db.insert(Object.assign({}, req.body, { doc_type: 'productos' })) : null
+  db.update({ id: (req.body.id).toString(), doc_type: 'productos' }, { $set: { licencias: req.body.licencias, template: req.body.template } }, { upsert: true }, (err) => {
+    err ? res.sendStatus(500) : res.sendStatus(201)
   })
 })
 

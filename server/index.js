@@ -6,12 +6,14 @@ const fs = require('fs'),
   routes = require('./routes'),
   appSettings = require('./appSettings'),
   mailConfig = require('./mailConfig'),
-  db = require('./db')
+  db = require('./db').db,
+  worker = require('./worker'),
+  session = require('./session')
 
-// Levanto Configuración del mail
-db.findOne({ id: 'configuracion' }, (e, conf) => {
-  mailConfig.setMailConfig(conf)
-})
+  // Levanto Configuración del mail
+  db.findOne({ id: 'configuracion' }, (e, conf) => {
+    mailConfig.setMailConfig(conf)
+  })
 
 // CommonMiddleware
 app.use(cors())
@@ -32,3 +34,6 @@ https.createServer({
   key: fs.readFileSync(`${__dirname}/ssl/private.pem`),
   cert: fs.readFileSync(`${__dirname}/ssl/server.crt`)
 }, app).listen(appSettings.port)
+
+
+worker.checkMercadoShops(60)

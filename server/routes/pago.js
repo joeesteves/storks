@@ -1,6 +1,6 @@
 const express = require('express'),
   router = express.Router(),
-  db = require('../db'),
+  db = require('../db').db,
   R = require('ramda'),
   Maybe = require('ramda-fantasy').Maybe,
   request = require('request'),
@@ -20,12 +20,15 @@ router.post('/', (req, res) => {
 const procesarPagos = (req, res) => {
   getPaymentData(req)
     .then(getOrderData)
-    .then(flatDataForMails)
+    .then(flatDataForMailsAdapter)
     .then(dataStream => {
       dataStream.subscribe(mailData => {
         sendMail((error, info) => {
           const { data, status } = error ? { data: error, status: 500 } : { data: info, status: 200 }
           res.status(status).send(data)
+          if(status === 200 ){
+            mailData.updateLicenciasFx()
+          }
         }, mailData)
 
       })
@@ -34,12 +37,12 @@ const procesarPagos = (req, res) => {
       if (e.status === 401) {
         console.log('REFRESHTOKEN')
         refreshToken().then(() => {
-          console.log(err)
           procesarPagos(req, res)
         })
       } else {
         res.sendStatus(e.status)
       }
+      console.log(e)
     })
 
 }
@@ -50,7 +53,12 @@ const getPaymentData = (req) => {
     request(`https://api.mercadopago.com/collections/notifications/${req.query.id}?access_token=${session().access_token}`,
       (err, res, body) => {
         if (err || (res && res.statusCode >= 400)) return reject({ res, status: res.statusCode })
-        resolve(JSON.parse(body).collection)
+        const jsonBody = JSON.parse(body)
+        if (jsonBody.marketplace === 'MELI') {
+          resolve(JSON.parse(body).collection)
+        } else {
+          reject("SOLO SE PROCESAN IPN MERCADOLIBRE")
+        }
       })
   })
 }
@@ -67,34 +75,50 @@ const getOrderData = (pay) => {
 }
 
 
-const getLicencia = (producto) => {
+const getLicencia = (producto, db) => {
   console.log("LICENCIA")
   const lic = producto.licencias[0]
-  if (!lic) return { codigo: '', link: '' }
+  if (!lic) return { codigo: '', link: '', updateLicenciasFx: () => console.log("NO HAY LIC DISPONIBLES")}
   if (lic.cantidad == 1) {
     licencias = [...producto.licencias.slice(1)]
   } else {
-    licencias = [Object.assign({}, lic, { cantidad: lic.cantidad - 1 }), ...producto.licencias.slice(1)]
+    licencias = [Object.assign(lic, { cantidad: lic.cantidad - 1 }), ...producto.licencias.slice(1)]
   }
-  db.update({ id: producto.id }, { $set: { licencias } })
-  return lic
+  const updateLicenciasFx = () => {
+    console.log("UPDATING LIC")
+    db.update({ id: producto.id }, { $set: { licencias } }, (e) => {
+      e ? console.log(e): console.log("Licencia Updated")
+    })
+  }
+  return Object.assign(lic, { updateLicenciasFx })
 }
 
 const noMail = (producto) => R.isEmpty(producto.template)
 
-const flatDataForMails = ({ order, pay }) => {
-  return Rx.Observable.from(order.order_items)
-    .flatMap(col => getLocalProducto(col.item))
+const flatDataForMailsAdapter = ({ order, pay }) => {
+  return flatDataForMails({
+    productos: order.order_items.map(p => p.item),
+    nombre: pay.payer.first_name,
+    apodo: pay.payer.nickname,
+    email: pay.payer.email,
+  })
+}
+
+const flatDataForMails = (mixParams) => {
+  return Rx.Observable.from(mixParams.productos)
+    .flatMap(localProd => getLocalProducto(localProd))
     .map(producto => {
-      const { codigo, link } = getLicencia(producto)
+      const { codigo, link, updateLicenciasFx } = getLicencia(producto, db)
       return {
-        nombre: pay.payer.first_name,
-        apodo: pay.payer.nickname,
-        email: pay.payer.email,
+        orderId: mixParams.orderId, // Para mercadoShops
+        nombre: mixParams.nombre,
+        apodo: mixParams.apodo,
+        email: mixParams.email,
         producto: producto.title,
         template: producto.template,
         codigo,
-        link
+        link,
+        updateLicenciasFx
       }
     })
 }
@@ -113,4 +137,4 @@ const getLocalProducto = (product) => {
   })
 }
 
-module.exports = router
+module.exports = { getLicencia, flatDataForMails, router }

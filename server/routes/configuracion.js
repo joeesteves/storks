@@ -1,6 +1,6 @@
 const express = require('express'),
   router = express.Router(),
-  db = require('../db'),
+  db = require('../db').db,
   Maybe = require('ramda-fantasy').Maybe,
   mailConfig = require('../mailConfig')
 
