@@ -134,7 +134,7 @@ const getLocalProducto = (product) => {
       Maybe(localProduct)
         .map(localProduct => noMail(localProduct) ? Maybe.Nothing : Object.assign(localProduct, product))
         .map(lo => obs.next(lo))
-        .isNothing ? console.log("No existe producto con id" + JSON.stringify(product)) : null
+        .isNothing ? console.log(`El producto ${product.title}(${product.id}) no esta configurado para el envio`) : null
       obs.complete()
     })
   })
