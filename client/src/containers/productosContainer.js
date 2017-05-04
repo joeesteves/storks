@@ -26,7 +26,7 @@ class ProductosContainter extends React.Component {
       <div className="panel panel-info">
         <div className="panel-heading row">
           <div className="col-md-6">
-            <h1>LOGO y NOMBRE DE LA TIENDA</h1>
+            <h1>PremiumFD Envíos Automaticos</h1>
           </div>
           <div className="col-md-6">
 
