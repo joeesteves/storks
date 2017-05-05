@@ -42,7 +42,7 @@ const procesarPagos = (req, res) => {
           if (status === 401) {
             refreshToken().then(() => procesarPagos(req, res))
           } else {
-            res.sendStatus(e.status)
+            res.status(200).send(e)
           }
         }).isNothing ? res.sendStatus(200) : null
     })
