@@ -80,8 +80,8 @@ const getOrderData = (pay) => {
 
 const getLicencia = (producto, db) => {
   console.log("LICENCIA")
-  const lic = producto.licencias[0]
   let licencias;
+  const lic = producto.licencias ? producto.licencias[0] : null
   if (!lic) return { codigo: '', link: '', updateLicenciasFx: () => console.log("NO HAY LIC DISPONIBLES") }
   if (lic.cantidad == 1) {
     licencias = [...producto.licencias.slice(1)]

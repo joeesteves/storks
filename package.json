@@ -4,8 +4,8 @@
   "description": "Asistencia para la entrega de productos digitales en MercadoLibre y MercadoShop",
   "main": "index.js",
   "scripts": {
-    "start": "node server/index.js",
-    "dev": "nodemon server/index.js",
+    "start": "node app.js",
+    "dev": "nodemon app.js",
     "test": "babel-node spec/support/run.js --presets=es2015",
     "build": "webpack --config client/webpack.config.js",
     "watch": "webpack --config client/webpack.config.js --watch"

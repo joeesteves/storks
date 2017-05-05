@@ -12,3 +12,6 @@
   // Busco el producto y la licencia //
   // Pasar toda esa data al mail para armar un mail asi
   // Estimado
+
+para instalar npm en el server
+  export TMPDIR=/www/elcaminosoftware.com.com/tmp; export HOME=/www/elcaminosoftware.com.com/; /usr/local/bin/npm install 

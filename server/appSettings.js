@@ -11,4 +11,3 @@ const appSettings = () => {
   }
 }
 module.exports = appSettings()
-
