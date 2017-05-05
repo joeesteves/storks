@@ -1,6 +1,6 @@
 const appSettings = () => {
   const port = process.env.PORT || 8282,
-    serverUri = 'storks.elcaminosoftware.com',
+    serverUri = 'premiumfd.elcaminosoftware.com',
     client_id = '1320434091455044'
   return {
     port,
