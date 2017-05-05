@@ -53,7 +53,7 @@ const getPaymentData = (req) => {
   console.log("PAYMENT")
   return new Promise((resolve, reject) => {
     if (!req.query.id)
-      reject("IPN CONFIGURACION")
+      return reject("IPN CONFIGURACION")
     request(`https://api.mercadopago.com/collections/notifications/${req.query.id}?access_token=${session().access_token}`,
       (err, res, body) => {
         if (err || (res && res.statusCode >= 400)) return reject({ res, status: res.statusCode })
