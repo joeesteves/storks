@@ -37,15 +37,14 @@ const procesarPagos = (req, res) => {
       })
     })
     .catch(e => {
-      if (e.status === 401) {
-        console.log('REFRESHTOKEN')
-        refreshToken().then(() => {
-          procesarPagos(req, res)
-        })
-      } else {
-        res.sendStatus(e.status)
-      }
-      console.log(e)
+      Maybe(e.status)
+        .map(status => {
+          if (status === 401) {
+            refreshToken().then(() => procesarPagos(req, res))
+          } else {
+            res.sendStatus(e.status)
+          }
+        }).isNothing ? res.sendStatus(200) : null
     })
 
 }
@@ -53,6 +52,8 @@ const procesarPagos = (req, res) => {
 const getPaymentData = (req) => {
   console.log("PAYMENT")
   return new Promise((resolve, reject) => {
+    if (!req.query.id)
+      reject("IPN CONFIGURACION")
     request(`https://api.mercadopago.com/collections/notifications/${req.query.id}?access_token=${session().access_token}`,
       (err, res, body) => {
         if (err || (res && res.statusCode >= 400)) return reject({ res, status: res.statusCode })
