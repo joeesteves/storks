@@ -24,6 +24,10 @@ const procesarPagos = (req, res) => {
     .then(flatDataForMailsAdapter)
     .then(dataStream => {
       dataStream.subscribe(mailData => {
+        if(mailData.missing){
+          console.log(mailData.msg)
+          return res.sendStatus(200)
+        }
         sendMail((error, info) => {
           const { data, status } = error ? { data: error, status: 500 } : { data: info, status: 200 }
           res.status(status).send(data)
@@ -38,6 +42,7 @@ const procesarPagos = (req, res) => {
       })
     })
     .catch(e => {
+      console.log(JSON.stringify(e))
       Maybe(e.status)
         .map(status => {
           if (status === 401) {
@@ -57,8 +62,10 @@ const getPaymentData = (req) => {
       return reject("IPN CONFIGURACION")
     request(`https://api.mercadopago.com/collections/notifications/${req.query.id}?access_token=${session().access_token}`,
       (err, res, body) => {
-        if (err || (res && res.statusCode >= 400)) return reject({ res, status: res.statusCode })
+        if (err || (res && res.statusCode >= 400)) 
+          return reject({ res, status: res.statusCode })
         const jsonBody = JSON.parse(body).collection
+        
         if (jsonBody.marketplace === 'MELI') {
           resolve(jsonBody)
         } else {
@@ -73,7 +80,8 @@ const getOrderData = (pay) => {
   return new Promise((resolve, reject) => {
     request(`https://api.mercadolibre.com/orders/${pay.order_id}?access_token=${session().access_token}`,
       (err, res, body) => {
-        if (err || (res && res.statusCode >= 400)) return reject({ res, status: res.statusCode })
+        if (err || (res && res.statusCode >= 400)) 
+          return reject({ res, status: res.statusCode })
         resolve({ order: JSON.parse(body), pay })
       })
   })
@@ -136,7 +144,10 @@ const getLocalProducto = (product) => {
       Maybe(localProduct)
         .map(localProduct => noMail(localProduct) ? Maybe.Nothing : Object.assign(localProduct, product))
         .map(lo => obs.next(lo))
-        .isNothing ? console.log(`El producto ${product.title}(${product.id}) no esta configurado para el envio`) : null
+        .isNothing ? obs.next({
+          missing: true,
+          msg: `El producto ${product.title}(${product.id}) no esta configurado para el envio` 
+        }) : null
       obs.complete()
     })
   })

@@ -15,3 +15,5 @@
 
 para instalar npm en el server
   export TMPDIR=/www/elcaminosoftware.com.com/tmp; export HOME=/www/elcaminosoftware.com.com/; /usr/local/bin/npm install 
+Para que funcione NANO en el server
+   export TERM=xterm
