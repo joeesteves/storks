@@ -12,7 +12,9 @@ const express = require('express'),
 
 router.post('/', (req, res) => {
   console.log("POST PAGO")
-  procesarPagos(req, res)
+  console.log("PRUEBA")
+  console.log(JSON.stringify(req.query))
+  // procesarPagos(req, res)
 })
 
 
@@ -42,7 +44,6 @@ const procesarPagos = (req, res) => {
       })
     })
     .catch(e => {
-      console.log(JSON.stringify(e))
       Maybe(e.status)
         .map(status => {
           if (status === 401) {
