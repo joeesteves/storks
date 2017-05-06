@@ -11,6 +11,7 @@ const express = require('express'),
 
 
 router.post('/', (req, res) => {
+  console.log("POST PAGO")
   procesarPagos(req, res)
 })
 
