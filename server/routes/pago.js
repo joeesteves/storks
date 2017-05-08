@@ -163,6 +163,7 @@ const getLicencia = (producto, db) => {
 }
 
 const updateLicencias = ({ productId, licencias }) => {
+  console.log("UPDATING LICENCIA")
   db.update({ id: productId }, { $set: { licencias } }, (e) => {
     e ? console.log("error") : console.log("LICENCIA UPATED")
   })

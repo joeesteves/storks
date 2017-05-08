@@ -1,2 +1,3 @@
-{"id":"191083848","doc_type":"productos","licencias":"licencias","template":"<h1>Hola @nombre</h1>\nGracias por la compra de @producto\n<h2>link : @link</h2>\n<h2>link : @codigo</h2>\n\nGracias\n\n@asunto(Gratize)","_id":"JahlsRMQo32ooufF"}
+{"id":"191083848","doc_type":"productos","licencias":[{"codigo":"hola","cantidad":42,"link":"www.licencias.com"}],"template":"<h1>Hola @nombre</h1>\nGracias por la compra de @producto\n<h2>link : @link</h2>\n<h2>link : @codigo</h2>\n\nGracias\n\n@asunto(Gratize)","_id":"JahlsRMQo32ooufF"}
 {"email":"admin@elcaminosoftware.com","smtp":"smtp.zoho.com","password":"Alfa17283946","id":"configuracion","_id":"aqUsk8sIqOEcUtak"}
+{"id":"191083848","doc_type":"productos","licencias":[{"codigo":"hola","cantidad":41,"link":"www.licencias.com"}],"template":"<h1>Hola @nombre</h1>\nGracias por la compra de @producto\n<h2>link : @link</h2>\n<h2>link : @codigo</h2>\n\nGracias\n\n@asunto(Gratize)","_id":"JahlsRMQo32ooufF"}
