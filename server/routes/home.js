@@ -7,7 +7,8 @@ router.use(cookieParser())
 
 router.use((req, res, next) => {
   const authSession = session.getSession()
-  const { access_token, user_id } = req.cookies
+  const access_token = req.cookies.access_token,
+    user_id = req.cookies.user_id
   if (access_token == authSession.access_token && user_id == authSession.user_id) {
     next()
   } else {
