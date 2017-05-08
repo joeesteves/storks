@@ -22414,7 +22414,7 @@ class ProductosContainter extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'h1',
             null,
-            'LOGO y NOMBRE DE LA TIENDA'
+            'PremiumFD Env\xEDos Automaticos'
           )
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -22748,6 +22748,16 @@ const EditarProducto = props => {
                   'p',
                   null,
                   ' Puede usar los siguientes atributos @codigo, @link, @nombre, @apodo, @producto '
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'p',
+                  null,
+                  ' Para personalizar el asunto ese @asunto(AQUI EL ASUNTO)  ej: @asunto(Felicitaciones por tu compra)'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'p',
+                  null,
+                  ' Si no indica @asunto por defecto va: Gracias por su compra'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { className: 'col-md-12', id: 'mailTemplate', defaultValue: props.template, rows: 15, width: '100%' })
               )

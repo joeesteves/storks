@@ -1,6 +1,2 @@
-{"id":"193329834","licencias":[{"codigo":"hola","cantidad":48,"link":"www.licencias.com"},{"codigo":"chau","cantidad":"1000","link":"www.millec.com"}],"template":"@link","_id":"BfZaU6QlbPb9wBjP","doc_type":"productos"}
-{"id":"MLA664258617","doc_type":"productos","licencias":[{"codigo":"hola","cantidad":42,"link":"www.licencias.com"},{"codigo":"chau","cantidad":"1000","link":"www.millec.com"}],"template":"Hola @nombre\n\ncompraste @producto\n\nsaludos @link\n\n@asunto(EXCELENTE COMPRA SOQUETE)","_id":"DDfzALuGsmSBe5fg"}
-{"id":"MLA664630732","doc_type":"productos","licencias":[{"codigo":"sdasd","cantidad":"1","link":"123123"}],"template":"","_id":"LvxtgyM0wkxhyi05"}
+{"id":"191083848","doc_type":"productos","licencias":"licencias","template":"<h1>Hola @nombre</h1>\nGracias por la compra de @producto\n<h2>link : @link</h2>\n<h2>link : @codigo</h2>\n\nGracias\n\n@asunto(Gratize)","_id":"JahlsRMQo32ooufF"}
 {"email":"admin@elcaminosoftware.com","smtp":"smtp.zoho.com","password":"Alfa17283946","id":"configuracion","_id":"aqUsk8sIqOEcUtak"}
-{"id":"MLA664258617--","doc_type":"productos","licencias":[{"codigo":"succion","cantidad":3,"link":"www.ff.com"}],"template":"compraste ehhh @link\n\n <p>@producto</p>\n\nchau soquete","_id":"fz3ob1oyLl2aiuYa"}
-{"id":"192850205","doc_type":"productos","licencias":[{"codigo":"pruebadobre","cantidad":3,"link":"www.prueba.com"}],"template":"@producto","_id":"vxqsxw7hEj40gbv7"}

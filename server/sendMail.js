@@ -4,7 +4,6 @@ const nodemailer = require('nodemailer'),
 
 
 const sendMail = (cb, mailData = {}) => {
-  console.log("MAIL SENT")
   const conf = mailConfig.getMailConfig()
   transporter = nodemailer.createTransport(`smtps://${conf.email.replace('@', '%40')}:${conf.password}@${conf.smtp}`),
     mailOptions = {
@@ -19,13 +18,13 @@ const sendMail = (cb, mailData = {}) => {
 
 const regExpAsunto =  /@asunto\((.*)\)/
 const getSubject = (template) => {
-  return Maybe(template.match(regExpAsunto))
+  return Maybe(template)
+  .chain(template => Maybe(template.match(regExpAsunto)))
   .map(match => match[1])
   .getOrElse('Gracias por su compra')
 }
 // nombre apodo email producto
 const parseTemplate = (data) => {
-
   return ['codigo', 'link', 'nombre', 'apodo', 'email', 'producto'].reduce((prev, curr) => prev.replace(`@${curr}`, data[curr]), data.template.replace(regExpAsunto,''))
 }
 

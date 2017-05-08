@@ -11,7 +11,7 @@ const orderEndPoint = (session) => (
   `https://api.mercadoshops.com/v1/shops/${session.user_id}/orders/search?paid=true&channel=mshops&closed=false&access_token=${session.access_token}`)
 
 const checkMercadoShops = (intervaloEnSegundos) => {
-  setInterval(() => {
+  // setInterval(() => {
     getPaidOpenOrders(session.getSession())
       .flatMap(flatDataForMailsAdapter)
       .flatMap(firstTime)
@@ -21,13 +21,13 @@ const checkMercadoShops = (intervaloEnSegundos) => {
           const { data, status } = error ? { data: error, status: 500 } : { data: info, status: 200 }
           if (status === 200) {
             saveOrderId(mailData.orderId)
-            mailData.updateLicenciasFx()
+            pago.updateLicencias(mailData.updateLicenciasData)
           }
         }, mailData)
       },
       (e) => console.log(e),
       () => console.log("COMPLETED"))
-  }, intervaloEnSegundos * 1000)
+  // }, 20 * 1000)
 }
 
 const saveOrderId = (orderId) => {
@@ -36,7 +36,7 @@ const saveOrderId = (orderId) => {
 const firstTime = (mailData) => {
   return Rx.Observable.create(obs => {
     msdb.findOne({ orderId: mailData.orderId }, (err, reg) => {
-      if (reg) console.log("REPEATED ORDER")
+      if (reg) console.log("REPEATED ORDER" + reg._id)
       obs.next(Object.assign(mailData, { firstTime: reg ? false : true }))
       obs.complete()
     })
