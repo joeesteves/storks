@@ -34,6 +34,7 @@ const saveOrderId = (orderId) => {
   msdb.insert({ orderId: orderId })
 }
 const firstTime = (mailData) => {
+  console.log("FIRST TIME")
   return Rx.Observable.create(obs => {
     msdb.findOne({ orderId: mailData.orderId }, (err, reg) => {
       if (reg) console.log("REPEATED ORDER" + reg._id)
@@ -65,7 +66,7 @@ const getPaidOpenOrders = (injSession) => {
 
 
 const flatDataForMailsAdapter = (results) => {
-  return pago.flatDataForMails({
+  // return pago.flatDataForMails({
     orderId: results.id,
     productos: results.products.map(p => ({ id: p.external_reference, title: p.title })),
     nombre: results.buyer.name,

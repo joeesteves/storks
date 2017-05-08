@@ -62,6 +62,7 @@ const _sendMailCb = (mailData) => {
   return (error, info) => {
     const { data, status } = error ? { data: error, status: 500 } : { data: info, status: 200 }
     if (status === 200) {
+      console.log("MAIL SENT")
       updateLicencias(mailData.updateLicenciasData)
       _removeReTryMail(mailData)
     } else {
@@ -114,6 +115,7 @@ const flatDataForMailsAdapter = ({ order, pay }) => {
 }
 
 const flatDataForMails = (mixParams) => {
+  console.log("FLATTING DATA")
   return Rx.Observable.from(mixParams.productos)
     .flatMap(localProd => getLocalProducto(localProd))
     .filter(_isValidForMail)
@@ -134,7 +136,7 @@ const flatDataForMails = (mixParams) => {
 }
 // devuelve el producto con datos de distintos origenes {title, template, lic}
 const getLocalProducto = (product) => {
-  console.log(product.id)
+  console.log("EL PRODUCTO SOLICITADO ES:" + product.id)
   return Rx.Observable.create(function (obs) {
     db.findOne({ id: product.id }, (err, localProduct) => {
       Maybe(localProduct)
