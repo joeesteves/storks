@@ -1,7 +1,7 @@
 const express = require('express'),
   router = express.Router(),
-  Maybe = require('ramda-fantasy').Maybe
-appSettings = require('../appSettings'),
+  Maybe = require('ramda-fantasy').Maybe,
+  appSettings = require('../appSettings'),
   request = require('request'),
   session = require('../session')
 
