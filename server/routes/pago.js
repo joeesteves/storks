@@ -62,7 +62,7 @@ const _sendMailCb = (mailData) => {
   return (error, info) => {
     const { data, status } = error ? { data: error, status: 500 } : { data: info, status: 200 }
     if (status === 200) {
-      updateLicencias(mailData.updateLicencias)
+      updateLicencias(mailData.updateLicenciasData)
       _removeReTryMail(mailData)
     } else {
       _saveMailForReTry(mailData)
@@ -99,7 +99,6 @@ const getOrderData = (pay) => {
       (err, res, body) => {
         if (err || (res && res.statusCode >= 400))
           return reject({ res, status: res.statusCode })
-        console.log(JSON.parse(JSON.stringify(body)))
         resolve({ order: JSON.parse(body), pay })
       })
   })
@@ -135,6 +134,7 @@ const flatDataForMails = (mixParams) => {
 }
 // devuelve el producto con datos de distintos origenes {title, template, lic}
 const getLocalProducto = (product) => {
+  console.log(product.id)
   return Rx.Observable.create(function (obs) {
     db.findOne({ id: product.id }, (err, localProduct) => {
       Maybe(localProduct)
