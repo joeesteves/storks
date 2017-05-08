@@ -1,7 +1,7 @@
 const express = require('express'),
   router = express.Router(),
   Maybe = require('ramda-fantasy').Maybe
-  appSettings = require('../appSettings'),
+appSettings = require('../appSettings'),
   request = require('request'),
   session = require('../session')
 
@@ -21,8 +21,10 @@ router.get('/', function (req, res) {
         console.log("tokenResponse" + tokenResponse)
         if (tokenError || Maybe(tokenResponse).map(tr => tr.Error).value) return res.send("API de Marcado Libre No disponible :( . Intentelo en unos minutos")
         session.updateSession(JSON.parse(tokenBody))
+        res.cookie("access_token", session.getSession().access_token)
+        res.cookie("user_id", session.getSession().user_id)
         console.log("REDIRECTING TO HOME...")
-        res.redirect('/home') 
+        res.redirect('/home')
       })
     }).isJust || res.redirect(appSettings.authRedirectUrl)
 })

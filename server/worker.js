@@ -11,7 +11,7 @@ const orderEndPoint = (session) => (
   `https://api.mercadoshops.com/v1/shops/${session.user_id}/orders/search?paid=true&channel=mshops&closed=false&access_token=${session.access_token}`)
 
 const checkMercadoShops = (intervaloEnSegundos) => {
-  // setInterval(() => {
+  setInterval(() => {
     getPaidOpenOrders(session.getSession())
       .flatMap(flatDataForMailsAdapter)
       .flatMap(firstTime)
@@ -27,7 +27,7 @@ const checkMercadoShops = (intervaloEnSegundos) => {
       },
       (e) => console.log(e),
       () => console.log("COMPLETED"))
-  // }, 20 * 1000)
+  }, intervaloEnSegundos * 1000)
 }
 
 const saveOrderId = (orderId) => {
