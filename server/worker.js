@@ -66,7 +66,7 @@ const getPaidOpenOrders = (injSession) => {
 
 
 const flatDataForMailsAdapter = (results) => {
-  // return pago.flatDataForMails({
+  return pago.flatDataForMails({
     orderId: results.id,
     productos: results.products.map(p => ({ id: p.external_reference, title: p.title })),
     nombre: results.buyer.name,
