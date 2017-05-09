@@ -6,20 +6,25 @@ const sendMail = (cb, mailData = {}) => {
   console.log("START SENDING MAIL")
   const conf = mailConfig.getMailConfig()
   const smtpConfig = {
-    host: conf.smtp,
-    port: 465,
-    // secure: true, // upgrade later with STARTTLS
+    service: 'gmail',
     auth: {
       user: conf.email,
       pass: conf.password
-    },
-    tls: { rejectUnauthorized: false }
+    }
+    // host: conf.smtp,
+    // port: 465,
+    // // secure: true, // upgrade later with STARTTLS
+    // auth: {
+    //   user: conf.email,
+    //   pass: conf.password
+    // },
+    // tls: { rejectUnauthorized: false }
   }
   transporter = nodemailer.createTransport(smtpConfig),
     mailOptions = {
       from: `"PremiumFD" <${conf.email}>`, // sender address
       to: mailData.email,  // list of receivers
-      bcc: conf.email, //AutoCopy
+      // bcc: conf.email, //AutoCopy
       subject: getSubject(mailData.template), // Subject line
       text: 'Mail diseñado para verse con soporte HTML', // plaintext body
       html: parseTemplate(mailData)

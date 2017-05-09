@@ -20,10 +20,15 @@ const checkMercadoShops = (intervaloEnSegundos) => {
         sendMail((error, info) => {
           const { data, status } = error ? { data: error, status: 500 } : { data: info, status: 200 }
           if (status === 200) {
+            console.log('MAIL SENT')
             saveOrderId(mailData.orderId)
-            pago.updateLicencias(mailData.updateLicenciasData)
+            if(mailData.updateLicenciasData){
+              pago.updateLicencias(mailData.updateLicenciasData)
+            } else {
+              console.log("NO LICENCIA TO UPDATE")
+            }
           } else {
-            console.log("ERROR:" + data)
+            console.log("ERROR: " + data)
           }
         }, mailData)
       },
