@@ -45,7 +45,8 @@ const _handlePagosErrors = (e) => {
 }
 
 const _saveMailForReTry = (mailData) => {
-  mailsdb.update({ _id: mailData._id }, mailData, { upsert: true }, err => {
+  console.log("SAVING MAIL FOR RETRY")
+  mailsdb.update({ _id: mailData._id }, Object.assign({}, mailData, { retry: Maybe(mailData.retry).getOrElse(0) + 1 }), { upsert: true }, err => {
     err ? _saveMailForReTry(mailData) : _retrySendMail()
   })
 }
@@ -53,22 +54,28 @@ const _saveMailForReTry = (mailData) => {
 const _retrySendMail = () => {
   mailsdb.find({}, (err, pendingMails) => {
     pendingMails.forEach(pendingMail => {
-      sendMail(_sendMailCb(pendingMail), pendingMail)
+      if (pendingMail.retry < 4) {
+        sendMail(_sendMailCb(pendingMail), pendingMail)
+      } else {
+        console.log("MAIL BAD CONFIGURATION")
+      }
     })
   })
 }
 
 const _sendMailCb = (mailData) => {
-  return (error, info) => {
+  console.log("CALLBACK GENERATION")
+  return ((error, info) => {
     const { data, status } = error ? { data: error, status: 500 } : { data: info, status: 200 }
     if (status === 200) {
       console.log("MAIL SENT")
       updateLicencias(mailData.updateLicenciasData)
       _removeReTryMail(mailData)
     } else {
+      console.log(data)
       _saveMailForReTry(mailData)
     }
-  }
+  })
 }
 const _removeReTryMail = (mailData) => {
   mailsdb.remove({ _id: mailData._id })
@@ -173,6 +180,13 @@ const updateLicencias = ({ productId, licencias }) => {
 
 
 const exists = a => a ? true : false
-const _isValidForMail = (producto) => exists(producto.template)
+const _isValidForMail = (producto) => {
+  if (producto.missing) {
+    console.log(producto.msg)
+    return false
+  } else {
+    return exists(producto.template)
+  }
+}
 
 module.exports = { getLicencia, flatDataForMails, router, updateLicencias }

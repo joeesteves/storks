@@ -22,6 +22,8 @@ const checkMercadoShops = (intervaloEnSegundos) => {
           if (status === 200) {
             saveOrderId(mailData.orderId)
             pago.updateLicencias(mailData.updateLicenciasData)
+          } else {
+            console.log("ERROR:" + data)
           }
         }, mailData)
       },

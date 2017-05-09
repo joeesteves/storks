@@ -4,6 +4,7 @@ const nodemailer = require('nodemailer'),
 
 
 const sendMail = (cb, mailData = {}) => {
+  console.log("START SENDING MAIL")
   const conf = mailConfig.getMailConfig()
   transporter = nodemailer.createTransport(`smtps://${conf.email.replace('@', '%40')}:${conf.password}@${conf.smtp}`),
     mailOptions = {

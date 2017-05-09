@@ -5,7 +5,8 @@ const express = require('express'),
   sessionApi = require('../session'),
   session = sessionApi.getSession,
   appSettings = require('../appSettings'),
-  fs = require('fs')
+  fs = require('fs'),
+  request = require('request')
 
 
 router.get('/', (req, res) => {
