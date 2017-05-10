@@ -27,6 +27,7 @@ class ProductosContainter extends React.Component {
         <div className="panel-heading row">
           <div className="col-md-6">
             <h1>PremiumFD Envíos Automaticos</h1>
+            <p>Cantidad de productos mostrados: {this.props.productos.length}</p>
           </div>
           <div className="col-md-6">
 

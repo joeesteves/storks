@@ -1,7 +1,5 @@
 const express = require('express'),
   router = express.Router(),
-  db = require('../db').db,
-  mailsdb = require('../db').mailsdb,
   R = require('ramda'),
   Maybe = require('ramda-fantasy').Maybe,
   request = require('request'),
@@ -46,21 +44,22 @@ const _handlePagosErrors = (e) => {
 
 const _saveMailForReTry = (mailData) => {
   console.log("SAVING MAIL FOR RETRY")
-  mailsdb.update({ _id: mailData._id }, Object.assign({}, mailData, { retry: Maybe(mailData.retry).getOrElse(0) + 1 }), { upsert: true }, err => {
-    err ? _saveMailForReTry(mailData) : _retrySendMail()
-  })
+  DB.get(`pendingmails_${mailData._id}`)
+    .then(m => Object.assign({}, m, mailData, { retry: Maybe(mailData.retry).getOrElse(0) + 1, doc_type: 'pendingmails' }))
+    .then(() => setTimeout(_retrySendMail, 60000))
+    .catch(e => {
+      if (e.res.statusCode === 404)
+        DB.put(Object.assign({ _id: `pendingmails_${new Date().toISOString()}` }, mailData, { retry: Maybe(mailData.retry).getOrElse(0) + 1, doc_type: 'pendingmails' }))
+    })
 }
 
 const _retrySendMail = () => {
-  mailsdb.find({}, (err, pendingMails) => {
-    pendingMails.forEach(pendingMail => {
-      if (pendingMail.retry < 4) {
-        sendMail(_sendMailCb(pendingMail), pendingMail)
-      } else {
-        console.log("MAIL BAD CONFIGURATION")
-      }
+  DB.find({ doc_type: 'pendingmails' })
+    .then(mails => {
+      mails.forEach(pendingMail => {
+        pendingMail.retry < 4 ? sendMail(_sendMailCb(pendingMail), pendingMail) : console.log("MAIL BAD CONFIGURATION")
+      })
     })
-  })
 }
 
 const _sendMailCb = (mailData) => {
@@ -78,7 +77,9 @@ const _sendMailCb = (mailData) => {
   })
 }
 const _removeReTryMail = (mailData) => {
-  mailsdb.remove({ _id: mailData._id })
+  return DB.get(mailData._id)
+    .then(m => DB.put(Object.assign({}, d, { _deleted: true })))
+    .catch(e => console.log("REMOCE RETYR MAIL:" + e))
 }
 
 const getPaymentData = (req) => {
@@ -127,7 +128,7 @@ const flatDataForMails = (mixParams) => {
     .flatMap(localProd => getLocalProducto(localProd))
     .filter(_isValidForMail)
     .map(producto => {
-      const { codigo, link, updateLicenciasData } = getLicencia(producto, db)
+      const { codigo, link, updateLicenciasData } = getLicencia(producto)
       return {
         orderId: mixParams.orderId, // Para mercadoShops
         nombre: mixParams.nombre,
@@ -145,19 +146,17 @@ const flatDataForMails = (mixParams) => {
 const getLocalProducto = (product) => {
   console.log("EL PRODUCTO SOLICITADO ES:" + product.id)
   return Rx.Observable.create(function (obs) {
-    db.findOne({ id: product.id }, (err, localProduct) => {
-      Maybe(localProduct)
-        .map(localProduct => obs.next(Object.assign(localProduct, product)))
-        .isNothing ? obs.next({
-          missing: true,
-          msg: `El producto ${product.title}(${product.id}) no esta configurado para el envio`
-        }) : null
-      obs.complete()
-    })
+    DB.get(`product_${product.id}`)
+      .then(p => obs.next(Object.assign(localProduct, product)))
+      .catch(e => obs.next({
+        missing: true,
+        msg: `El producto ${product.title}(${product.id}) no esta configurado para el envio`
+      }))
+    obs.complete()
   })
 }
 
-const getLicencia = (producto, db) => {
+const getLicencia = (producto) => {
   console.log("LICENCIA")
   let licencias;
   const lic = producto.licencias ? producto.licencias[0] : null
@@ -173,9 +172,10 @@ const getLicencia = (producto, db) => {
 
 const updateLicencias = ({ productId, licencias }) => {
   console.log("UPDATING LICENCIA")
-  db.update({ id: productId }, { $set: { licencias } }, (e) => {
-    e ? console.log("error") : console.log("LICENCIA UPATED")
-  })
+  DB.get(`product_${productId}`)
+    .then(p => DB.put(Object.assign({}, p, { licencias })))
+    .then(() => console.log("LICENCIA UPATED"))
+    .catch(e => console.log("ERROR UPDATING LICENCIAS:" + e))
 }
 
 

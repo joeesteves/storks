@@ -4565,6 +4565,7 @@ const productosAct = {
   edit: "TOGGLE_EDIT_PRODUCTO",
   offEdit: "TURN_OFF_EDIT_PRODUCTO",
   updateProducto: "UPDATE_LIC_PRODUCTO",
+  pushProducto: "PUSH_PRODUCTO",
   addLicencia: "ADD_LIC_PRODUCTO",
   removeLicencia: "REMOVE_LIC_PRODUCTO"
 };
@@ -12571,15 +12572,26 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 
 const fetchProductos = sessionData => {
+  const meliUrl = `https://api.mercadolibre.com/users/${sessionData.user_id}/items/search?status=active&access_token=${sessionData.access_token}`;
+  const mshopsUrl = `https://api.mercadoshops.com/v1/shops/${sessionData.user_id}/listings/search?access_token=${sessionData.access_token}`;
   __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* fetchJsonToObs */])('../productos').subscribe(produtosDatosAdicionales => {
-    __WEBPACK_IMPORTED_MODULE_4_rxjs___default.a.Observable.merge(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* fetchJsonToObs */])(`https://api.mercadolibre.com/users/${sessionData.user_id}/items/search?access_token=${sessionData.access_token}`).flatMap(res => res.results).flatMap(id => __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__helpers__["c" /* getProductById */])(id)).map(prod => _extends({}, prod, { origen: 'MercadoLibre' })), __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* fetchJsonToObs */])(`https://api.mercadoshops.com/v1/shops/${sessionData.user_id}/listings/search?access_token=${sessionData.access_token}`).flatMap(res => res.results).map(prod => _extends({}, prod, { origen: 'MercadoShops' }))).subscribe(prod => {
-      const localProducto = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_ramda_fantasy__["Maybe"])(produtosDatosAdicionales.find(producto => producto.id == prod.id)).getOrElse({ licencias: [], template: '' });
+    __WEBPACK_IMPORTED_MODULE_4_rxjs___default.a.Observable.merge(fetchAndConcat(meliUrl, sessionData, 0).flatMap(id => __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__helpers__["c" /* getProductById */])(id)).map(prod => _extends({}, prod, { origen: 'MercadoLibre' })), fetchAndConcat(mshopsUrl, sessionData, 0).map(prod => _extends({}, prod, { origen: 'MercadoShops' }))).filter(product => product.status === 'active').subscribe(prod => {
+      const localProducto = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_ramda_fantasy__["Maybe"])(produtosDatosAdicionales.find(producto => producto._id == prod.id)).getOrElse({ licencias: [], template: '' });
       __WEBPACK_IMPORTED_MODULE_2__store__["a" /* store */].dispatch(add_producto(_extends({}, prod, localProducto)));
     });
   });
 };
 /* harmony export (immutable) */ __webpack_exports__["a"] = fetchProductos;
 
+const fetchAndConcat = (url, sessionData, offset) => {
+  return __WEBPACK_IMPORTED_MODULE_4_rxjs___default.a.Observable.defer(() => {
+    return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* fetchJsonToObs */])(`${url}&offset=${offset}`).flatMap(res => {
+      const items = __WEBPACK_IMPORTED_MODULE_4_rxjs___default.a.Observable.from(res.results);
+      const next = res.paging.offset + 50 < res.paging.total ? fetchAndConcat(url, sessionData, res.paging.offset + 50) : __WEBPACK_IMPORTED_MODULE_4_rxjs___default.a.Observable.empty();
+      return __WEBPACK_IMPORTED_MODULE_4_rxjs___default.a.Observable.concat(items, next);
+    });
+  });
+};
 
 const add_producto = producto => {
   return { type: __WEBPACK_IMPORTED_MODULE_0__constants_actionTypes__["b" /* productosAct */].add, producto };
@@ -12598,19 +12610,28 @@ const turnOffEditProducto = () => {
 };
 /* harmony export (immutable) */ __webpack_exports__["b"] = turnOffEditProducto;
 
-const updateProducto = (id, licencias, template) => {
+const pushProducto = (id, _rev, licencias, template) => {
   fetch('../productos', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ id, licencias, template })
-  });
-  return { type: __WEBPACK_IMPORTED_MODULE_0__constants_actionTypes__["b" /* productosAct */].updateProducto, licencias, template, id };
+    body: JSON.stringify({ id, _rev, licencias, template })
+  }).then(doc => {
+    console.log(doc);
+    __WEBPACK_IMPORTED_MODULE_2__store__["a" /* store */].dispatch(toggleEditProducto(id));
+    __WEBPACK_IMPORTED_MODULE_2__store__["a" /* store */].dispatch(updateProducto(id, doc._rev, licencias, template));
+  }).catch(console.log);
+  return { type: __WEBPACK_IMPORTED_MODULE_0__constants_actionTypes__["b" /* productosAct */].pushProducto };
 };
-/* harmony export (immutable) */ __webpack_exports__["d"] = updateProducto;
+/* harmony export (immutable) */ __webpack_exports__["d"] = pushProducto;
 
+
+const updateProducto = (id, _rev, licencias, template) => {
+
+  return { type: __WEBPACK_IMPORTED_MODULE_0__constants_actionTypes__["b" /* productosAct */].updateProducto, licencias, template, id, _rev };
+};
 
 const addLicencia = id => {
   return { type: __WEBPACK_IMPORTED_MODULE_0__constants_actionTypes__["b" /* productosAct */].addLicencia, id };
@@ -22415,6 +22436,12 @@ class ProductosContainter extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.
             'h1',
             null,
             'PremiumFD Env\xEDos Automaticos'
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'p',
+            null,
+            'Cantidad de productos mostrados: ',
+            this.props.productos.length
           )
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -22658,8 +22685,7 @@ var _this = this;
 const EditarProducto = props => {
 
   const handleSubmit = () => {
-    props.onSubmit(props.id, parseLicencias(document.getElementsByClassName(`licencias-${props.id}`)), document.getElementById('mailTemplate').value);
-    props.toggleEdit();
+    props.onSubmit(props.id, props._rev, parseLicencias(document.getElementsByClassName(`licencias-${props.id}`)), document.getElementById('mailTemplate').value);
   };
   const handleOnPlus = () => {
     props.onPlus(props.id);
@@ -22771,7 +22797,7 @@ const EditarProducto = props => {
 };
 
 const mapDispatchToProps = {
-  onSubmit: __WEBPACK_IMPORTED_MODULE_5__actions_productos__["d" /* updateProducto */],
+  onSubmit: __WEBPACK_IMPORTED_MODULE_5__actions_productos__["d" /* pushProducto */],
   onPlus: __WEBPACK_IMPORTED_MODULE_5__actions_productos__["e" /* addLicencia */],
   onMinus: __WEBPACK_IMPORTED_MODULE_5__actions_productos__["f" /* removeLicencia */]
 };
@@ -22930,7 +22956,7 @@ const mapImg = {
   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
     'td',
     null,
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: prod.thumbnail.replace(/^http/, 'https') })
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: prod.thumbnail.replace(/http/, 'https') })
   ),
   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
     'td',
@@ -23057,7 +23083,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
     case __WEBPACK_IMPORTED_MODULE_0__constants_actionTypes__["b" /* productosAct */].offEdit:
       return state.map(offEdit);
     case __WEBPACK_IMPORTED_MODULE_0__constants_actionTypes__["b" /* productosAct */].updateProducto:
-      return updateProducto(state, action.id, action.licencias, action.template);
+      return updateProducto(state, action.id, action.licencias, action.template, action._rev);
     case __WEBPACK_IMPORTED_MODULE_0__constants_actionTypes__["b" /* productosAct */].addLicencia:
       return addLicencia(state, action.id);
     case __WEBPACK_IMPORTED_MODULE_0__constants_actionTypes__["b" /* productosAct */].removeLicencia:
@@ -23071,7 +23097,7 @@ const toggleEdit = (productos, id) => productos.map(producto => producto.id === 
 
 const offEdit = prod => _extends({}, prod, { edit: false });
 
-const updateProducto = (state, id, licencias, template) => state.map(producto => producto.id === id ? _extends({}, producto, { licencias, template }) : producto);
+const updateProducto = (state, id, licencias, template, _rev) => state.map(producto => producto.id === id ? _extends({}, producto, { licencias, template, _rev }) : producto);
 const addLicencia = (state, id) => state.map(producto => producto.id === id ? _extends({}, producto, { licencias: [...producto.licencias, { codigo: "", cantidad: 1 }] }) : producto);
 
 const removeLicencia = (state, id, index) => state.map(prod => prod.id === id ? _extends({}, prod, { licencias: [...prod.licencias.slice(0, index), ...prod.licencias.slice(index + 1)] }) : prod);

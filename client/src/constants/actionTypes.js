@@ -3,6 +3,7 @@ export const productosAct = {
   edit: "TOGGLE_EDIT_PRODUCTO",
   offEdit: "TURN_OFF_EDIT_PRODUCTO",
   updateProducto: "UPDATE_LIC_PRODUCTO",
+  pushProducto: "PUSH_PRODUCTO",
   addLicencia: "ADD_LIC_PRODUCTO",
   removeLicencia: "REMOVE_LIC_PRODUCTO"
 }

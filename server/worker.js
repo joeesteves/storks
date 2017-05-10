@@ -3,8 +3,9 @@ const request = require('request'),
   refreshToken = require('./routes/refreshToken').refreshToken,
   Rx = require('rxjs'),
   pago = require('./routes/pago'),
-  msdb = require('./db').msdb,
-  sendMail = require('./sendMail').sendMail
+  DB = require('./couchdb'),
+  sendMail = require('./sendMail').sendMail,
+  Maybe = require('ramda-fantasy').Maybe
 
 // EndPoints
 const orderEndPoint = (session) => (
@@ -17,37 +18,41 @@ const checkMercadoShops = (intervaloEnSegundos) => {
       .flatMap(firstTime)
       .filter(md => md.firstTime)
       .subscribe(mailData => {
-        sendMail((error, info) => {
-          const { data, status } = error ? { data: error, status: 500 } : { data: info, status: 200 }
-          if (status === 200) {
-            console.log('MAIL SENT')
-            saveOrderId(mailData.orderId)
-            if(mailData.updateLicenciasData){
-              pago.updateLicencias(mailData.updateLicenciasData)
-            } else {
-              console.log("NO LICENCIA TO UPDATE")
-            }
-          } else {
-            console.log("ERROR: " + data)
-          }
-        }, mailData)
+        saveOrderId(mailData.orderId)
+          .then(() => {
+            sendMail((error, info) => {
+              const { data, status } = error ? { data: error, status: 500 } : { data: info, status: 200 }
+              Maybe(status).filter(s => s === 200)
+                .map(m => {
+                  console.log('MAIL SENT')
+                  Maybe(mailData.updateLicenciasData)
+                    .map(m => pago.updateLicencias(m)).isNothing ? console.log("NO LICENCIA TO UPDATE") : null
+                }).isNothing ? console.log("ERROR: " + data) : null
+            }, mailData)
+          }).catch(e => console.log("SAVING ORDER ID" + e))
       },
       (e) => console.log(e),
       () => console.log("COMPLETED"))
   }, intervaloEnSegundos * 1000)
 }
 
-const saveOrderId = (orderId) => {
-  msdb.insert({ orderId: orderId })
-}
+const saveOrderId = (orderId) => DB.put({ _id: `orderId_${orderId}`, doc_type: 'MSOrders' })
+
 const firstTime = (mailData) => {
   console.log("FIRST TIME")
   return Rx.Observable.create(obs => {
-    msdb.findOne({ orderId: mailData.orderId }, (err, reg) => {
-      if (reg) console.log("REPEATED ORDER" + reg._id)
-      obs.next(Object.assign(mailData, { firstTime: reg ? false : true }))
-      obs.complete()
-    })
+    Db.get(`orderId_${mailData.orderId}`)
+      .then(reg => {
+        console.log("REPEATED ORDER" + reg._id)
+        obs.next(Object.assign(mailData, { firstTime: false }))
+        obs.complete()
+      })
+      .catch((e) => {
+        Maybe(e.res)
+          .filter(res => res.statusCode === 404)
+          .map(nf => obs.next(Object.assign(mailData, { firstTime: true })))
+        obs.complete()
+      })
   })
 }
 
@@ -83,13 +88,3 @@ const flatDataForMailsAdapter = (results) => {
 }
 
 module.exports = { getPaidOpenOrders, checkMercadoShops }
-
-// mailData = { nombre, apodo, email, producto, link, codigo}
-// 
-// nombre = buyer.name
-// apodo = buyer.nickname || buyer.name
-// email = buyer.mail
-// producto = products[0].title
-// codigo = getLicencia(productos[0]).codigo 
-// link = getLicencia(productos[0]).link 
-// template

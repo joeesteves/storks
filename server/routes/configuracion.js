@@ -1,19 +1,23 @@
 const express = require('express'),
   router = express.Router(),
-  db = require('../db').db,
+  DB = require('../couchdb'),
   Maybe = require('ramda-fantasy').Maybe,
   mailConfig = require('../mailConfig')
 
 router.post('/', (req, res) => {
-  db.update({ id: 'configuracion' }, Object.assign({}, req.body, { id: 'configuracion' }), { upsert: true })
-  mailConfig.setMailConfig(req.body)
-  res.status(201).send(req.body)
+  DB.get('configuracion')
+    .then(doc => DB.put(Object.assign({}, doc, req.body)))
+    .then(() => {
+      mailConfig.setMailConfig(req.body)
+      res.status(201).send(req.body)
+    })
+    .catch(e => "ERROR GUARDANDO LA CONFIGURACION" + e)
 })
 
 router.get('/', (req, res) => {
-  db.findOne({ id: 'configuracion' }, (err, doc) => {
-    res.status(200).send(Maybe(doc).getOrElse({ email: '--', smtp: '--', password: '--' }))
-  })
+  DB.get('configuracion')
+  .then(doc => res.status(200).send(doc))
+  .catch(e => console.log("ERROR GETTING CONF:" + e))
 })
 
 module.exports = router

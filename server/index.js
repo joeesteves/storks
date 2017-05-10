@@ -6,15 +6,14 @@ const fs = require('fs'),
   routes = require('./routes'),
   appSettings = require('./appSettings'),
   mailConfig = require('./mailConfig'),
-  db = require('./db').db,
   worker = require('./worker'),
   session = require('./session')
-
+  DB = require('./couchdb')
 module.exports = () => {
   // Levanto Configuración del mail
-  db.findOne({ id: 'configuracion' }, (e, conf) => {
-    mailConfig.setMailConfig(conf)
-  })
+  DB.get('configuracion')
+  .then(conf => mailConfig.setMailConfig(conf))
+  .catch(e => console.log("ERROR AL CARGAR CONFIGURACION:" + e))
 
   // CommonMiddleware
   app.use(cors())
@@ -31,12 +30,12 @@ module.exports = () => {
   app.use('/auth', routes.auth)
 
   // Create SSL server with autoSigned certs
-  // https.createServer({
-  //   key: fs.readFileSync(`${__dirname}/ssl/private.pem`),
-  //   cert: fs.readFileSync(`${__dirname}/ssl/server.crt`)
-  // }, app).listen(appSettings.port, '0.0.0.0')
+  https.createServer({
+    key: fs.readFileSync(`${__dirname}/ssl/private.pem`),
+    cert: fs.readFileSync(`${__dirname}/ssl/server.crt`)
+  }, app).listen(appSettings.port, '0.0.0.0')
 
-  app.listen(appSettings.port, '0.0.0.0')
+  // app.listen(appSettings.port, '0.0.0.0')
 
-  worker.checkMercadoShops(60)
+  // worker.checkMercadoShops(60)
 }

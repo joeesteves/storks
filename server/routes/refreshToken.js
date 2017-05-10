@@ -1,6 +1,5 @@
 const express = require('express'),
   router = express.Router(),
-  db = require('../db'),
   Maybe = require('ramda-fantasy').Maybe,
   sessionApi = require('../session'),
   session = sessionApi.getSession,

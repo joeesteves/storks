@@ -3,13 +3,12 @@ import Modal from 'react-modal'
 import { Maybe } from 'ramda-fantasy'
 import Licencia from './licencia'
 import { connect } from 'react-redux'
-import { updateProducto, addLicencia, removeLicencia } from '../actions/productos'
+import { pushProducto, addLicencia, removeLicencia } from '../actions/productos'
 
 const EditarProducto = (props) => {
 
   const handleSubmit = () => {
-    props.onSubmit(props.id, parseLicencias(document.getElementsByClassName(`licencias-${props.id}`)), document.getElementById('mailTemplate').value)
-    props.toggleEdit()
+    props.onSubmit(props.id, props._rev, parseLicencias(document.getElementsByClassName(`licencias-${props.id}`)), document.getElementById('mailTemplate').value)
   }
   const handleOnPlus = () => {
     props.onPlus(props.id)
@@ -66,7 +65,7 @@ const EditarProducto = (props) => {
 }
 
 const mapDispatchToProps = {
-  onSubmit: updateProducto,
+  onSubmit: pushProducto,
   onPlus: addLicencia,
   onMinus: removeLicencia
 }
