@@ -22,7 +22,7 @@ const checkMercadoShops = (intervaloEnSegundos) => {
           .then(() => {
             sendMail((error, info) => {
               const { data, status } = error ? { data: error, status: 500 } : { data: info, status: 200 }
-              Maybe(status).filter(s => s === 200)
+              Maybe(status).chain(s => s === 200 ? Maybe.Just(s) : Maybe.Nothing())
                 .map(m => {
                   console.log('MAIL SENT')
                   Maybe(mailData.updateLicenciasData)
@@ -41,17 +41,17 @@ const saveOrderId = (orderId) => DB.put({ _id: `orderId_${orderId}`, doc_type: '
 const firstTime = (mailData) => {
   console.log("FIRST TIME")
   return Rx.Observable.create(obs => {
-    Db.get(`orderId_${mailData.orderId}`)
+    DB.get(`orderId_${mailData.orderId}`)
       .then(reg => {
         console.log("REPEATED ORDER" + reg._id)
         obs.next(Object.assign(mailData, { firstTime: false }))
         obs.complete()
       })
       .catch((e) => {
-        Maybe(e.res)
-          .filter(res => res.statusCode === 404)
-          .map(nf => obs.next(Object.assign(mailData, { firstTime: true })))
-        obs.complete()
+        if (e.res && e.res.statusCode === 404) {
+          obs.next(Object.assign(mailData, { firstTime: true }))
+          obs.complete()
+        }
       })
   })
 }

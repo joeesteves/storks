@@ -79,7 +79,7 @@ const _sendMailCb = (mailData) => {
 const _removeReTryMail = (mailData) => {
   return DB.get(mailData._id)
     .then(m => DB.put(Object.assign({}, d, { _deleted: true })))
-    .catch(e => console.log("REMOCE RETYR MAIL:" + e))
+    .catch(e => console.log("REMOVE RETRY MAIL"))
 }
 
 const getPaymentData = (req) => {
@@ -146,13 +146,18 @@ const flatDataForMails = (mixParams) => {
 const getLocalProducto = (product) => {
   console.log("EL PRODUCTO SOLICITADO ES:" + product.id)
   return Rx.Observable.create(function (obs) {
-    DB.get(`product_${product.id}`)
-      .then(p => obs.next(Object.assign(localProduct, product)))
-      .catch(e => obs.next({
-        missing: true,
-        msg: `El producto ${product.title}(${product.id}) no esta configurado para el envio`
-      }))
-    obs.complete()
+    DB.get(product.id)
+      .then(localProduct => {
+        obs.next(Object.assign(localProduct, product))
+        obs.complete()
+      })
+      .catch(e => {
+        obs.next({
+          missing: true,
+          msg: `El producto ${product.title}(${product.id}) no esta configurado para el envio`
+        })
+        obs.complete()
+      })
   })
 }
 
@@ -170,12 +175,15 @@ const getLicencia = (producto) => {
 
 }
 
-const updateLicencias = ({ productId, licencias }) => {
+const updateLicencias = (obj) => {
   console.log("UPDATING LICENCIA")
-  DB.get(`product_${productId}`)
-    .then(p => DB.put(Object.assign({}, p, { licencias })))
-    .then(() => console.log("LICENCIA UPATED"))
-    .catch(e => console.log("ERROR UPDATING LICENCIAS:" + e))
+  Maybe(obj)
+    .map(({ productId, licencias }) => {
+      DB.get(productId)
+        .then(p => DB.put(Object.assign({}, p, { licencias })))
+        .then(() => console.log("LICENCIA UPATED"))
+        .catch(e => console.log("ERROR UPDATING LICENCIAS:" + e))
+    }).isNothing ? console.log("PRODUCTO SIN LICENCIAS") : null
 }
 
 

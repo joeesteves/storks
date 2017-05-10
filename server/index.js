@@ -37,5 +37,5 @@ module.exports = () => {
 
   // app.listen(appSettings.port, '0.0.0.0')
 
-  // worker.checkMercadoShops(60)
+  worker.checkMercadoShops(60)
 }
