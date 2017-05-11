@@ -115,7 +115,7 @@ const getOrderData = (pay) => {
 
 const flatDataForMailsAdapter = ({ order, pay }) => {
   return flatDataForMails({
-    productos: order.order_items.map(p => p.item),
+    productos: R.chain(n => R.times(() => n.item, n.quantity), order.order_items),
     nombre: pay.payer.first_name,
     apodo: pay.payer.nickname,
     email: pay.payer.email,
