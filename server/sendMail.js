@@ -24,7 +24,7 @@ const sendMail = (cb, mailData = {}) => {
     mailOptions = {
       from: `"PremiumFD" <${conf.email}>`, // sender address
       to: mailData.email,  // list of receivers
-      // bcc: conf.email, //AutoCopy
+      bcc: "francood_cb@hotmail.com", //AutoCopy
       subject: getSubject(mailData.template), // Subject line
       text: 'Mail diseñado para verse con soporte HTML', // plaintext body
       html: parseTemplate(mailData)
