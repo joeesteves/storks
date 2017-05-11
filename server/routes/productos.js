@@ -17,7 +17,7 @@ router.post('/', (req, res) => {
     .catch(e => {
       if (e.res.statusCode === 404) {
         DB.put({ _id, doc_type: 'productos', licencias: req.body.licencias, template: req.body.template })
-          .then(prod => res.send(prod))
+          .then(prod => res.send(prod)).catch(e => console.log("ERROR: " + JSON.stringify(e)))
       } else {
         res.sendStatus(e.res.statusCode)
       }

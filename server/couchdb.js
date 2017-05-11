@@ -1,3 +1,12 @@
+// for testing use
+// const DB_URI = 'https://tefacturouy.cloudant.com/premiumfdtest',
+//   DB_HEADERS = {
+//     'Content-Type': 'application/json',
+//     'Authorization': 'Basic Y2FuYXlzaW5hbW9yZWV0aGltYXllc3NpOjExNjg0NDQ0OGNiMzMzY2VjZGFmNGVhNzY0NjMwMzhlMmRjOGQ4NDg=',
+//     'User-Agent': 'request'
+//   }
+
+// for production
 const DB_URI = 'https://tefacturouy.cloudant.com/premiumfd',
   DB_HEADERS = {
     'Content-Type': 'application/json',
