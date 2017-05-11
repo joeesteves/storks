@@ -166,10 +166,10 @@ const getLicencia = (producto) => {
   let licencias;
   const lic = producto.licencias ? producto.licencias[0] : null
   if (!lic || R.isEmpty(lic)) return { codigo: '', link: '', updateLicenciasData: null }
-  if (lic.cantidad == 1) {
-    licencias = [...producto.licencias.slice(1)]
+  if (lic.cantidad > 1) {
+    licencias = [Object.assign({}, lic, { cantidad: lic.cantidad - 1 }), ...producto.licencias.slice(1)]
   } else {
-    licencias = [Object.assign(lic, { cantidad: lic.cantidad - 1 }), ...producto.licencias.slice(1)]
+    licencias = [...producto.licencias.slice(1)]
   }
   return Object.assign({}, lic, { updateLicenciasData: { productId: producto.id, licencias } })
 
