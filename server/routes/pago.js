@@ -180,7 +180,13 @@ const updateLicencias = (obj) => {
   Maybe(obj)
     .map(({ productId, licencias }) => {
       DB.get(productId)
-        .then(p => DB.put(Object.assign({}, p, { licencias })))
+        .then(p => {
+          if (licencias && licencias.length === 0) {
+            return DB.put(Object.assign({}, p, { licencias, template: '' }))
+          } else {
+            return DB.put(Object.assign({}, p, { licencias }))
+          }
+        })
         .then(() => console.log("LICENCIA UPATED"))
         .catch(e => console.log("ERROR UPDATING LICENCIAS:" + e))
     }).isNothing ? console.log("PRODUCTO SIN LICENCIAS") : null
