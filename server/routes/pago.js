@@ -6,7 +6,8 @@ const express = require('express'),
   sendMail = require('../sendMail').sendMail,
   session = require('../session').getSession,
   Rx = require('rxjs'),
-  refreshToken = require('./refreshToken').refreshToken
+  refreshToken = require('./refreshToken').refreshToken,
+  moment = require('moment')
 
 router.post('/', (req, res) => {
   console.log("POST PAGO")
@@ -18,7 +19,7 @@ const procesarPagos = (req, res) => {
     .then(getOrderData)
     .then(flatDataForMailsAdapter)
     .then(_sendDataStreamToMailSender.bind(this, res))
-    .catch(_handlePagosErrors)
+    .catch(_handlePagosErrors.bind(this, req, res))
 }
 
 const _sendDataStreamToMailSender = (res, dataStream) => {
@@ -31,16 +32,13 @@ const _sendDataStreamToMailSender = (res, dataStream) => {
   )
 }
 
-const _handlePagosErrors = (e) => {
+const _handlePagosErrors = (req, res, e) => {
+  Maybe(e.msg).map(console.log)
   Maybe(e.status)
-    .map(status => {
-      if (status === 401) {
-        refreshToken().then(() => procesarPagos(req, res))
-      } else {
-        res.status(200).send(e)
-      }
-    }).isNothing ? res.sendStatus(200) : null
+    .chain(status => (status === 401) ? Maybe(status) : Maybe.Nothing())
+    .isNothing ? res.sendStatus(200) : refreshToken().then(() => procesarPagos(req, res)) 
 }
+
 
 const _saveMailForReTry = (mailData) => {
   console.log("SAVING MAIL FOR RETRY")
@@ -86,17 +84,15 @@ const getPaymentData = (req) => {
   console.log("PAYMENT")
   return new Promise((resolve, reject) => {
     if (!req.query.id)
-      return reject("IPN CONFIGURACION")
+      return reject({msg: "IPN CONFIGURACION"})
     request(`https://api.mercadopago.com/collections/notifications/${req.query.id}?access_token=${session().access_token}`,
       (err, res, body) => {
         if (err || (res && res.statusCode >= 400))
           return reject({ res, status: res.statusCode })
-        const jsonBody = JSON.parse(body).collection
-        if (jsonBody.marketplace === 'MELI') {
-          resolve(jsonBody)
-        } else {
-          reject("SOLO SE PROCESAN IPN MERCADOLIBRE")
-        }
+          Maybe(JSON.parse(body).collection)
+          .chain(j => (j.marketplace === 'MELI') ? Maybe(j) : Maybe.Nothing())
+          // .chain(j => (moment(j.date_approved) > moment(new Date()).subtract(2, 'hour')) ? Maybe(j) : Maybe.Nothing())
+          .map(j => resolve(j)).isNothing ? reject({msg: "SOLO SE PROCESAN IPN MERCADOLIBRE o IPN ANTIGUO"}) : null
       })
   })
 }
@@ -108,12 +104,15 @@ const getOrderData = (pay) => {
       (err, res, body) => {
         if (err || (res && res.statusCode >= 400))
           return reject({ res, status: res.statusCode })
-        resolve({ order: JSON.parse(body), pay })
+        Maybe(JSON.parse(body))
+        .chain(j => j.tags.includes('not_delivered') ? Maybe(j) : Maybe.Nothing() )
+        .map(j => resolve({ order: j, pay }) ).isNothing ? reject({ res, status: res.statusCode, msg:"YA ESTABA ENTREGADO" }) : null
+        
       })
   })
 }
 
-const flatDataForMailsAdapter = ({ order, pay }) => {
+  const flatDataForMailsAdapter = ({ order, pay }) => {
   return flatDataForMails({
     productos: R.chain(n => R.times(() => n.item, n.quantity), order.order_items),
     nombre: pay.payer.first_name,
