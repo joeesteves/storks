@@ -91,7 +91,7 @@ const getPaymentData = (req) => {
           return reject({ res, status: res.statusCode })
           Maybe(JSON.parse(body).collection)
           .chain(j => (j.marketplace === 'MELI') ? Maybe(j) : Maybe.Nothing())
-          // .chain(j => (moment(j.date_approved) > moment(new Date()).subtract(2, 'hour')) ? Maybe(j) : Maybe.Nothing())
+          .chain(j => (moment(j.date_approved) > moment(new Date()).subtract(2, 'hour')) ? Maybe(j) : Maybe.Nothing())
           .map(j => resolve(j)).isNothing ? reject({msg: "SOLO SE PROCESAN IPN MERCADOLIBRE o IPN ANTIGUO"}) : null
       })
   })
