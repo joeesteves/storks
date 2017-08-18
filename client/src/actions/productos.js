@@ -37,7 +37,7 @@ const fetchAndConcat = (url, sessionData, offset) => {
   })
 }
 
-export const add_producto = (producto) => {
+const add_producto = (producto) => {
   return { type: productosAct.add, producto }
 }
 
@@ -61,7 +61,6 @@ export const pushProducto = (id, _rev, licencias, template) => {
       console.log(doc)
       store.dispatch(toggleEditProducto(id))
       store.dispatch(updateProducto(id, doc._rev, licencias, template))
-
     })
     .catch(console.log)
   return { type: productosAct.pushProducto }
