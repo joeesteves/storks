@@ -13,7 +13,7 @@ const orderEndPoint = (session) => (
 
 const checkMercadoShops = (intervaloEnSegundos) => {
   setInterval(() => {
-    if(!session.getSession())
+    if (!session.getSession())
       return false
     getPaidOpenOrders(session.getSession())
       .flatMap(flatDataForMailsAdapter)
@@ -24,9 +24,11 @@ const checkMercadoShops = (intervaloEnSegundos) => {
           .then(() => {
             sendMail((error, info) => {
               const { data, status } = error ? { data: error, status: 500 } : { data: info, status: 200 }
-              Maybe(status).chain(s => s === 200 ? Maybe.Just(s) : Maybe.Nothing())
+              Maybe(status)
+                .chain(s => s === 200 ? Maybe.Just(s) : Maybe.Nothing())
                 .map(m => {
                   console.log('MAIL SENT')
+                  pago.savePurchaseForAlertExpiration(mailData)
                   Maybe(mailData.updateLicenciasData)
                     .map(m => pago.updateLicencias(m)).isNothing ? console.log("NO LICENCIA TO UPDATE") : null
                 }).isNothing ? console.log("ERROR: " + data) : null

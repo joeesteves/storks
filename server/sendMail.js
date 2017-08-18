@@ -1,6 +1,7 @@
 const nodemailer = require('nodemailer'),
   mailConfig = require('./mailConfig'),
   Maybe = require('ramda-fantasy').Maybe
+  DB = require('./couchdb')
 
 const sendMail = (cb, mailData = {}) => {
   console.log("START SENDING MAIL")
@@ -31,6 +32,7 @@ const sendMail = (cb, mailData = {}) => {
     }
   transporter.sendMail(mailOptions, cb)
 }
+
 
 const regExpAsunto = /@asunto\((.*)\)/
 const getSubject = (template) => {

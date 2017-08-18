@@ -9,7 +9,7 @@ const express = require('express'),
   refreshToken = require('./refreshToken').refreshToken,
   moment = require('moment'),
   DB = require('../couchdb')
-  
+
 
 router.post('/', (req, res) => {
   console.log("POST PAGO")
@@ -27,8 +27,8 @@ const procesarPagos = (req, res) => {
 
 const filterFirstTime = (obs) => {
   return obs
-  .flatMap(firstTime)
-  .filter(md => md.firstTime)
+    .flatMap(firstTime)
+    .filter(md => md.firstTime)
 }
 
 
@@ -63,7 +63,7 @@ const _handlePagosErrors = (req, res, e) => {
   Maybe(e.msg).map(console.log)
   Maybe(e.status)
     .chain(status => (status === 401) ? Maybe(status) : Maybe.Nothing())
-    .isNothing ? res.sendStatus(200) : refreshToken().then(() => procesarPagos(req, res)) 
+    .isNothing ? res.sendStatus(200) : refreshToken().then(() => procesarPagos(req, res))
 }
 
 
@@ -98,6 +98,7 @@ const _sendMailCb = (mailData) => {
       saveMeliOrderId(mailData.orderId) // Guarda el ID
       updateLicencias(mailData.updateLicenciasData)
       _removeReTryMail(mailData)
+      savePurchaseForAlertExpiration(mailData)
     } else {
       console.log(data)
       _saveMailForReTry(mailData)
@@ -115,7 +116,7 @@ const getPaymentData = (req) => {
   console.log("PAYMENT")
   return new Promise((resolve, reject) => {
     if (!req.query.id)
-      return reject({msg: "IPN CONFIGURACION"})
+      return reject({ msg: "IPN CONFIGURACION" })
     request(`https://api.mercadopago.com/collections/notifications/${req.query.id}?access_token=${session().access_token}`,
       (err, res, body) => {
         if (err || (res && res.statusCode >= 400))
@@ -124,7 +125,7 @@ const getPaymentData = (req) => {
           .chain(j => (j.status !== 'rejected') ? Maybe(j) : Maybe.Nothing())
           .chain(j => (j.marketplace === 'MELI') ? Maybe(j) : Maybe.Nothing())
           // .chain(j => (moment(j.date_approved) > moment(new Date()).subtract(2, 'hour')) ? Maybe(j) : Maybe.Nothing())
-          .map(j => resolve(j)).isNothing ? reject({msg: "SOLO SE PROCESAN IPN MERCADOLIBRE o IPN NUEVOS"}) : null
+          .map(j => resolve(j)).isNothing ? reject({ msg: "SOLO SE PROCESAN IPN MERCADOLIBRE o IPN NUEVOS" }) : null
       })
   })
 }
@@ -137,14 +138,14 @@ const getOrderData = (pay) => {
         if (err || (res && res.statusCode >= 400))
           return reject({ res, status: res.statusCode })
         Maybe(JSON.parse(body))
-        // .chain(j => j.tags.includes('not_delivered') ? Maybe(j) : Maybe.Nothing() )
-        .map(j => resolve({ order: j, pay }) ).isNothing ? reject({ res, status: res.statusCode, msg:"YA ESTABA ENTREGADO" }) : null
-        
+          // .chain(j => j.tags.includes('not_delivered') ? Maybe(j) : Maybe.Nothing() )
+          .map(j => resolve({ order: j, pay })).isNothing ? reject({ res, status: res.statusCode, msg: "YA ESTABA ENTREGADO" }) : null
+
       })
   })
 }
 // Agrego OrderId para IPN tambien
-  const flatDataForMailsAdapter = ({ order, pay }) => {
+const flatDataForMailsAdapter = ({ order, pay }) => {
   return flatDataForMails({
     orderId: order.id,
     productos: R.chain(n => R.times(() => n.item, n.quantity), order.order_items), // devuelve un item[]
@@ -236,4 +237,20 @@ const _isValidForMail = (producto) => {
   }
 }
 
-module.exports = { getLicencia, flatDataForMails, router, updateLicencias }
+//savePurchase for alert expiration
+
+const savePurchaseForAlertExpiration = (mailData) => {
+  return DB.put({
+    _id: `vencimiento_${mailData.orderId}`,
+    producto: mailData.producto,
+    nombre: mailData.nombre,
+    email: mailData.email,
+    fechaCompra: moment().toISOString().slice(0,10),
+    vencimiento: moment().add(mailData.diasDeDuracion || 90, 'days').toISOString().slice(0,10),
+    procesado: false
+  })
+    .then(() => console.log('SAVE EXPIRATION'))
+
+}
+
+module.exports = { getLicencia, flatDataForMails, router, updateLicencias, savePurchaseForAlertExpiration }
