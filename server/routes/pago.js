@@ -24,9 +24,7 @@ const procesarPagos = (req, res) => {
 
 const _sendDataStreamToMailSender = (res, dataStream) => {
   dataStream.subscribe(
-    mailData => {
-      sendMail(_sendMailCb(mailData), mailData)
-    },
+    mailData => sendMail(_sendMailCb(mailData), mailData), //onNext
     err => console.log(err),  // onError
     () => res.sendStatus(200) // onComplete
   )
@@ -80,6 +78,7 @@ const _removeReTryMail = (mailData) => {
     .catch(e => console.log("REMOVE RETRY MAIL"))
 }
 
+//Agrego control de pagos rechazados. (Linea 92 donde dice rejected)
 const getPaymentData = (req) => {
   console.log("PAYMENT")
   return new Promise((resolve, reject) => {
@@ -89,10 +88,11 @@ const getPaymentData = (req) => {
       (err, res, body) => {
         if (err || (res && res.statusCode >= 400))
           return reject({ res, status: res.statusCode })
-          Maybe(JSON.parse(body).collection)
+        Maybe(JSON.parse(body).collection)
+          .chain(j => (j.status === 'rejected') ? Maybe(j) : Maybe.Nothing())
           .chain(j => (j.marketplace === 'MELI') ? Maybe(j) : Maybe.Nothing())
           .chain(j => (moment(j.date_approved) > moment(new Date()).subtract(2, 'hour')) ? Maybe(j) : Maybe.Nothing())
-          .map(j => resolve(j)).isNothing ? reject({msg: "SOLO SE PROCESAN IPN MERCADOLIBRE o IPN ANTIGUO"}) : null
+          .map(j => resolve(j)).isNothing ? reject({msg: "SOLO SE PROCESAN IPN MERCADOLIBRE o IPN NUEVOS"}) : null
       })
   })
 }
@@ -114,13 +114,14 @@ const getOrderData = (pay) => {
 
   const flatDataForMailsAdapter = ({ order, pay }) => {
   return flatDataForMails({
-    productos: R.chain(n => R.times(() => n.item, n.quantity), order.order_items),
+    productos: R.chain(n => R.times(() => n.item, n.quantity), order.order_items), // devuelve un item[]
     nombre: pay.payer.first_name,
     apodo: pay.payer.nickname,
     email: pay.payer.email,
   })
 }
 
+// returns Observable
 const flatDataForMails = (mixParams) => {
   console.log("FLATTING DATA")
   return Rx.Observable.from(mixParams.productos)
