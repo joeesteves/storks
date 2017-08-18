@@ -7,6 +7,7 @@ const fs = require('fs'),
   appSettings = require('./appSettings'),
   mailConfig = require('./mailConfig'),
   worker = require('./worker'),
+  expirationWorker = require('./expirationWorker')
   session = require('./session')
   DB = require('./couchdb')
 module.exports = () => {
@@ -38,4 +39,5 @@ module.exports = () => {
   // app.listen(appSettings.port, '0.0.0.0')
 
   worker.checkMercadoShops(60)
+  expirationWorker.checkForExpirations()
 }
