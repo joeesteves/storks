@@ -7,7 +7,9 @@ const express = require('express'),
   session = require('../session').getSession,
   Rx = require('rxjs'),
   refreshToken = require('./refreshToken').refreshToken,
-  moment = require('moment')
+  moment = require('moment'),
+  DB = require('../couchdb')
+  
 
 router.post('/', (req, res) => {
   console.log("POST PAGO")
@@ -18,9 +20,36 @@ const procesarPagos = (req, res) => {
   getPaymentData(req)
     .then(getOrderData)
     .then(flatDataForMailsAdapter)
+    .then(filterFirstTime)
     .then(_sendDataStreamToMailSender.bind(this, res))
     .catch(_handlePagosErrors.bind(this, req, res))
 }
+
+const filterFirstTime = (obs) => {
+  return obs
+  .flatMap(firstTime)
+  .filter(md => md.firstTime)
+}
+
+
+const firstTime = (mailData) => {
+  console.log("FIRST TIME")
+  return Rx.Observable.create(obs => {
+    DB.get(`meliOrderId_${mailData.orderId}`)
+      .then(reg => {
+        console.log("REPEATED ORDER " + reg._id)
+        obs.next(Object.assign(mailData, { firstTime: false }))
+        obs.complete()
+      })
+      .catch((e) => {
+        if (e.res && e.res.statusCode === 404) {
+          obs.next(Object.assign(mailData, { firstTime: true }))
+          obs.complete()
+        }
+      })
+  })
+}
+
 
 const _sendDataStreamToMailSender = (res, dataStream) => {
   dataStream.subscribe(
@@ -37,6 +66,8 @@ const _handlePagosErrors = (req, res, e) => {
     .isNothing ? res.sendStatus(200) : refreshToken().then(() => procesarPagos(req, res)) 
 }
 
+
+const saveMeliOrderId = (orderId) => DB.put({ _id: `meliOrderId_${orderId}`, doc_type: 'MELIOrders' })
 
 const _saveMailForReTry = (mailData) => {
   console.log("SAVING MAIL FOR RETRY")
@@ -64,6 +95,7 @@ const _sendMailCb = (mailData) => {
     const { data, status } = error ? { data: error, status: 500 } : { data: info, status: 200 }
     if (status === 200) {
       console.log("MAIL SENT")
+      saveMeliOrderId(mailData.orderId) // Guarda el ID
       updateLicencias(mailData.updateLicenciasData)
       _removeReTryMail(mailData)
     } else {
@@ -89,9 +121,9 @@ const getPaymentData = (req) => {
         if (err || (res && res.statusCode >= 400))
           return reject({ res, status: res.statusCode })
         Maybe(JSON.parse(body).collection)
-          .chain(j => (j.status === 'rejected') ? Maybe(j) : Maybe.Nothing())
+          .chain(j => (j.status !== 'rejected') ? Maybe(j) : Maybe.Nothing())
           .chain(j => (j.marketplace === 'MELI') ? Maybe(j) : Maybe.Nothing())
-          .chain(j => (moment(j.date_approved) > moment(new Date()).subtract(2, 'hour')) ? Maybe(j) : Maybe.Nothing())
+          // .chain(j => (moment(j.date_approved) > moment(new Date()).subtract(2, 'hour')) ? Maybe(j) : Maybe.Nothing())
           .map(j => resolve(j)).isNothing ? reject({msg: "SOLO SE PROCESAN IPN MERCADOLIBRE o IPN NUEVOS"}) : null
       })
   })
@@ -105,15 +137,16 @@ const getOrderData = (pay) => {
         if (err || (res && res.statusCode >= 400))
           return reject({ res, status: res.statusCode })
         Maybe(JSON.parse(body))
-        .chain(j => j.tags.includes('not_delivered') ? Maybe(j) : Maybe.Nothing() )
+        // .chain(j => j.tags.includes('not_delivered') ? Maybe(j) : Maybe.Nothing() )
         .map(j => resolve({ order: j, pay }) ).isNothing ? reject({ res, status: res.statusCode, msg:"YA ESTABA ENTREGADO" }) : null
         
       })
   })
 }
-
+// Agrego OrderId para IPN tambien
   const flatDataForMailsAdapter = ({ order, pay }) => {
   return flatDataForMails({
+    orderId: order.id,
     productos: R.chain(n => R.times(() => n.item, n.quantity), order.order_items), // devuelve un item[]
     nombre: pay.payer.first_name,
     apodo: pay.payer.nickname,
