@@ -2,26 +2,29 @@ const Rx = require('rxjs'),
   DB = require('./couchdb'),
   sendMail = require('./sendMail').sendMail,
   Maybe = require('ramda-fantasy').Maybe,
-  moment = require('moment')
+  moment = require('moment'),
+  CronJob = require('cron').CronJob
+
 
 
 const checkForExpirations = () => {
-  console.log("LOOKING FOR EXPIRATIONS")
-  DB.find({
-    _id: { "$regex": "vencimiento" },
-    procesado: false,
-    vencimiento: moment().toISOString().slice(0, 10)
-  })
+  new CronJob('00 55 19 * * *', () => {
+    console.log("LOOKING FOR EXPIRATIONS")
+    DB.find({
+      _id: { "$regex": "vencimiento" },
+      procesado: false,
+      vencimiento: moment().toISOString().slice(0, 10)
+    })
     .then(vencimientos => {
       DB
-        .get('templateVencimiento')
-        .then(templateDoc => {
-          vencimientos.map(vencimiento => {
-            sendMail(sendMailCb(vencimiento), Object.assign(vencimiento, { template: templateDoc.template }))
-          })
+      .get('templateVencimiento')
+      .then(templateDoc => {
+        vencimientos.map(vencimiento => {
+          sendMail(sendMailCb(vencimiento), Object.assign(vencimiento, { template: templateDoc.template }))
         })
+      })
     })
-  // .then(vencimientos => vencimientos.map(venc => sendMail(sandMailCb(venc),venc)))
+  }, null, true, 'America/Argentina/Buenos_Aires')
 }
 
 

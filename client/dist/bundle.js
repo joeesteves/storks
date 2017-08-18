@@ -12575,7 +12575,7 @@ const fetchProductos = sessionData => {
   const meliUrl = `https://api.mercadolibre.com/users/${sessionData.user_id}/items/search?status=active&access_token=${sessionData.access_token}`;
   const mshopsUrl = `https://api.mercadoshops.com/v1/shops/${sessionData.user_id}/listings/search?access_token=${sessionData.access_token}`;
   __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* fetchJsonToObs */])('../productos').subscribe(produtosDatosAdicionales => {
-    __WEBPACK_IMPORTED_MODULE_4_rxjs___default.a.Observable.merge(fetchAndConcat(meliUrl, sessionData, 0).flatMap(id => __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__helpers__["c" /* getProductById */])(id)).map(prod => _extends({}, prod, { origen: 'MercadoLibre' })), fetchAndConcat(mshopsUrl, sessionData, 0).map(prod => _extends({}, prod, { origen: 'MercadoShops' }))).filter(product => product.status === 'active').subscribe(prod => {
+    __WEBPACK_IMPORTED_MODULE_4_rxjs___default.a.Observable.merge(fetchAndConcat(meliUrl, sessionData, 0).flatMap(id => __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__helpers__["c" /* getProductById */])(id)).map(prod => _extends({}, prod, { origen: 'MercadoLibre' })), fetchAndConcat(mshopsUrl, sessionData, 0).map(prod => _extends({}, prod, { origen: 'MercadoShops' })), __WEBPACK_IMPORTED_MODULE_4_rxjs___default.a.Observable.of({ id: 'templateVencimiento', origen: 'MercadoLibre', status: 'active', title: 'Template para vencimientos', thumbnail: 'http://4.bp.blogspot.com/-Pmx-FbDHLxA/VKV26N_7yZI/AAAAAAAA7S8/NQK1qOZMK3U/s1600/calendario.png' })).filter(product => product.status === 'active').subscribe(prod => {
       const localProducto = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_ramda_fantasy__["Maybe"])(produtosDatosAdicionales.find(producto => producto._id == prod.id)).getOrElse({ licencias: [], template: '' });
       __WEBPACK_IMPORTED_MODULE_2__store__["a" /* store */].dispatch(add_producto(_extends({}, prod, localProducto)));
     });
@@ -12596,8 +12596,6 @@ const fetchAndConcat = (url, sessionData, offset) => {
 const add_producto = producto => {
   return { type: __WEBPACK_IMPORTED_MODULE_0__constants_actionTypes__["b" /* productosAct */].add, producto };
 };
-/* unused harmony export add_producto */
-
 
 const toggleEditProducto = id => {
   return { type: __WEBPACK_IMPORTED_MODULE_0__constants_actionTypes__["b" /* productosAct */].edit, id };
@@ -12610,27 +12608,28 @@ const turnOffEditProducto = () => {
 };
 /* harmony export (immutable) */ __webpack_exports__["b"] = turnOffEditProducto;
 
-const pushProducto = (id, _rev, licencias, template) => {
+const pushProducto = (id, _rev, licencias, template, vigencia) => {
+  console.log(vigencia);
   fetch('../productos', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ id, _rev, licencias, template })
+    body: JSON.stringify({ id, _rev, licencias, template, vigencia })
   }).then(doc => {
     console.log(doc);
     __WEBPACK_IMPORTED_MODULE_2__store__["a" /* store */].dispatch(toggleEditProducto(id));
-    __WEBPACK_IMPORTED_MODULE_2__store__["a" /* store */].dispatch(updateProducto(id, doc._rev, licencias, template));
+    __WEBPACK_IMPORTED_MODULE_2__store__["a" /* store */].dispatch(updateProducto(id, doc._rev, licencias, template, vigencia));
   }).catch(console.log);
   return { type: __WEBPACK_IMPORTED_MODULE_0__constants_actionTypes__["b" /* productosAct */].pushProducto };
 };
 /* harmony export (immutable) */ __webpack_exports__["d"] = pushProducto;
 
 
-const updateProducto = (id, _rev, licencias, template) => {
+const updateProducto = (id, _rev, licencias, template, vigencia) => {
 
-  return { type: __WEBPACK_IMPORTED_MODULE_0__constants_actionTypes__["b" /* productosAct */].updateProducto, licencias, template, id, _rev };
+  return { type: __WEBPACK_IMPORTED_MODULE_0__constants_actionTypes__["b" /* productosAct */].updateProducto, licencias, template, id, _rev, vigencia };
 };
 
 const addLicencia = id => {
@@ -22683,9 +22682,9 @@ var _this = this;
 
 
 const EditarProducto = props => {
-
+  console.log(props);
   const handleSubmit = () => {
-    props.onSubmit(props.id, props._rev, parseLicencias(document.getElementsByClassName(`licencias-${props.id}`)), document.getElementById('mailTemplate').value);
+    props.onSubmit(props.id, props._rev, parseLicencias(document.getElementsByClassName(`licencias-${props.id}`)), document.getElementById('mailTemplate').value, document.getElementById('vigencia').value);
   };
   const handleOnPlus = () => {
     props.onPlus(props.id);
@@ -22788,6 +22787,21 @@ const EditarProducto = props => {
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { className: 'col-md-12', id: 'mailTemplate', defaultValue: props.template, rows: 15, width: '100%' })
               )
             )
+          )
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          null,
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'span',
+            null,
+            'Vence en: '
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { min: '0', type: 'number', id: 'vigencia', defaultValue: props.vigencia }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'span',
+            null,
+            'd\xEDas'
           )
         )
       )
@@ -23083,7 +23097,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
     case __WEBPACK_IMPORTED_MODULE_0__constants_actionTypes__["b" /* productosAct */].offEdit:
       return state.map(offEdit);
     case __WEBPACK_IMPORTED_MODULE_0__constants_actionTypes__["b" /* productosAct */].updateProducto:
-      return updateProducto(state, action.id, action.licencias, action.template, action._rev);
+      return updateProducto(state, action.id, action.licencias, action.template, action._rev, action.vigencia);
     case __WEBPACK_IMPORTED_MODULE_0__constants_actionTypes__["b" /* productosAct */].addLicencia:
       return addLicencia(state, action.id);
     case __WEBPACK_IMPORTED_MODULE_0__constants_actionTypes__["b" /* productosAct */].removeLicencia:
@@ -23097,7 +23111,7 @@ const toggleEdit = (productos, id) => productos.map(producto => producto.id === 
 
 const offEdit = prod => _extends({}, prod, { edit: false });
 
-const updateProducto = (state, id, licencias, template, _rev) => state.map(producto => producto.id === id ? _extends({}, producto, { licencias, template, _rev }) : producto);
+const updateProducto = (state, id, licencias, template, _rev, vigencia) => state.map(producto => producto.id === id ? _extends({}, producto, { licencias, template, _rev, vigencia }) : producto);
 const addLicencia = (state, id) => state.map(producto => producto.id === id ? _extends({}, producto, { licencias: [...producto.licencias, { codigo: "", cantidad: 1 }] }) : producto);
 
 const removeLicencia = (state, id, index) => state.map(prod => prod.id === id ? _extends({}, prod, { licencias: [...prod.licencias.slice(0, index), ...prod.licencias.slice(index + 1)] }) : prod);

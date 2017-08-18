@@ -170,6 +170,7 @@ const flatDataForMails = (mixParams) => {
         email: mixParams.email,
         producto: producto.title,
         template: producto.template,
+        vencimiento: producto.vencimiento,
         codigo,
         link,
         updateLicenciasData
@@ -246,7 +247,7 @@ const savePurchaseForAlertExpiration = (mailData) => {
     nombre: mailData.nombre,
     email: mailData.email,
     fechaCompra: moment().toISOString().slice(0,10),
-    vencimiento: moment().add(mailData.diasDeDuracion || 90, 'days').toISOString().slice(0,10),
+    vencimiento: moment().add(mailData.vencimiento || 90, 'days').toISOString().slice(0,10),
     procesado: false
   })
     .then(() => console.log('SAVE EXPIRATION'))
