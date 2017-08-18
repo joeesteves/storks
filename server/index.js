@@ -30,12 +30,12 @@ module.exports = () => {
   app.use('/auth', routes.auth)
 
   // Create SSL server with autoSigned certs
-  // https.createServer({
-  //   key: fs.readFileSync(`${__dirname}/ssl/private.pem`),
-  //   cert: fs.readFileSync(`${__dirname}/ssl/server.crt`)
-  // }, app).listen(appSettings.port, '0.0.0.0')
+  https.createServer({
+    key: fs.readFileSync(`${__dirname}/ssl/private.pem`),
+    cert: fs.readFileSync(`${__dirname}/ssl/server.crt`)
+  }, app).listen(appSettings.port, '0.0.0.0')
 
-  app.listen(appSettings.port, '0.0.0.0')
+  // app.listen(appSettings.port, '0.0.0.0')
 
   worker.checkMercadoShops(60)
 }

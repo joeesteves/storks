@@ -11,4 +11,4 @@ const appSettings = () => {
     authRedirectUrl: `https://auth.mercadolibre.com.ar/authorization?response_type=code&client_id=${client_id}`,
   }
 }
-// module.exports = appSettings()
+module.exports = appSettings()
