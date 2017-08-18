@@ -14,12 +14,14 @@ export const fetchProductos = (sessionData) => {
           .flatMap(id => getProductById(id))
           .map(prod => ({ ...prod, origen: 'MercadoLibre' })),
         fetchAndConcat(mshopsUrl, sessionData, 0)
-          .map(prod => ({ ...prod, origen: 'MercadoShops' }))
+          .map(prod => ({ ...prod, origen: 'MercadoShops' })),
+        Rx.Observable.of({ id: 'templateVencimiento', origen: 'MercadoLibre', status: 'active', title: 'Template para vencimientos',thumbnail: 'http://4.bp.blogspot.com/-Pmx-FbDHLxA/VKV26N_7yZI/AAAAAAAA7S8/NQK1qOZMK3U/s1600/calendario.png'})
       )
         .filter(product => product.status === 'active')
 
         .subscribe(prod => {
-          const localProducto = Maybe(produtosDatosAdicionales.find(producto => producto._id == prod.id))
+          const localProducto = Maybe(produtosDatosAdicionales
+            .find(producto => producto._id == prod.id))
             .getOrElse({ licencias: [], template: '' })
           store.dispatch(add_producto({ ...prod, ...localProducto }))
         })
@@ -48,27 +50,28 @@ export const toggleEditProducto = (id) => {
 export const turnOffEditProducto = () => {
   return { type: productosAct.offEdit }
 }
-export const pushProducto = (id, _rev, licencias, template) => {
+export const pushProducto = (id, _rev, licencias, template, vigencia) => {
+  console.log(vigencia)
   fetch('../productos', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ id, _rev, licencias, template })
+    body: JSON.stringify({ id, _rev, licencias, template, vigencia })
   })
     .then((doc) => {
       console.log(doc)
       store.dispatch(toggleEditProducto(id))
-      store.dispatch(updateProducto(id, doc._rev, licencias, template))
+      store.dispatch(updateProducto(id, doc._rev, licencias, template, vigencia))
     })
     .catch(console.log)
   return { type: productosAct.pushProducto }
 }
 
-const updateProducto = (id, _rev, licencias, template) => {
+const updateProducto = (id, _rev, licencias, template, vigencia) => {
 
-  return { type: productosAct.updateProducto, licencias, template, id, _rev }
+  return { type: productosAct.updateProducto, licencias, template, id, _rev, vigencia }
 }
 
 export const addLicencia = (id) => {

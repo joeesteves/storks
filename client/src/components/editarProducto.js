@@ -6,9 +6,9 @@ import { connect } from 'react-redux'
 import { pushProducto, addLicencia, removeLicencia } from '../actions/productos'
 
 const EditarProducto = (props) => {
-
+  console.log(props)
   const handleSubmit = () => {
-    props.onSubmit(props.id, props._rev, parseLicencias(document.getElementsByClassName(`licencias-${props.id}`)), document.getElementById('mailTemplate').value)
+    props.onSubmit(props.id, props._rev, parseLicencias(document.getElementsByClassName(`licencias-${props.id}`)), document.getElementById('mailTemplate').value, document.getElementById('vigencia').value)
   }
   const handleOnPlus = () => {
     props.onPlus(props.id)
@@ -47,16 +47,21 @@ const EditarProducto = (props) => {
             <tr>
               <td colSpan={4}>
                 <h3>Template para mail Automatico</h3>
-                <p> Puede usar los siguientes atributos @codigo, @link, @nombre, @apodo, @producto </p> 
-                <p> Para personalizar el asunto ese @asunto(AQUI EL ASUNTO)  ej: @asunto(Felicitaciones por tu compra)</p> 
-                <p> Si no indica @asunto por defecto va: Gracias por su compra</p> 
+                <p> Puede usar los siguientes atributos @codigo, @link, @nombre, @apodo, @producto </p>
+                <p> Para personalizar el asunto ese @asunto(AQUI EL ASUNTO)  ej: @asunto(Felicitaciones por tu compra)</p>
+                <p> Si no indica @asunto por defecto va: Gracias por su compra</p>
 
-               <textarea className="col-md-12" id="mailTemplate" defaultValue={props.template} rows={15} width={'100%'} />
+                <textarea className="col-md-12" id="mailTemplate" defaultValue={props.template} rows={15} width={'100%'} />
               </td>
             </tr>
           </tbody>
         </table>
+        <div>
+          <span>Vence en: </span>
+          <input min="0" type="number" id="vigencia" defaultValue={props.vigencia} />
+          <span>días</span>
 
+        </div>
       </div>
     </h1>
     <p></p>

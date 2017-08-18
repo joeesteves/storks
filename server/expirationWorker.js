@@ -12,7 +12,16 @@ const checkForExpirations = () => {
     procesado: false,
     vencimiento: moment().toISOString().slice(0, 10)
   })
-    // .then(vencimientos => vencimientos.map(venc => sendMail(sandMailCb(venc),venc)))
+    .then(vencimientos => {
+      DB
+        .get('templateVencimiento')
+        .then(templateDoc => {
+          vencimientos.map(vencimiento => {
+            sendMail(sendMailCb(vencimiento), Object.assign(vencimiento, { template: templateDoc.template }))
+          })
+        })
+    })
+  // .then(vencimientos => vencimientos.map(venc => sendMail(sandMailCb(venc),venc)))
 }
 
 

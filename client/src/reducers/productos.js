@@ -9,7 +9,7 @@ export default (state = [], action) => {
     case productosAct.offEdit:
       return state.map(offEdit)
     case productosAct.updateProducto:
-      return updateProducto(state, action.id, action.licencias, action.template, action._rev)
+      return updateProducto(state, action.id, action.licencias, action.template, action._rev, action.vigencia)
     case productosAct.addLicencia:
       return addLicencia(state, action.id)
     case productosAct.removeLicencia:
@@ -25,8 +25,8 @@ const toggleEdit = (productos, id) => (
 
 const offEdit = prod => ({ ...prod, edit: false })
 
-const updateProducto = (state, id, licencias, template, _rev) => (
-  state.map(producto => producto.id === id ? { ...producto, licencias, template, _rev } : producto)
+const updateProducto = (state, id, licencias, template, _rev, vigencia) => (
+  state.map(producto => producto.id === id ? { ...producto, licencias, template, _rev, vigencia } : producto)
 )
 const addLicencia = (state, id) => (
   state.map(producto => producto.id === id ? { ...producto, licencias: [...producto.licencias, { codigo: "", cantidad: 1 }] } : producto)
