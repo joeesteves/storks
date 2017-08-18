@@ -2,8 +2,11 @@ const fs = require('fs')
 let session = {}
 
 const getSession = () => {
-  session = JSON.parse(fs.readFileSync('session.json'))
-  return session
+  try {
+    return JSON.parse(fs.readFileSync('session.json'))
+  } catch (e) {
+    return false
+  }
 }
 
 const updateSession = (newSession) => {

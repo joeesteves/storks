@@ -13,6 +13,8 @@ const orderEndPoint = (session) => (
 
 const checkMercadoShops = (intervaloEnSegundos) => {
   setInterval(() => {
+    if(!session.getSession())
+      return false
     getPaidOpenOrders(session.getSession())
       .flatMap(flatDataForMailsAdapter)
       .flatMap(firstTime)

@@ -1,18 +1,18 @@
 // for testing use
-// const DB_URI = 'https://tefacturouy.cloudant.com/premiumfdtest',
-//   DB_HEADERS = {
-//     'Content-Type': 'application/json',
-//     'Authorization': 'Basic Y2FuYXlzaW5hbW9yZWV0aGltYXllc3NpOjExNjg0NDQ0OGNiMzMzY2VjZGFmNGVhNzY0NjMwMzhlMmRjOGQ4NDg=',
-//     'User-Agent': 'request'
-//   }
-
-// for production
-const DB_URI = 'https://tefacturouy.cloudant.com/premiumfd',
+const DB_URI = 'https://tefacturouy.cloudant.com/premiumfd_test',
   DB_HEADERS = {
     'Content-Type': 'application/json',
-    'Authorization': 'Basic YXJlc3NlYXRob3Jpc2lvdXNzb25hYnV0OmNiN2I4NGU4MjVlYmIzZDI0N2U1NzZmZGVjYzNjN2Q2NDViY2FmNzI=',
+    'Authorization': 'Basic aHVnaHRoZXJtaWduaWZmZXJpc3RpY2hhOmZhZDNlODMyYTRiYTg3NjhjMjI5MjYwNzJlODUwNDQyNTU3NWU4NWY=',
     'User-Agent': 'request'
   }
+
+// for production
+// const DB_URI = 'https://tefacturouy.cloudant.com/premiumfd',
+//   DB_HEADERS = {
+//     'Content-Type': 'application/json',
+//     'Authorization': 'Basic YXJlc3NlYXRob3Jpc2lvdXNzb25hYnV0OmNiN2I4NGU4MjVlYmIzZDI0N2U1NzZmZGVjYzNjN2Q2NDViY2FmNzI=',
+//     'User-Agent': 'request'
+//   }
 
 const request = require('request')
 module.exports = {
