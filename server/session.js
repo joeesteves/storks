@@ -1,4 +1,5 @@
-const fs = require('fs')
+const fs = require('fs'),
+  R = require('ramda')
 let session = {}
 
 const getSession = () => {
@@ -8,6 +9,10 @@ const getSession = () => {
     return false
   }
 }
+const isValidSession = (session) => {
+  return ['access_token', 'token_type', 'user_id']
+  .reduce((p, c) => p && R.contains(c, Object.keys(session), true))
+}
 
 const updateSession = (newSession) => {
   console.log("UPDATE SESSION")
@@ -15,7 +20,9 @@ const updateSession = (newSession) => {
   return session = newSession
 }
 
+
 module.exports = {
   getSession,
-  updateSession
+  updateSession,
+  isValidSession
 }
