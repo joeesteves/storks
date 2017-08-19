@@ -120,11 +120,11 @@ const getPaymentData = (req) => {
     request(`https://api.mercadopago.com/collections/notifications/${req.query.id}?access_token=${session().access_token}`,
       (err, res, body) => {
         if (err || (res && res.statusCode >= 400))
-          return reject({ res, status: res.statusCode })
+          return reject({ res, status: res.statusCode, msg: "ERROR AL CONSULTAR LA API DE MERCADO PAGO" })
         Maybe(JSON.parse(body).collection)
           .chain(j => (j.status !== 'rejected') ? Maybe(j) : Maybe.Nothing())
           .chain(j => (j.marketplace === 'MELI') ? Maybe(j) : Maybe.Nothing())
-          .chain(j => (moment(j.date_approved) > moment(new Date()).subtract(2, 'hour')) ? Maybe(j) : Maybe.Nothing())
+          // .chain(j => (moment(j.date_approved) > moment(new Date()).subtract(2, 'hour')) ? Maybe(j) : Maybe.Nothing())
           .map(j => resolve(j)).isNothing ? reject({ msg: "SOLO SE PROCESAN IPN MERCADOLIBRE o IPN NUEVOS" }) : null
       })
   })
