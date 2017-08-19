@@ -241,13 +241,15 @@ const _isValidForMail = (producto) => {
 //savePurchase for alert expiration
 
 const savePurchaseForAlertExpiration = (mailData) => {
+  if(!mailData.vencimiento)
+    return false
   return DB.put({
     _id: `vencimiento_${mailData.orderId}`,
     producto: mailData.producto,
     nombre: mailData.nombre,
     email: mailData.email,
     fechaCompra: moment().toISOString().slice(0,10),
-    vencimiento: moment().add(mailData.vencimiento || 90, 'days').toISOString().slice(0,10),
+    vencimiento: moment().add(mailData.vencimiento, 'days').toISOString().slice(0,10),
     procesado: false
   })
     .then(() => console.log('SAVE EXPIRATION'))

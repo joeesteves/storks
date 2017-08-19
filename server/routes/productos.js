@@ -12,7 +12,7 @@ router.get('/', function (req, res) {
 router.post('/', (req, res) => {
   const _id = `${(req.body.id).toString()}`
   DB.get(_id)
-    .then(prod => DB.put(Object.assign({}, prod, { licencias: req.body.licencias, template: req.body.template, vigencia: req.body.vigencia || 90 })))
+    .then(prod => DB.put(Object.assign({}, prod, { licencias: req.body.licencias, template: req.body.template, vigencia: req.body.vigencia })))
     .then(prod => res.send(prod))
     .catch(e => {
       if (e.res.statusCode === 404) {
