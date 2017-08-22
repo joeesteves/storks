@@ -170,7 +170,7 @@ const flatDataForMails = (mixParams) => {
         email: mixParams.email,
         producto: producto.title,
         template: producto.template,
-        vencimiento: producto.vencimiento,
+        vigencia: producto.vigencia,
         codigo,
         link,
         updateLicenciasData
@@ -243,6 +243,7 @@ const _isValidForMail = (producto) => {
 const savePurchaseForAlertExpiration = (mailData) => {
   if(!mailData.vigencia){
     console.log('FALTA VENCIMIENTO')
+    console.log(JSON.stringify(mailData))
     return false
   }
   return DB.put({
