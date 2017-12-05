@@ -123,6 +123,10 @@ const getPaymentData = (req) => {
           return reject({ res, status: res.statusCode, msg: "ERROR AL CONSULTAR LA API DE MERCADO PAGO" })
         Maybe(JSON.parse(body).collection)
           .chain(j => (j.status !== 'rejected') ? Maybe(j) : Maybe.Nothing())
+          .map(j => {
+            console.log(JSON.stringify(j))
+            return j
+          })
           .chain(j => (j.marketplace === 'MELI') ? Maybe(j) : Maybe.Nothing())
           .chain(j => (moment(j.date_approved) > moment(new Date()).subtract(1, 'hour')) ? Maybe(j) : Maybe.Nothing())
           .map(j => resolve(j)).isNothing ? reject({ msg: "SOLO SE PROCESAN IPN MERCADOLIBRE o IPN NUEVOS" }) : null
@@ -138,7 +142,7 @@ const getOrderData = (pay) => {
         if (err || (res && res.statusCode >= 400))
           return reject({ res, status: res.statusCode })
         Maybe(JSON.parse(body))
-          .chain(j => j.tags.includes('not_delivered') ? Maybe(j) : Maybe.Nothing() )
+          .chain(j => j.tags.includes('not_delivered') ? Maybe(j) : Maybe.Nothing())
           .map(j => {
             console.log(JSON.stringify(j))
             return j
@@ -246,7 +250,7 @@ const _isValidForMail = (producto) => {
 //savePurchase for alert expiration
 
 const savePurchaseForAlertExpiration = (mailData) => {
-  if(!mailData.vigencia){
+  if (!mailData.vigencia) {
     console.log('FALTA VENCIMIENTO')
     console.log(JSON.stringify(mailData))
     return false
@@ -256,8 +260,8 @@ const savePurchaseForAlertExpiration = (mailData) => {
     producto: mailData.producto,
     nombre: mailData.nombre,
     email: mailData.email,
-    fechaCompra: moment().toISOString().slice(0,10),
-    vencimiento: moment().add(mailData.vigencia, 'days').toISOString().slice(0,10),
+    fechaCompra: moment().toISOString().slice(0, 10),
+    vencimiento: moment().add(mailData.vigencia, 'days').toISOString().slice(0, 10),
     procesado: false
   })
     .then(() => console.log('SAVE EXPIRATION'))
