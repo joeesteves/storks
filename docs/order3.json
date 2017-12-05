@@ -1,0 +1,178 @@
+{
+  "id": 1560143327,
+  "date_created": "2017-12-05T16:42:02.000-04:00",
+  "date_closed": "2017-12-05T16:47:58.000-04:00",
+  "last_updated": "2017-12-05T16:47:58.000-04:00",
+  "feedback": {
+    "sale": null,
+    "purchase": null
+  },
+  "comments": null,
+  "order_request": {
+    "return": null,
+    "change": null
+  },
+  "fulfilled": null,
+  "mediations": [],
+  "shipping": {
+    "status": "to_be_agreed"
+  },
+  "pickup_id": null,
+  "expiration_date": "2017-12-26T16:47:58.000-04:00",
+  "status": "paid",
+  "status_detail": null,
+  "order_items": [
+    {
+      "item": {
+        "id": "MLA624223643",
+        "title": "Cuentas Premium Mega X 30 Dias 600gb Envio Inmediato",
+        "category_id": "MLA1912",
+        "variation_id": null,
+        "seller_custom_field": null,
+        "variation_attributes": [],
+        "warranty": "Nuestra trayectoria de mas de 8 años vendiendo en el sitio.",
+        "condition": "new"
+      },
+      "quantity": 1,
+      "unit_price": 56.9,
+      "full_unit_price": 56.9,
+      "currency_id": "ARS"
+    }
+  ],
+  "currency_id": "ARS",
+  "buyer": {
+    "id": 82234350,
+    "nickname": "SEOANECLAUDIO",
+    "email": "cseoane.5907vx+2-oge2tmmbrgqztgnju@mail.mercadolibre.com",
+    "phone": {
+      "area_code": "011",
+      "extension": "",
+      "number": "1544105819",
+      "verified": false
+    },
+    "alternative_phone": {
+      "area_code": "",
+      "extension": "",
+      "number": ""
+    },
+    "first_name": "CLAUDIO DANIEL",
+    "last_name": "SEOANE",
+    "billing_info": {
+      "doc_type": null,
+      "doc_number": null
+    }
+  },
+  "seller": {
+    "id": 61304233,
+    "nickname": "FRANKOOD",
+    "email": "fdiaz.6h1g8m+2-oge2tmmbrgqztgnbz@mail.mercadolibre.com",
+    "phone": {
+      "area_code": "   ",
+      "extension": "",
+      "number": "423154",
+      "verified": false
+    },
+    "alternative_phone": {
+      "area_code": "",
+      "extension": "",
+      "number": ""
+    },
+    "first_name": "franco",
+    "last_name": "diaz"
+  },
+  "payments": [
+    {
+      "id": 3217775196,
+      "order_id": 1560143327,
+      "payer_id": 82234350,
+      "collector": {
+        "id": 61304233
+      },
+      "card_id": null,
+      "site_id": "MLA",
+      "reason": "Cuentas Premium Mega X 30 Dias 600gb Envio Inmediato",
+      "payment_method_id": "naranja",
+      "currency_id": "ARS",
+      "installments": 1,
+      "issuer_id": "5",
+      "atm_transfer_reference": {
+        "company_id": null,
+        "transaction_id": null
+      },
+      "coupon_id": null,
+      "activation_uri": null,
+      "operation_type": "regular_payment",
+      "payment_type": "credit_card",
+      "available_actions": [
+        "refund"
+      ],
+      "status": "approved",
+      "status_code": null,
+      "status_detail": "accredited",
+      "transaction_amount": 54.9,
+      "shipping_cost": 0,
+      "coupon_amount": 0,
+      "overpaid_amount": 0,
+      "total_paid_amount": 54.9,
+      "installment_amount": 54.9,
+      "deferred_period": null,
+      "date_approved": "2017-12-05T16:47:55.000-04:00",
+      "authorization_code": "605213",
+      "transaction_order_id": null,
+      "date_created": "2017-12-05T16:47:53.000-04:00",
+      "date_last_modified": null
+    },
+    {
+      "id": 3217863092,
+      "order_id": 1560143327,
+      "payer_id": 82234350,
+      "collector": {
+        "id": 61304233
+      },
+      "card_id": null,
+      "site_id": "MLA",
+      "reason": "Cuentas Premium Mega X 30 Dias 600gb Envio Inmediato",
+      "payment_method_id": "account_money",
+      "currency_id": "ARS",
+      "installments": 1,
+      "issuer_id": null,
+      "atm_transfer_reference": {
+        "company_id": null,
+        "transaction_id": null
+      },
+      "coupon_id": null,
+      "activation_uri": null,
+      "operation_type": "regular_payment",
+      "payment_type": "account_money",
+      "available_actions": [
+        "refund"
+      ],
+      "status": "approved",
+      "status_code": null,
+      "status_detail": "accredited",
+      "transaction_amount": 2,
+      "shipping_cost": 0,
+      "coupon_amount": 0,
+      "overpaid_amount": 0,
+      "total_paid_amount": 2,
+      "installment_amount": null,
+      "deferred_period": null,
+      "date_approved": "2017-12-05T16:47:56.000-04:00",
+      "authorization_code": null,
+      "transaction_order_id": null,
+      "date_created": "2017-12-05T16:47:52.000-04:00",
+      "date_last_modified": "2017-12-05T16:47:55.000-04:00"
+    }
+  ],
+  "coupon": {
+    "id": null,
+    "amount": 0
+  },
+  "tags": [
+    "not_delivered",
+    "paid"
+  ],
+  "total_amount": 56.9,
+  "total_amount_with_shipping": 56.9,
+  "paid_amount": 56.9
+}
