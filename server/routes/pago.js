@@ -123,7 +123,6 @@ const getPaymentData = (req) => {
           return reject({ res, status: res.statusCode, msg: "ERROR AL CONSULTAR LA API DE MERCADO PAGO" })
         Maybe(JSON.parse(body).collection)
           .chain(j => (j.status !== 'rejected') ? Maybe(j) : Maybe.Nothing())
-          // .chain(j => (j.paid_amount >= j.total_amount) ? Maybe(j) : Maybe.Nothing())
           .chain(j => (j.marketplace === 'MELI') ? Maybe(j) : Maybe.Nothing())
           .chain(j => (moment(j.date_approved) > moment(new Date()).subtract(1, 'hour')) ? Maybe(j) : Maybe.Nothing())
           .map(j => resolve(j)).isNothing ? reject({ msg: "SOLO SE PROCESAN IPN MERCADOLIBRE o IPN NUEVOS" }) : null
@@ -140,6 +139,11 @@ const getOrderData = (pay) => {
           return reject({ res, status: res.statusCode })
         Maybe(JSON.parse(body))
           .chain(j => j.tags.includes('not_delivered') ? Maybe(j) : Maybe.Nothing() )
+          .map(j => {
+            console.log(JSON.stringify(j))
+            return j
+          })
+          .chain(j => (j.paid_amount >= j.total_amount) ? Maybe(j) : Maybe.Nothing())
           .map(j => resolve({ order: j, pay })).isNothing ? reject({ res, status: res.statusCode, msg: "YA ESTABA ENTREGADO" }) : null
 
       })
