@@ -156,7 +156,7 @@ const flatDataForMailsAdapter = ({ order, pay }) => {
     productos: R.chain(n => R.times(() => n.item, n.quantity), order.order_items), // devuelve un item[]
     nombre: pay.payer.first_name,
     apodo: pay.payer.nickname,
-    email: order.email,
+    email: order.buyer.email,
   })
 }
 
