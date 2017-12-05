@@ -27,7 +27,7 @@ const sendMail = (cb, mailData = {}) => {
       to: mailData.email,  // list of receivers
       bcc: "francood_cb@hotmail.com", //AutoCopy
       subject: getSubject(mailData.template), // Subject line
-      text: 'Mail diseñado para verse con soporte HTML', // plaintext body
+      text: parseTemplate(mailData), // plaintext body
       html: parseTemplate(mailData)
     }
   transporter.sendMail(mailOptions, cb)
