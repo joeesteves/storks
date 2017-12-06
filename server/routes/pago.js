@@ -29,6 +29,7 @@ const filterFirstTime = (obs) => {
   return obs
     .flatMap(firstTime)
     .filter(md => md.firstTime)
+    .delay(10000)
 }
 
 
