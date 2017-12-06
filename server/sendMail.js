@@ -5,6 +5,7 @@ const nodemailer = require('nodemailer'),
 
 const sendMail = (cb, mailData = {}) => {
   console.log("START SENDING MAIL")
+  console.log(parseTemplate(mailData))
   const conf = mailConfig.getMailConfig()
   const smtpConfig = {
     service: 'gmail',
