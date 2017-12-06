@@ -29,7 +29,7 @@ const sendMail = (cb, mailData = {}) => {
       to: mailData.email,  // list of receivers
       bcc: "francood_cb@hotmail.com", //AutoCopy
       subject: getSubject(mailData.template), // Subject line
-      text: parseTemplate(mailData), // plaintext body
+      text: 'html no soportado por mail',
       html: parseTemplate(mailData)
     }
   transporter.sendMail(mailOptions, cb)
