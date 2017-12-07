@@ -1,27 +1,18 @@
 const nodemailer = require('nodemailer'),
   mailConfig = require('./mailConfig'),
-  Maybe = require('ramda-fantasy').Maybe
-  DB = require('./couchdb')
+  Maybe = require('ramda-fantasy').Maybe,
+  DB = require('./couchdb'),
+  htmlToText = require('nodemailer-html-to-text').htmlToText
 
 const sendMail = (cb, mailData = {}) => {
   console.log("START SENDING MAIL")
-  console.log(mailData)
-  console.log(parseTemplate(mailData))
-  const conf = mailConfig.getMailConfig()
-  const smtpConfig = {
-    service: 'gmail',
-    auth: {
-      user: conf.email,
-      pass: conf.password
-    }
-    // host: conf.smtp,
-    // port: 465,
-    // // secure: true, // upgrade later with STARTTLS
-    // auth: {
-    //   user: conf.email,
-    //   pass: conf.password
-    // },
-    // tls: { rejectUnauthorized: false }
+  const conf = mailConfig.getMailConfig(),
+    smtpConfig = {
+      service: 'gmail',
+      auth: {
+        user: conf.email,
+        pass: conf.password
+      }
   }
   transporter = nodemailer.createTransport(smtpConfig),
     mailOptions = {
@@ -29,9 +20,9 @@ const sendMail = (cb, mailData = {}) => {
       to: mailData.email,  // list of receivers
       bcc: "francood_cb@hotmail.com", //AutoCopy
       subject: getSubject(mailData.template), // Subject line
-      text: 'html no soportado por mail',
       html: parseTemplate(mailData)
     }
+  transporter.use('compile', htmlToText())
   transporter.sendMail(mailOptions, cb)
 }
 
@@ -51,3 +42,12 @@ const parseTemplate = (data) => {
 module.exports = { sendMail }
 
 // mailData = { nombre, apodo, email, producto, link, codigo, template}
+
+// host: conf.smtp,
+    // port: 465,
+    // // secure: true, // upgrade later with STARTTLS
+    // auth: {
+    //   user: conf.email,
+    //   pass: conf.password
+    // },
+    // tls: { rejectUnauthorized: false }
