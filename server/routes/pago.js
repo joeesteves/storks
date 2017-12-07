@@ -148,7 +148,7 @@ const getOrderData = (pay) => {
             console.log(JSON.stringify(j))
             return j
           })
-          .chain(j => (j.paid_amount >= j.total_amount) ? Maybe(j) : Maybe.Nothing())
+          // .chain(j => (j.paid_amount >= j.total_amount) ? Maybe(j) : Maybe.Nothing())
           .map(j => resolve({ order: j, pay })).isNothing ? reject({ res, status: res.statusCode, msg: "YA ESTABA ENTREGADO" }) : null
 
       })
