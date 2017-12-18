@@ -93,6 +93,8 @@ const _retrySendMail = () => {
 const _sendMailCb = (mailData) => {
   console.log("CALLBACK GENERATION")
   return ((error, info) => {
+    console.log("MAIL INFO")
+    console.log(info)
     const { data, status } = error ? { data: error, status: 500 } : { data: info, status: 200 }
     if (status === 200) {
       console.log("MAIL SENT")
