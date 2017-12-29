@@ -18,7 +18,7 @@ router.post('/', (req, res) => {
 
 const procesarPagos = (req, res) => {
   getPaymentData(req)
-    .then(waitForIt(600000))
+    .then(waitForIt(300000))
     .then(getOrderData)
     .then(flatDataForMailsAdapter)
     .then(filterFirstTime)
@@ -28,7 +28,7 @@ const procesarPagos = (req, res) => {
 
 const waitForIt = (time) => {
   return (pay) => {
-    new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(pay)
       }, time);
