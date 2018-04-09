@@ -7,10 +7,10 @@
 //   }
 
 // for production
-const DB_URI = 'https://tefacturouy.cloudant.com/premiumfd',
+const DB_URI = 'https://couchdb.ceibo.co/premiumfd',
   DB_HEADERS = {
     'Content-Type': 'application/json',
-    'Authorization': 'Basic YXJlc3NlYXRob3Jpc2lvdXNzb25hYnV0OmNiN2I4NGU4MjVlYmIzZDI0N2U1NzZmZGVjYzNjN2Q2NDViY2FmNzI=',
+    'Authorization': 'Basic cHJlbWl1bWZkOnBkMTIzNA==',
     'User-Agent': 'request'
   }
 
