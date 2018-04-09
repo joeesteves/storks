@@ -21,7 +21,7 @@ module.exports = {
       let options = {
         url: `${DB_URI}/_find`,
         headers: DB_HEADERS,
-        json: { selector }
+        json: { selector: selector, limit: 100000 }
       }
       request.post(options, (error, res, body) => {
         if (!error && res.statusCode == 200) {
